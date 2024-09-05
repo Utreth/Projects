@@ -1,25 +1,64 @@
 package poo;
 
+import java.util.ArrayList;
+
+import javax.xml.crypto.dsig.TransformException;
+
 public class App {
     public static void main(String[] args) {
-        /*NOTA: Figura f = new Figura(); ERROR
-        * Al ser figura una clase abstracta, no se puede instanciar.
-        * System.out.println(f.calcularArea(1,2,3,4,5));*/
-        Cuadrado c = new Cuadrado();
-        System.out.println("Area del cuadrado: " + c.calcularArea(10));
-        Rectangulo r = new Rectangulo();
-        System.out.println("El area del rectangulo: " + r.calcularArea(10, 20));
-        Figura c2 = new Cuadrado();
-        System.out.println(c2.calcularArea(2));
-        Paralelogramo p = new Paralelogramo();
-        System.out.println("El area del paralelogramo es: " + p.calcularArea(2, 4));
-        Rombo rom = new Rombo();
-        System.out.println("El área del rombo es: " + rom.calcularArea(5, 15));
-        Trapecio t = new Trapecio();
-        System.out.println("El área del trapecio es: " + t.calcularArea(8, 6, 4));
-        Pentagono pentagono = new Pentagono();
-        System.out.println("El área del pentágono es: " + pentagono.calcularArea(3, 2));
+
+        /*
+         * NOTA: Figura f = new Figura(); ERROR
+         * Al ser figura una clase abstracta, no se puede instanciar.
+         * System.out.println(f.calcularArea(1,2,3,4,5));
+         */
+
+        ArrayList<Figura> lf = new ArrayList<>();
         Circulo circulo = new Circulo();
-        System.out.println("Área del círculo es: " + circulo.calcularArea(5));
+        circulo.setColor("verde");
+        lf.add(circulo);
+
+        Cuadrado cuadrado = new Cuadrado();
+        cuadrado.setColor("amarillo");
+        lf.add(cuadrado);
+
+        Paralelogramo paralelogramo = new Paralelogramo();
+        paralelogramo.setColor("Rojo");
+        lf.add(paralelogramo);
+
+        Pentagono pentagono = new Pentagono();
+        pentagono.setColor("Azul");
+        lf.add(pentagono);
+
+        Rectangulo rectangulo = new Rectangulo();
+        rectangulo.setColor("Cyan");
+        lf.add(rectangulo);
+
+        Rombo rombo = new Rombo();
+        rombo.setColor("Cafe");
+        lf.add(rombo);
+
+        Trapecio trapecio = new Trapecio();
+        trapecio.setColor("Rosado");
+        lf.add(trapecio);
+
+        TrianguloRectangulo trianguloRectangulo = new TrianguloRectangulo();
+        trianguloRectangulo.setColor("Negro");
+        lf.add(trianguloRectangulo);
+
+        for (Figura f : lf){
+
+            System.out.println("\n" + f.getClass().getSimpleName() + " el color es " + f.getColor());
+            
+        }
+
+
+
+
+
+
+
+        
+
     }
 }
