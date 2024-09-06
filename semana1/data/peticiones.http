@@ -1,0 +1,8 @@
+### probar conexión
+GET http://localhost:7070/Carlos cuesta
+### probar función sumatoria
+GET http://localhost:7070/suma/10
+### probar función fibonacci
+GET http://localhost:7070/fibonacci/15
+### probar función factorial
+GET http://localhost:7070/factorial/11

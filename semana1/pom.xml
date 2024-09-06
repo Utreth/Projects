@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>poo</groupId>
-  <artifactId>prueba1</artifactId>
+  <artifactId>demoherencia</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>prueba1</name>
+  <name>demoherencia</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -84,4 +84,3 @@
     </pluginManagement>
   </build>
 </project>
-  

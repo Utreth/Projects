@@ -5,7 +5,7 @@ public class Circulo extends Figura {
     @Override
     public double calcularArea() {
         if (lados.length != 1) {
-            throw new IllegalArgumentException("Digite un solo dato");
+            throw new IllegalArgumentException("Para obtener el area del circulo digite solo 1 valor");
 
         }
 
