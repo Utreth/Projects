@@ -1,6 +1,6 @@
 package poo.model;
 
-public class Monitor extends ComputerDevice{
+public class Monitor extends ComputerDevice {
 
     private double inches;
 
@@ -23,8 +23,8 @@ public class Monitor extends ComputerDevice{
 
     @Override
     public String toString() {
-        return "Monitor [model=" + model + ", inches=" + inches + ", wireless=" + wireless + "]";
+        String strWireless = wireless ? "Si" : "No";
+        return "\nMonitor [Modelo= " + model + ", Pulgadas= " + inches + ", Inalambrico= " + strWireless + "]";
     }
 
-    
 }

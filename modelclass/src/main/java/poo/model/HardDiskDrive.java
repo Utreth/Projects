@@ -35,8 +35,11 @@ public class HardDiskDrive extends StorageDevice {
 
     @Override
     public String toString() {
-        return "HardDiskDrive [model=" + model + ", rmp=" + rmp + ", usedCapacity=" + usedCapacity + ", wireless="
-                + wireless + ", inches=" + inches + ", freeCapacity=" + freeCapacity + ", speed=" + speed + "]";
+        String strWireless = wireless ? "SI" : "NO";
+        return "\nHardDiskDrive [Modelo= " + model + ", RMP= " + rmp + ", Capacidad usada= " + usedCapacity + " GB"
+                + ", Inalambrico= "
+                + strWireless + ", Pulgadas=" + inches + ", Capacidad libre= " + freeCapacity + " GB" + ", Velocidad= "
+                + speed;
     }
 
 }

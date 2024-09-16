@@ -34,7 +34,8 @@ public class Mouse extends ComputerDevice {
 
     @Override
     public String toString() {
-        return "Mouse [dpi=" + dpi + ", model=" + model + ", buttons=" + buttons + ", wireless=" + wireless + "]";
+        String strWireless = wireless ? "Si":"No";
+        return "\nMouse [DPI= " + dpi + ", Modelo= " + model + ", Botones= " + buttons + ", Inalambrico= " + strWireless ;
     }
 
 }

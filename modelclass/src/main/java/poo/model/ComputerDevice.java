@@ -37,9 +37,5 @@ public abstract class ComputerDevice {
         return tc1.toString();
     }
 
-    @Override
-    public String toString() {
-        return "ComputerDevice [model=" + model + ", wireless=" + wireless + "]";
-    }
 
 }

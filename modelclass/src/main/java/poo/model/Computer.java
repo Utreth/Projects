@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public class Computer {
     private String id;
     private TypeComputer type;
-    private ArrayList<StorageDevice> storageDevice=new ArrayList<>();
-    private ArrayList<ComputerDevice> computerDevice=new ArrayList<>();
+    private ArrayList<StorageDevice> storageDevice = new ArrayList<>();
+    private ArrayList<ComputerDevice> computerDevice = new ArrayList<>();
 
     public Computer() {
 
@@ -65,7 +65,7 @@ public class Computer {
         return c.getStorageDevice();
     }
 
-    public static double getFullFreeCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
+    public static double getFullCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
 
         double fullCapacity = 0;
 
@@ -81,14 +81,38 @@ public class Computer {
 
     }
 
-    @Override
-    public String toString() {
-        return "Computer [id=" + id + ", type=" + type + ", storageDevice=" + storageDevice + ", computerDevice="
-                + computerDevice + "]";
+    public static double getFullFreeCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
+
+        double freeCap = 0;
+
+        for (int j = 0; j < storageDl.size(); j++) {
+
+            double freeCapacity = c.getStorageDevice().get(j).getFreeCapacity();
+            double free = freeCapacity;
+            freeCap = free;
+
+        }
+        return freeCap;
     }
 
-  
+    public static double getFullUsedCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
 
+        double usedCap = 0;
 
+        for (int k = 0; k < storageDl.size(); k++) {
+
+            double usedCapacity = c.getStorageDevice().get(k).getUsedCapacity();
+            double used = usedCapacity;
+            usedCap = used;
+        }
+        return usedCap;
+    }
+
+    @Override
+    public String toString() {
+        return "\n" + "Computador: ID= " + id + ", Tipo de computador= " + type +
+                "\nDispositivos de almacenamiento:" + storageDevice +
+                "\nAccesorios Computador:" + computerDevice;
+    }
 
 }

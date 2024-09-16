@@ -24,10 +24,10 @@ public class SolidStateDrive extends StorageDevice {
 
     @Override
     public String toString() {
-        return "SolidStateDrive [model=" + model + ", interType=" + interType + ", usedCapacity=" + usedCapacity
-                + ", wireless=" + wireless + ", freeCapacity=" + freeCapacity + ", speed=" + speed + "]";
+        String strWireless = wireless ? "SI" : "NO";
+        return "\nSolidStateDrive= [Modelo= " + model + ", Intertipo= " + interType + ", Capacidad usada= "
+                + usedCapacity
+                + ", Inalambrico= " + strWireless + ", Capacidad libre= " + freeCapacity + ", Velocidad= " + speed;
     }
-
-   
 
 }

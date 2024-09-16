@@ -49,11 +49,7 @@ public abstract class StorageDevice extends ComputerDevice {
         return tc1.toString();
     }
 
-    @Override
-    public String toString() {
-        return "StorageDevice [usedCapacity=" + usedCapacity + ", freeCapacity=" + freeCapacity + ", speed=" + speed
-                + "]";
-    }
+    
     
 
 }

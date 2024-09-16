@@ -45,8 +45,13 @@ public class Keyboard extends ComputerDevice {
 
     @Override
     public String toString() {
-        return "Keyboard [model=" + model + ", gamer=" + gamer + ", wireless=" + wireless + ", integrated=" + integrated
-                + ", language=" + language + "]";
+
+        String strGamer = gamer ? "Si" : "No";
+        String strWireless = wireless ? "Si" : "No";
+        String strIntegrated = integrated ? "Si" : "No";
+        return "\nKeyboard [Modelo=" + model + ", Gamer=" + strGamer + ", Inalambrico=" + strWireless + ", Integrado="
+                + strIntegrated
+                + ", Idioma=" + language+ "]";
     }
 
 }

@@ -24,14 +24,11 @@ public class FlashMemory extends StorageDevice {
 
     @Override
     public String toString() {
-        return "FlashMemory [model=" + model + ", typeUsb=" + typeUsb + ", usedCapacity=" + usedCapacity + ", wireless="
-                + wireless + ", freeCapacity=" + freeCapacity + ", speed=" + speed + "]";
+
+        String strWireless = wireless ? "SI" : "NO";
+        return "\nFlashMemory= [Modelo= " + model + ", Tipo de usb=" + typeUsb + ", Capacidad usada= " + usedCapacity
+                + ", Inalambrico= "
+                + strWireless + ", Capacidad libre= " + freeCapacity + ", Velocidad= " + speed + "]";
     }
-
-    
-
-    
-
-    
 
 }
