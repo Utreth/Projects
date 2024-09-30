@@ -22,13 +22,5 @@ public class FlashMemory extends StorageDevice {
         this.typeUsb = typeUsb;
     }
 
-    @Override
-    public String toString() {
-
-        String strWireless = wireless ? "SI" : "NO";
-        return "\nFlashMemory= [Modelo= " + model + ", Tipo de usb=" + typeUsb + ", Capacidad usada= " + usedCapacity
-                + ", Inalambrico= "
-                + strWireless + ", Capacidad libre= " + freeCapacity + ", Velocidad= " + speed + "]";
-    }
-
+    
 }

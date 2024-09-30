@@ -21,10 +21,5 @@ public class Monitor extends ComputerDevice {
         this.inches = inches;
     }
 
-    @Override
-    public String toString() {
-        String strWireless = wireless ? "Si" : "No";
-        return "\nMonitor [Modelo= " + model + ", Pulgadas= " + inches + ", Inalambrico= " + strWireless + "]";
-    }
 
 }

@@ -2,23 +2,24 @@ package poo.model;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
 public class Computer {
     private String id;
     private TypeComputer type;
-    private ArrayList<StorageDevice> storageDevice = new ArrayList<>();
-    private ArrayList<ComputerDevice> computerDevice = new ArrayList<>();
+    private ArrayList<ComputerDevice> computerDevices = new ArrayList<>();
 
     public Computer() {
+        id = "";
+        type = TypeComputer.EMPTY;
 
     }
 
-    public Computer(String id, TypeComputer type, ArrayList<StorageDevice> storageDevice,
-            ArrayList<ComputerDevice> computerDevice) {
+    public Computer(String id, TypeComputer type, ArrayList<ComputerDevice> computerDevices) {
 
         this.id = id;
         this.type = type;
-        this.storageDevice = storageDevice;
-        this.computerDevice = computerDevice;
+        this.computerDevices = computerDevices;
 
     }
 
@@ -39,80 +40,149 @@ public class Computer {
     }
 
     public ArrayList<ComputerDevice> getComputerDevice() {
-        return computerDevice;
+        return computerDevices;
     }
 
-    public void setComputerDevice(ArrayList<ComputerDevice> computerDevice) {
-        this.computerDevice = computerDevice;
+    public void setComputerDevice(ArrayList<ComputerDevice> computerDevices) {
+        this.computerDevices = computerDevices;
     }
 
-    public ArrayList<StorageDevice> getStorageDevice() {
-        return storageDevice;
-    }
+    public double getFreeCap() {
 
-    public void setStorageDevice(ArrayList<StorageDevice> storageDevice) {
-        this.storageDevice = storageDevice;
-    }
+        double fullFree = 0F;
 
-    public static ArrayList<ComputerDevice> getDevices(Computer c) {
+        for (ComputerDevice i : computerDevices) {
 
-        return c.getComputerDevice();
+            if (i instanceof StorageDevice) {
 
-    }
-
-    public static ArrayList<StorageDevice> getStorage(Computer c) {
-
-        return c.getStorageDevice();
-    }
-
-    public static double getFullCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
-
-        double fullCapacity = 0;
-
-        for (int i = 0; i < storageDl.size(); i++) {
-
-            double usedCapacity = c.getStorageDevice().get(i).getUsedCapacity();
-            double freeCapacity = c.getStorageDevice().get(i).getFreeCapacity();
-            double suma = usedCapacity + freeCapacity;
-            fullCapacity = fullCapacity + suma;
+                double freeCap = ((StorageDevice) i).getFreeCapacity();
+                fullFree += freeCap;
+            }
 
         }
-        return fullCapacity;
+        return fullFree;
+    }
+
+    public double getUsedCap() {
+
+        double fullUsed = 0F;
+
+        for (ComputerDevice j : computerDevices) {
+
+            if (j instanceof StorageDevice) {
+
+                double usedCap = ((StorageDevice) j).getUsedCapacity();
+                fullUsed += usedCap;
+            }
+
+        }
+        return fullUsed;
+    }
+
+    public double getFullcap() {
+
+        return getFreeCap() + getUsedCap();
+    }
+
+    public boolean okRestriccions() {
+
+        int monitor = 0;
+        int mouse = 0;
+        int flashMem = 0;
+        int ssd = 0;
+        boolean comprobar = false;
+
+        for (ComputerDevice devices : computerDevices) {
+
+            if (devices instanceof Monitor) {
+                monitor += 1;
+            }
+            if (devices instanceof Mouse) {
+                mouse += 1;
+            }
+            if (devices instanceof FlashMemory) {
+                flashMem += 1;
+            }
+            if (devices instanceof SolidStateDrive) {
+                ssd += 1;
+            }
+
+        }
+        if (monitor >= 1 && mouse == 0 && flashMem == 1 && ssd == 1) {
+
+            comprobar = true;
+
+        }
+
+        return comprobar;
 
     }
 
-    public static double getFullFreeCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
+    public boolean isComputer() {
 
-        double freeCap = 0;
+        int mouse = 0;
+        int monitor = 0;
+        int flashMem = 0;
+        int hardDisk = 0;
+        int solidDrive = 0;
+        int keyboard = 0;
+        boolean comprobar2 = false;
+        String errores = "";
 
-        for (int j = 0; j < storageDl.size(); j++) {
+        for (ComputerDevice devices : computerDevices) {
 
-            double freeCapacity = c.getStorageDevice().get(j).getFreeCapacity();
-            double free = freeCapacity;
-            freeCap = free;
-
+            if (devices instanceof Mouse) {
+                mouse += 1;
+            }
+            if (devices instanceof Monitor) {
+                monitor += 1;
+            }
+            if (devices instanceof FlashMemory) {
+                flashMem += 1;
+            }
+            if (devices instanceof HardDiskDrive) {
+                hardDisk += 1;
+            }
+            if (devices instanceof SolidStateDrive) {
+                solidDrive += 1;
+            }
+            if (devices instanceof Keyboard) {
+                keyboard += 1;
+            }
         }
-        return freeCap;
-    }
 
-    public static double getFullUsedCapacity(Computer c, ArrayList<StorageDevice> storageDl) {
-
-        double usedCap = 0;
-
-        for (int k = 0; k < storageDl.size(); k++) {
-
-            double usedCapacity = c.getStorageDevice().get(k).getUsedCapacity();
-            double used = usedCapacity;
-            usedCap = used;
+        if (mouse <= 1 && monitor <= 2
+                && (flashMem <= 4 || hardDisk <= 4 || solidDrive <= 4 || flashMem + hardDisk + solidDrive <= 4)
+                && keyboard <= 1) {
+            comprobar2 = true;
         }
-        return usedCap;
+
+        if (mouse > 1) {
+            errores += "\nEl computador no puede tener mas de 1 mouse.\n";
+        }
+
+        if (monitor > 2) {
+            errores += "El computador no puede tener mas de 2 monitores.\n";
+        }
+
+        if (flashMem > 4 || hardDisk > 4 || solidDrive > 4 || flashMem + hardDisk + solidDrive > 4) {
+            errores += "El computador no puede tener mas de 4 dispositivos de memoria.\n";
+        }
+
+        if (keyboard > 1) {
+            errores += "El computador no puede tener mas de 1 teclado.\n";
+        }
+        if (!errores.isEmpty()) {
+            throw new IllegalArgumentException(errores);
+        }
+
+        return comprobar2;
+
     }
 
     @Override
     public String toString() {
-        return "\n" + "Computador: ID= " + id + ", Tipo de computador= " + type +
-                "\nDispositivos de almacenamiento:" + storageDevice +
-                "\nAccesorios Computador:" + computerDevice;
+        return (new JSONObject(this)).toString(2);
     }
 
 }

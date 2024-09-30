@@ -1,6 +1,6 @@
 package poo.model;
 
-public enum Language {
+public enum TypeLanguage {
 
     SPANISH,
     ENGLISH,

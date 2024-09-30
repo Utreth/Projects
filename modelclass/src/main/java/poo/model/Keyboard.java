@@ -4,16 +4,16 @@ public class Keyboard extends ComputerDevice {
 
     private boolean gamer;
     private boolean integrated;
-    private Language language;
+    private TypeLanguage language;
 
-    public Keyboard(String model, boolean wireless, boolean gamer, boolean integrated, Language language) {
+    public Keyboard(String model, boolean wireless, boolean gamer, boolean integrated, TypeLanguage language) {
         super(model, wireless);
         this.gamer = gamer;
         this.integrated = integrated;
         this.language = language;
     }
 
-    public Keyboard(boolean gamer, boolean integrated, Language language) {
+    public Keyboard(boolean gamer, boolean integrated, TypeLanguage language) {
         this.gamer = gamer;
         this.integrated = integrated;
         this.language = language;
@@ -35,23 +35,14 @@ public class Keyboard extends ComputerDevice {
         this.integrated = integrated;
     }
 
-    public Language getLanguage() {
+    public TypeLanguage getLanguage() {
         return language;
     }
 
-    public void setLanguage(Language language) {
+    public void setLanguage(TypeLanguage language) {
         this.language = language;
     }
 
-    @Override
-    public String toString() {
-
-        String strGamer = gamer ? "Si" : "No";
-        String strWireless = wireless ? "Si" : "No";
-        String strIntegrated = integrated ? "Si" : "No";
-        return "\nKeyboard [Modelo=" + model + ", Gamer=" + strGamer + ", Inalambrico=" + strWireless + ", Integrado="
-                + strIntegrated
-                + ", Idioma=" + language+ "]";
-    }
+   
 
 }

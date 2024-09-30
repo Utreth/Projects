@@ -22,12 +22,6 @@ public class SolidStateDrive extends StorageDevice {
         this.interType = interType;
     }
 
-    @Override
-    public String toString() {
-        String strWireless = wireless ? "SI" : "NO";
-        return "\nSolidStateDrive= [Modelo= " + model + ", Intertipo= " + interType + ", Capacidad usada= "
-                + usedCapacity
-                + ", Inalambrico= " + strWireless + ", Capacidad libre= " + freeCapacity + ", Velocidad= " + speed;
-    }
+   
 
 }

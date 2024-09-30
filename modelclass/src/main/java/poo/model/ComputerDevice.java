@@ -1,9 +1,21 @@
 package poo.model;
 
+import org.json.JSONObject;
+
 public abstract class ComputerDevice {
 
     protected String model;
     protected boolean wireless = false;
+
+    public ComputerDevice() {
+
+    }
+
+    public ComputerDevice(String model, boolean wireless) {
+        this.model = model;
+        this.wireless = wireless;
+
+    }
 
     public boolean isWireless() {
         return wireless;
@@ -21,21 +33,18 @@ public abstract class ComputerDevice {
         this.model = model;
     }
 
-    public ComputerDevice(String model, boolean wireless) {
-        this.model = model;
-        this.wireless = wireless;
+    public String getType() {
+
+        return this.getClass().getSimpleName();
 
     }
 
-    public ComputerDevice() {
+    @Override
+    public String toString() {
 
+        return (new JSONObject(this)).toString(2);
     }
 
-    public String getType(Computer c1) {
-
-        TypeComputer tc1 = c1.getType();
-        return tc1.toString();
-    }
-
+    
 
 }

@@ -43,13 +43,11 @@ public abstract class StorageDevice extends ComputerDevice {
         return speed;
     }
 
-    public String getType(Computer c1) {
+    public double getCapacity() {
 
-        TypeComputer tc1 = c1.getType();
-        return tc1.toString();
+        double total = usedCapacity + freeCapacity;
+
+        return total;
     }
-
-    
-    
 
 }

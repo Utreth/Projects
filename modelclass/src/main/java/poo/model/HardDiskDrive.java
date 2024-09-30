@@ -33,13 +33,6 @@ public class HardDiskDrive extends StorageDevice {
         this.inches = inches;
     }
 
-    @Override
-    public String toString() {
-        String strWireless = wireless ? "SI" : "NO";
-        return "\nHardDiskDrive [Modelo= " + model + ", RMP= " + rmp + ", Capacidad usada= " + usedCapacity + " GB"
-                + ", Inalambrico= "
-                + strWireless + ", Pulgadas=" + inches + ", Capacidad libre= " + freeCapacity + " GB" + ", Velocidad= "
-                + speed;
-    }
+   
 
 }
