@@ -2,8 +2,8 @@ package poo;
 
 public class PassangerCar extends RailRoadCar {
     
-    int numSeats;
-    int numRows;
+    private int numSeats;
+    private int numRows;
 
     public PassangerCar(String id, String name, int numWheels, TypeCoupler coupler, TypeSpeed speed, int numSeats,
             int numRows) {

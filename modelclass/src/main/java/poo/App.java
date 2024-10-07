@@ -2,6 +2,8 @@ package poo;
 
 import java.util.ArrayList;
 
+import org.json.JSONObject;
+
 import poo.model.Computer;
 import poo.model.FlashMemory;
 import poo.model.HardDiskDrive;
@@ -17,20 +19,27 @@ public class App {
 
         Computer comp1 = new Computer();
 
-        comp1.setId("1001");
-        comp1.setType(TypeComputer.DESKTOP);
-        comp1.getComputerDevice().add(new Keyboard("ASUS", false, false, false, TypeLanguage.ENGLISH));
-        comp1.getComputerDevice().add(new Keyboard("ASUS", false, false, false, TypeLanguage.ENGLISH));
-        comp1.getComputerDevice().add(new Monitor("ASUS", false, 15));
-        comp1.getComputerDevice().add(new Monitor("SAMSUNG", false, 30));
-        comp1.getComputerDevice().add(new Monitor("DELL", false, 30));
-        comp1.getComputerDevice().add(new Mouse("ASUS", false, 100, 4));
-        comp1.getComputerDevice().add(new Mouse("DELL", true, 200, 2));
-        comp1.getComputerDevice().add(new FlashMemory("Kingstown", false, 50, 100, 10, "USB1"));
-        comp1.getComputerDevice().add(new SolidStateDrive("HGST", false, 200, 300, 100, "SOLIDO"));
-        comp1.getComputerDevice().add(new SolidStateDrive("HGST2", false, 200, 700, 100, "SOLIDO"));
-        comp1.getComputerDevice().add(new SolidStateDrive("HGST3", false, 200, 200, 100, "SOLIDO"));
-        comp1.getComputerDevice().add(new SolidStateDrive("HGST3", false, 200, 1800, 100, "SOLIDO"));
+        // comp1.setId("1001");
+        // comp1.setType(TypeComputer.DESKTOP);
+        // comp1.getComputerDevice().add(new Keyboard("ASUS", false, false, false,
+        // TypeLanguage.ENGLISH));
+        // comp1.getComputerDevice().add(new Keyboard("ASUS", false, false, false,
+        // TypeLanguage.ENGLISH));
+        // comp1.getComputerDevice().add(new Monitor("ASUS", false, 15));
+        // comp1.getComputerDevice().add(new Monitor("SAMSUNG", false, 30));
+        // comp1.getComputerDevice().add(new Monitor("DELL", false, 30));
+        // comp1.getComputerDevice().add(new Mouse("ASUS", false, 100, 4));
+        // comp1.getComputerDevice().add(new Mouse("DELL", true, 200, 2));
+        // comp1.getComputerDevice().add(new FlashMemory("Kingstown", false, 50, 100,
+        // 10, "USB1"));
+        // comp1.getComputerDevice().add(new SolidStateDrive("HGST", false, 200, 300,
+        // 100, "SOLIDO"));
+        // comp1.getComputerDevice().add(new SolidStateDrive("HGST2", false, 200, 700,
+        // 100, "SOLIDO"));
+        // comp1.getComputerDevice().add(new SolidStateDrive("HGST3", false, 200, 200,
+        // 100, "SOLIDO"));
+        // comp1.getComputerDevice().add(new SolidStateDrive("HGST3", false, 200, 1800,
+        // 100, "SOLIDO"));
 
         Computer comp2 = new Computer();
         comp2.setId("6700");
@@ -95,7 +104,21 @@ public class App {
             }
         }
 
-        System.out.println(computersOk);
+        // System.out.println(computersOk);
+        TypeLanguage l = TypeLanguage.ENGLISH;
+        TypeComputer c = TypeComputer.DESKTOP;
+        System.out.println(l.getValue());
+        System.out.println(TypeLanguage.getEnum("Idioma español"));
+
+        JSONObject j = new JSONObject();
+        j.put("nombre", "carlos");
+        j.put("apellidos", "cuesta");
+        System.out.println(j);
+        System.out.println(TypeLanguage.getAll().toString(2));
+
+        System.out.println(c.getValue());
+        System.out.println(TypeComputer.getEnumComputer("computador tipo escritorio"));
+        System.out.println(TypeComputer.getAll().toString(2));
 
     }
 }

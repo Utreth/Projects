@@ -10,9 +10,7 @@ public class Computer {
     private ArrayList<ComputerDevice> computerDevices = new ArrayList<>();
 
     public Computer() {
-        id = "";
-        type = TypeComputer.EMPTY;
-
+        
     }
 
     public Computer(String id, TypeComputer type, ArrayList<ComputerDevice> computerDevices) {
