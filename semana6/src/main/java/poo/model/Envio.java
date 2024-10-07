@@ -1,5 +1,8 @@
 package poo.model;
 
+import java.util.ArrayList;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import poo.helpers.Utils;
@@ -13,13 +16,14 @@ public abstract class Envio implements Costeable, Exportable {
     protected double valorDeclarado;
     protected Cliente destinatario;
     protected Cliente remitente;
+    protected ArrayList<Estado> estados = new ArrayList<>();
 
     public Envio() {
 
     }
 
     public Envio(String nroGuia, double peso, boolean fragil, String contenido, double valorDeclarado,
-            Cliente destinatario, Cliente remitente) {
+            Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
         this.nroGuia = nroGuia;
         this.peso = peso;
@@ -28,12 +32,13 @@ public abstract class Envio implements Costeable, Exportable {
         this.valorDeclarado = valorDeclarado;
         this.destinatario = destinatario;
         this.remitente = remitente;
+        this.estados = estados;
 
     }
 
     public Envio(Envio e) {
 
-        this(e.nroGuia, e.peso, e.fragil, e.contenido, e.valorDeclarado, e.destinatario, e.remitente);
+        this(e.nroGuia, e.peso, e.fragil, e.contenido, e.valorDeclarado, e.destinatario, e.remitente, e.estados);
     }
 
     public Envio(String nroGuia) {
@@ -44,15 +49,23 @@ public abstract class Envio implements Costeable, Exportable {
     }
 
     public Envio(double peso, boolean fragil, String contenido, double valorDeclarado,
-            Cliente destinatario, Cliente remitente) {
+            Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
-        this(Utils.getRandomKey(5), peso, fragil, contenido, valorDeclarado, destinatario, remitente);
+        this(Utils.getRandomKey(5), peso, fragil, contenido, valorDeclarado, destinatario, remitente, estados);
 
     }
 
     public Envio(JSONObject envioJson) {
 
-        this(envioJson.getString("nroGuia"), envioJson.getDouble("peso"), envioJson.getBoolean("fragil"), envioJson);
+        this.nroGuia = envioJson.getString("nroGuia");
+        this.peso = envioJson.getDouble("peso");
+        this.fragil = envioJson.getBoolean("fragil");
+        this.contenido = envioJson.getString("contenido");
+        this.valorDeclarado = envioJson.getDouble("valorDeclarado");
+        JSONObject remitenteJson = envioJson.getJSONObject("remitente");
+        this.remitente = new Cliente(remitenteJson);
+        JSONObject destinatarioJson = envioJson.getJSONObject("destinatario");
+        this.destinatario = new Cliente(destinatarioJson);
 
     }
 
@@ -106,5 +119,38 @@ public abstract class Envio implements Costeable, Exportable {
 
     public double getValorDeclarado() {
         return valorDeclarado;
+    }
+
+    public String getTipo() {
+
+        return this.getClass().getSimpleName();
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+
+        JSONObject jsonEnvio = new JSONObject();
+        JSONArray estadosJsonArray = new JSONArray(estados);
+
+        jsonEnvio.put("nroGuia", this.nroGuia);
+        jsonEnvio.put("peso", this.peso);
+        jsonEnvio.put("fragil", this.fragil);
+        jsonEnvio.put("contenido", this.contenido);
+        jsonEnvio.put("valorDeclarado", this.valorDeclarado);
+        jsonEnvio.put("destinatario", this.destinatario.toJSONObject());
+        jsonEnvio.put("remitente", this.remitente.toJSONObject());
+        for (Estado estado : this.estados) {
+            estadosJsonArray.put(estado.toJSONObject());
+        }
+        jsonEnvio.put("estados", estadosJsonArray);
+
+        return jsonEnvio;
+    }
+
+    public String toJSON(){
+
+        return (new JSONObject(this)).toString(2);
+
+
     }
 }

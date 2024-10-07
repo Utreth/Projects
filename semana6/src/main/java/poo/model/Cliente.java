@@ -96,7 +96,7 @@ public class Cliente implements Exportable {
  
 
     @Override
-    public JSONObject toJSONObjetc() {
+    public JSONObject toJSONObject() {
 
         JSONObject clienteJson = new JSONObject();
         clienteJson.put("ciudad", this.ciudad);

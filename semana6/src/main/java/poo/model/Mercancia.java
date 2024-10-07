@@ -58,11 +58,13 @@ public class Mercancia implements Costeable, Exportable {
         this.alto = mercanciaJson.getDouble("alto");
         this.largo = mercanciaJson.getDouble("largo");
         this.bodega = mercanciaJson.getString("bodega");
+
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         String fechaIngresoStr = mercanciaJson.getString("fechaHoraIngreso");
         this.fechaHoraIngreso = LocalDateTime.parse(fechaIngresoStr, formato);
         String fechaSalidaStr = mercanciaJson.getString("fechaHoraSalida");
         this.fechaHoraSalida = LocalDateTime.parse(fechaSalidaStr, formato);
+
         JSONObject clienteJson = mercanciaJson.getJSONObject("usuario");
         this.usuario = new Cliente(clienteJson);
     }
@@ -80,7 +82,7 @@ public class Mercancia implements Costeable, Exportable {
     }
 
     @Override
-    public JSONObject toJSONObjetc() {
+    public JSONObject toJSONObject() {
 
         JSONObject mercaJson = new JSONObject();
 
@@ -92,7 +94,7 @@ public class Mercancia implements Costeable, Exportable {
         mercaJson.put("fechaHoraIngreso", this.fechaHoraIngreso);
         mercaJson.put("fechaHoraSalida", this.fechaHoraSalida);
         mercaJson.put("bodega", this.bodega);
-        mercaJson.put("usuario", this.usuario.toJSONObjetc());
+        mercaJson.put("usuario", this.usuario.toJSONObject());
 
         return mercaJson;
 

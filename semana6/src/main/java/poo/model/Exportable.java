@@ -4,6 +4,6 @@ import org.json.JSONObject;
 
 public interface Exportable {
     
-   public JSONObject toJSONObjetc();
+   public JSONObject toJSONObject();
     
 }

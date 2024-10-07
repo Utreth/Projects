@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import org.json.JSONObject;
 
 import poo.helpers.Utils;
+import poo.model.Caja;
 import poo.model.Cliente;
 import poo.model.Envio;
 import poo.model.Mercancia;
@@ -14,7 +15,7 @@ public class Pruebas {
 
     public static void main(String[] args) throws Exception {
 
-        Cliente c1 = new Cliente("01", "Juan", "calle 3a # 15.-16", "manizales", "001232");
+        Cliente c1 = new Cliente("01", "Juan", "calle 3a # 15.-16", "bogota", "001232");
         // Mercancia m1 = new Mercancia("0000", "ajsnd", 0, 0, 0, LocalDateTime.now(),
         // LocalDateTime.now(), "nul", c1);
 
@@ -26,9 +27,18 @@ public class Pruebas {
         Mercancia mm = new Mercancia("1055", "juguetes", 10.0, 120.6, 30.0, LocalDateTime.now(),
                 LocalDateTime.now().plusDays(1), "Fundadores", c4);
 
-        JSONObject mercaJson = mm.toJSONObjetc();
+        JSONObject mercaJson = mm.toJSONObject();
 
-        System.out.println(mercaJson.toString(2));
+        // System.out.println(mercaJson.toString(2));
+
+        Envio envio1 = new Caja(0, 0, 0, null, 0, false, null, 0, c1, c4, null);
+        // System.out.println(envio1.toJSON());
+
+        
+        
+        
+
+       
 
         // JSONObject json = new JSONObject(
         // "{\"ciudad\":\"Bogota\",\"direccion\":\"Ricaurte\",\"id\":\"6H9XA\",\"telefono\":\"3028765431\",\"nombre\":\"Antonio\"}");

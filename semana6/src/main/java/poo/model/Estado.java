@@ -1,11 +1,22 @@
 package poo.model;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
+
+import org.json.JSONObject;
 
 public class Estado {
-    
+
     private LocalDateTime fecha;
-    TipoEstado estado;
-    ArrayList<Envio> envios = new ArrayList<>();
+    TipoEstado estadoEnvio;
+
+    public JSONObject toJSONObject() {
+
+        JSONObject estadoJson = new JSONObject();
+
+        estadoJson.put("fecha", this.fecha);
+        estadoJson.put("estadoEnvio", this.estadoEnvio);
+
+        return estadoJson;              
+
+    }
 }

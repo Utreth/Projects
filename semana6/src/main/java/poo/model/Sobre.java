@@ -19,7 +19,7 @@ public class Sobre extends Envio {
     }
 
     @Override
-    public JSONObject toJSONObjetc() {
+    public JSONObject toJSONObject() {
         // TODO Auto-generated method stub
         return null;
     }

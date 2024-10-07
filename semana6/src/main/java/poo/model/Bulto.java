@@ -6,19 +6,20 @@ public class Bulto extends Envio {
 
     @Override
     public double getCosto() {
-       
+
         throw new UnsupportedOperationException("Unimplemented method 'getCosto'");
     }
 
     @Override
     public String toJSON() {
-        
+
         throw new UnsupportedOperationException("Unimplemented method 'toJSON'");
     }
+
     @Override
-    public JSONObject toJSONObjetc() {
+    public JSONObject toJSONObject() {
 
         return null;
     }
-    
+
 }
