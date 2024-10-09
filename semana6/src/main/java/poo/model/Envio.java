@@ -66,6 +66,13 @@ public abstract class Envio implements Costeable, Exportable {
         this.remitente = new Cliente(remitenteJson);
         JSONObject destinatarioJson = envioJson.getJSONObject("destinatario");
         this.destinatario = new Cliente(destinatarioJson);
+        JSONArray listaEstados = envioJson.getJSONArray("estados");
+
+        for (int i = 0; i < listaEstados.length(); i++) {
+
+            this.estados.add(new Estado(listaEstados.getJSONObject(i)));
+
+        }
 
     }
 
@@ -130,8 +137,7 @@ public abstract class Envio implements Costeable, Exportable {
     public JSONObject toJSONObject() {
 
         JSONObject jsonEnvio = new JSONObject();
-        JSONArray estadosJsonArray = new JSONArray(estados);
-
+        JSONArray jsonList = new JSONArray(estados);
         jsonEnvio.put("nroGuia", this.nroGuia);
         jsonEnvio.put("peso", this.peso);
         jsonEnvio.put("fragil", this.fragil);
@@ -139,18 +145,14 @@ public abstract class Envio implements Costeable, Exportable {
         jsonEnvio.put("valorDeclarado", this.valorDeclarado);
         jsonEnvio.put("destinatario", this.destinatario.toJSONObject());
         jsonEnvio.put("remitente", this.remitente.toJSONObject());
-        for (Estado estado : this.estados) {
-            estadosJsonArray.put(estado.toJSONObject());
-        }
-        jsonEnvio.put("estados", estadosJsonArray);
+        jsonEnvio.put("estados", jsonList);
 
         return jsonEnvio;
     }
 
-    public String toJSON(){
+    public String toJSON() {
 
         return (new JSONObject(this)).toString(2);
-
 
     }
 }

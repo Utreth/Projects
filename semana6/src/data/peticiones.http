@@ -1,0 +1,128 @@
+// Agregue a este archivo todas y cada una de las peticiones HTTP que se requieren para pruebas
+// de lo contrario se utilizará uno por defecto con todas las peticiones de pruebas necesarias.
+// Si su archivo de pruebas no está completo, también se utilizará  el archivo por defecto.
+
+
+### Tenga en cuenta que debe asignar el puerto correcto de salida
+
+@url = http://localhost:7070
+
+### listar los estados de los envíos
+GET {{url}}/envio/estados
+
+// ---------------------- CRUD DE CLIENTES ----------------------
+
+### agregar un cliente con ID conocido
+POST {{url}}/cliente
+Content-Type: application/json; charset=utf-8
+
+{
+    "id": "C0001",
+    "nombre": "Carlos Cuesta Iglesias",
+    "direccion": "Edificio del parque, piso 2, Ucaldas",
+    "telefono": "3115551234",
+    "ciudad": "Manizales"
+}
+
+### agregar un cliente con ID desconocido
+POST {{url}}/cliente
+Content-Type: application/json; charset=utf-8
+
+{
+    "nombre": "David Andrés García",
+    "direccion": "Mercaldas La Sultana",
+    "telefono": "3115550002",
+    "ciudad": "Manizales"
+}
+
+### listar todos los cliente registrados
+GET {{url}}/cliente
+
+### Buscar un cliente dado su índice
+GET {{url}}/cliente/1
+
+### Buscar un cliente dado su ID
+GET {{url}}/cliente/0A7FQ
+
+### Buscar por ID y actualizar algunos o todos los datos de un cliente
+PATCH {{url}}/cliente/0A7FQ
+Content-Type: application/json; charset=utf-8
+
+{
+  "nombre": "David Bohm",
+  "direccion": "Laboratorio de física cuántica, LFCB",
+  "telefono": "3115550001",
+  "ciudad": "Bogotá"
+}
+
+### Eliminar un cliente dado su ID
+DELETE {{url}}/cliente/0A7FQ
+
+// ---------------------- CRUD DE MERCANCÍAS ----------------------
+
+### agregar mercancía (para mercancía, el ID se autogenera siempre)
+POST {{url}}/mercancia
+Content-Type: application/json; charset=utf-8
+
+{
+    "contenido": "Avena en bultos de 12 kilos",
+    "ancho": 3.2,
+    "alto": 2.4,
+    "largo": 3,
+    "fechaHoraIngreso": "2024-10-04T14:35",
+    "fechaHoraSalida": "2024-10-12T16:00",
+    "bodega": "Zona industrial La Enea, Manizales",
+    "cliente": "0A7FQ"
+}
+
+### listar todas las mercancías registradas en depósito
+GET {{url}}/mercancia
+
+### Buscar una mercancía dado su índice
+GET {{url}}/mercancia/0
+
+### Buscar una mercancía dado su ID
+GET {{url}}/mercancia/1GZJETME
+
+### Buscar por ID y actualizar algunos o todos los datos de una mercancía en depósito
+PATCH {{url}}/mercancia/6CMRI0YZ
+Content-Type: application/json; charset=utf-8
+
+{
+    "contenido": "500 unidades de arándanos deshidratados x 500 gramos",
+    "ancho": 2.1,
+    "alto": 2.5,
+    "largo": 2.5,
+    "fechaHoraIngreso": "2024-10-07T12:00",
+    "fechaHoraSalida": "2024-10-20T12:00",
+    "bodega": "Zona industrial Juanchito, Bogotá",
+    "cliente": "0F7SD"
+}
+
+### Eliminar una mercancía dado su ID
+DELETE {{url}}/mercancia/0A7FQ
+
+// ---------------------- CRUD DE PAQUETES ----------------------
+
+### agregar paquete (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/paquete
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 1200,
+    "fragil": true,
+    "contenido": "Componentes electrónicos",
+    "valorDeclarado": 200000,
+    "remitente": "C0001",
+    "destinatario": "0F7SD",
+}
+
+### listar todos los paquetes
+GET {{url}}/paquete
+
+### Buscar un paquete dado su índice
+GET {{url}}/paquete/0
+
+### Buscar un paquete dado su número de guía
+GET {{url}}/paquete/AFOQJW4R
+

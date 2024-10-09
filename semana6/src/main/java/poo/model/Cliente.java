@@ -93,8 +93,6 @@ public class Cliente implements Exportable {
         this.telefono = telefono;
     }
 
- 
-
     @Override
     public JSONObject toJSONObject() {
 
