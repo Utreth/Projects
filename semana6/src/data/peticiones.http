@@ -17,46 +17,48 @@ POST {{url}}/cliente
 Content-Type: application/json; charset=utf-8
 
 {
-    "id": "C0001",
+    "id": "65",
     "nombre": "Carlos Cuesta Iglesias",
     "direccion": "Edificio del parque, piso 2, Ucaldas",
     "telefono": "3115551234",
     "ciudad": "Manizales"
 }
 
+
+
 ### agregar un cliente con ID desconocido
 POST {{url}}/cliente
 Content-Type: application/json; charset=utf-8
 
 {
-    "nombre": "David Andrés García",
+    "nombre": "Jaider Leon",
     "direccion": "Mercaldas La Sultana",
     "telefono": "3115550002",
-    "ciudad": "Manizales"
+    "ciudad": "Villamaria"
 }
 
 ### listar todos los cliente registrados
 GET {{url}}/cliente
 
 ### Buscar un cliente dado su índice
-GET {{url}}/cliente/1
+GET {{url}}/cliente/0
 
 ### Buscar un cliente dado su ID
-GET {{url}}/cliente/0A7FQ
+GET {{url}}/cliente/M7E4V
 
 ### Buscar por ID y actualizar algunos o todos los datos de un cliente
-PATCH {{url}}/cliente/0A7FQ
+PATCH {{url}}/cliente/C0001
 Content-Type: application/json; charset=utf-8
 
 {
-  "nombre": "David Bohm",
+  "nombre": "Antonio Jose Guevara Murcia",
   "direccion": "Laboratorio de física cuántica, LFCB",
-  "telefono": "3115550001",
-  "ciudad": "Bogotá"
+  "telefono": "983846373764",
+  "ciudad": "Medellin"
 }
 
 ### Eliminar un cliente dado su ID
-DELETE {{url}}/cliente/0A7FQ
+DELETE {{url}}/cliente/C0001
 
 // ---------------------- CRUD DE MERCANCÍAS ----------------------
 
@@ -79,10 +81,10 @@ Content-Type: application/json; charset=utf-8
 GET {{url}}/mercancia
 
 ### Buscar una mercancía dado su índice
-GET {{url}}/mercancia/0
+GET {{url}}/mercancia/2
 
 ### Buscar una mercancía dado su ID
-GET {{url}}/mercancia/1GZJETME
+GET {{url}}/mercancia/NM1TT
 
 ### Buscar por ID y actualizar algunos o todos los datos de una mercancía en depósito
 PATCH {{url}}/mercancia/6CMRI0YZ

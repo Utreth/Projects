@@ -1,0 +1,4 @@
+Harry el sucio                 01:50  1971-12-23 COMEDIA             932989142,00
+El padrino                     02:10  1972-03-24 ACCION               32989142,00
+Matrix I                       01:50  1999-05-21 CIENCIA_FICCION    1632989142,00
+El señor de los anillos        02:30  2001-12-25 FANTASIA           1532989000,00

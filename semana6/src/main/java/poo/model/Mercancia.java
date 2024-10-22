@@ -19,6 +19,16 @@ public class Mercancia implements Costeable, Exportable {
 
     public Mercancia() {
 
+        id = "00000";
+        contenido = "null";
+        ancho = 0;
+        alto = 0;
+        largo = 0;
+        fechaHoraIngreso = LocalDateTime.now();
+        fechaHoraSalida = LocalDateTime.now().plusDays(2);
+        bodega = "null";
+        usuario = new Cliente();
+
     }
 
     public Mercancia(String id, String contenido, double ancho, double alto, double largo,
@@ -58,46 +68,13 @@ public class Mercancia implements Costeable, Exportable {
         this.alto = mercanciaJson.getDouble("alto");
         this.largo = mercanciaJson.getDouble("largo");
         this.bodega = mercanciaJson.getString("bodega");
-
         DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         String fechaIngresoStr = mercanciaJson.getString("fechaHoraIngreso");
         this.fechaHoraIngreso = LocalDateTime.parse(fechaIngresoStr, formato);
         String fechaSalidaStr = mercanciaJson.getString("fechaHoraSalida");
         this.fechaHoraSalida = LocalDateTime.parse(fechaSalidaStr, formato);
-
         JSONObject clienteJson = mercanciaJson.getJSONObject("usuario");
         this.usuario = new Cliente(clienteJson);
-    }
-
-    @Override
-    public double getCosto() {
-
-        return 0;
-    }
-
-    @Override
-    public String toJSON() {
-
-        return null;
-    }
-
-    @Override
-    public JSONObject toJSONObject() {
-
-        JSONObject mercaJson = new JSONObject();
-
-        mercaJson.put("id", this.id);
-        mercaJson.put("contenido", this.contenido);
-        mercaJson.put("ancho", this.ancho);
-        mercaJson.put("alto", this.alto);
-        mercaJson.put("largo", this.largo);
-        mercaJson.put("fechaHoraIngreso", this.fechaHoraIngreso);
-        mercaJson.put("fechaHoraSalida", this.fechaHoraSalida);
-        mercaJson.put("bodega", this.bodega);
-        mercaJson.put("usuario", this.usuario.toJSONObject());
-
-        return mercaJson;
-
     }
 
     public double getAlto() {
@@ -173,7 +150,62 @@ public class Mercancia implements Costeable, Exportable {
     }
 
     @Override
-    public String toString() {
+    public double getCosto() {
+
+        return 0;
+    }
+
+    @Override
+    public String toJSON() {
+
         return (new JSONObject(this)).toString(2);
+    }
+
+    @Override
+    public JSONObject toJSONObject() {
+
+        return new JSONObject(this);
+
+    }
+
+    @Override
+    public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return "Mercancia{" +
+                "ID='" + id + '\'' +
+                ", Contenido='" + contenido + '\'' +
+                ", Ancho=" + ancho + " cm" +
+                ", Alto=" + alto + " cm" +
+                ", Largo=" + largo + " cm" +
+                ", Fecha de Ingreso=" + fechaHoraIngreso.format(formatter) +
+                ", Fecha de Salida=" + fechaHoraSalida.format(formatter) +
+                ", Bodega='" + bodega + '\'' +
+                ", Cliente=" + usuario + 
+                '}';
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Mercancia m = (Mercancia) obj;
+        return this.id.equals(m.id);
+
     }
 }

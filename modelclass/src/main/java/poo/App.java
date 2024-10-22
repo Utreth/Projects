@@ -47,6 +47,7 @@ public class App {
         comp2.getComputerDevice().add(new Keyboard("HP", false, true, true, TypeLanguage.SPANISH));
         comp2.getComputerDevice().add(new Monitor("HP", false, 20));
         comp2.getComputerDevice().add(new Mouse("HP", true, 150, 8));
+        comp2.getComputerDevice().add(new Mouse("HP2", true, 150, 8));
         comp2.getComputerDevice().add(new HardDiskDrive("ADATA", false, 200, 800, 120, 5400, 2.5));
 
         Computer comp3 = new Computer();
@@ -104,21 +105,21 @@ public class App {
             }
         }
 
-        // System.out.println(computersOk);
-        TypeLanguage l = TypeLanguage.ENGLISH;
-        TypeComputer c = TypeComputer.DESKTOP;
-        System.out.println(l.getValue());
-        System.out.println(TypeLanguage.getEnum("Idioma español"));
+        System.out.println(computersOk);
+        // TypeLanguage l = TypeLanguage.ENGLISH;
+        // TypeComputer c = TypeComputer.DESKTOP;
+        // System.out.println(l.getValue());
+        // System.out.println(TypeLanguage.getEnum("Idioma español"));
 
-        JSONObject j = new JSONObject();
-        j.put("nombre", "carlos");
-        j.put("apellidos", "cuesta");
-        System.out.println(j);
-        System.out.println(TypeLanguage.getAll().toString(2));
+        // JSONObject j = new JSONObject();
+        // j.put("nombre", "carlos");
+        // j.put("apellidos", "cuesta");
+        // System.out.println(j);
+        // System.out.println(TypeLanguage.getAll().toString(2));
 
-        System.out.println(c.getValue());
-        System.out.println(TypeComputer.getEnumComputer("computador tipo escritorio"));
-        System.out.println(TypeComputer.getAll().toString(2));
+        // System.out.println(c.getValue());
+        // System.out.println(TypeComputer.getEnumComputer("computador tipo escritorio"));
+        // System.out.println(TypeComputer.getAll().toString(2));
 
     }
 }

@@ -7,7 +7,7 @@ import org.json.JSONObject;
 
 import poo.helpers.Utils;
 
-public abstract class Envio implements Costeable, Exportable {
+public abstract class Envio implements Exportable, Costeable {
 
     protected String nroGuia;
     protected double peso;
@@ -136,23 +136,44 @@ public abstract class Envio implements Costeable, Exportable {
     @Override
     public JSONObject toJSONObject() {
 
-        JSONObject jsonEnvio = new JSONObject();
-        JSONArray jsonList = new JSONArray(estados);
-        jsonEnvio.put("nroGuia", this.nroGuia);
-        jsonEnvio.put("peso", this.peso);
-        jsonEnvio.put("fragil", this.fragil);
-        jsonEnvio.put("contenido", this.contenido);
-        jsonEnvio.put("valorDeclarado", this.valorDeclarado);
-        jsonEnvio.put("destinatario", this.destinatario.toJSONObject());
-        jsonEnvio.put("remitente", this.remitente.toJSONObject());
-        jsonEnvio.put("estados", jsonList);
-
-        return jsonEnvio;
+        return new JSONObject(this);
     }
 
+    @Override
+    public double getCosto() {
+
+        throw new UnsupportedOperationException("Unimplemented method 'getCosto'");
+    }
+
+    @Override
     public String toJSON() {
 
         return (new JSONObject(this)).toString(2);
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj == null) {
+            return false;
+        }
+
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+
+        Envio e = (Envio) obj;
+        return this.nroGuia.equals(e.nroGuia);
 
     }
+
 }

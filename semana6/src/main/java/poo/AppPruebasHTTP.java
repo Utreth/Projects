@@ -14,13 +14,14 @@ public class AppPruebasHTTP {
     public static void main(String[] args) throws Exception {
         int port = 7070;
 
-        // esencial para estandarizar el formato monetario con separador de punto decimal, no con coma
+        // esencial para estandarizar el formato monetario con separador de punto
+        // decimal, no con coma
         Locale.setDefault(Locale.of("es_CO"));
 
         Service<Cliente> clienteService = new ClienteService();
 
         Javalin
-                .create(/*config*/)
+                .create(/* config */)
                 // Agregar clientes (Create)
                 .post(
                         "/cliente",
@@ -41,7 +42,7 @@ public class AppPruebasHTTP {
                         ctx -> {
                             String arg = ctx.pathParam("param");
                             JSONObject response;
-
+                            
                             if (arg.matches("-?\\d+")) {
                                 // si es un número en base 10, buscar por posición en la lista
                                 int i = Integer.parseInt(arg, 10);
@@ -52,6 +53,7 @@ public class AppPruebasHTTP {
                             }
                             ctx.json(response.toString());
                         })
+                        
                 // Actualizar los datos de un cliente, dado su ID (Update)
                 .patch(
                         "/cliente/{param}",
@@ -60,6 +62,7 @@ public class AppPruebasHTTP {
                             String newData = ctx.body();
                             ctx.json(clienteService.update(id, newData).toString());
                         })
+
                 // Eliminar un cliente
                 .delete(
                         "/cliente/{param}",

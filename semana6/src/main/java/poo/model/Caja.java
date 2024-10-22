@@ -2,6 +2,7 @@ package poo.model;
 
 import java.util.ArrayList;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import poo.helpers.Utils;
@@ -55,6 +56,26 @@ public class Caja extends Envio {
 
     }
 
+    public Caja(JSONObject cajaJson){
+
+          this.nroGuia = cajaJson.getString("nroGuia");
+        this.peso = cajaJson.getDouble("peso");
+        this.fragil = cajaJson.getBoolean("fragil");
+        this.contenido = cajaJson.getString("contenido");
+        this.valorDeclarado = cajaJson.getDouble("valorDeclarado");
+        JSONObject remitenteJson = cajaJson.getJSONObject("remitente");
+        this.remitente = new Cliente(remitenteJson);
+        JSONObject destinatarioJson = cajaJson.getJSONObject("destinatario");
+        this.destinatario = new Cliente(destinatarioJson);
+        JSONArray listaEstados = cajaJson.getJSONArray("estados");
+
+        for (int i = 0; i < listaEstados.length(); i++) {
+
+            this.estados.add(new Estado(listaEstados.getJSONObject(i)));
+
+        }
+    }
+
     public double getLargo() {
         return largo;
     }
@@ -94,7 +115,7 @@ public class Caja extends Envio {
     @Override
     public JSONObject toJSONObject() {
 
-        return null;
+        return new JSONObject(this);
     }
 
 }

@@ -19,9 +19,8 @@ public class Estado {
         this.fecha = fecha;
     }
 
-    public Estado(JSONObject estadoJson){
+    public Estado(JSONObject estadoJson) {
 
-        
     }
 
     public TipoEstado getEstadoEnvio() {
@@ -42,12 +41,7 @@ public class Estado {
 
     public JSONObject toJSONObject() {
 
-        JSONObject estadoJson = new JSONObject();
-
-        estadoJson.put("fecha", this.fecha);
-        estadoJson.put("estadoEnvio", this.estadoEnvio);
-
-        return estadoJson;
+        return new JSONObject(this);
 
     }
 }

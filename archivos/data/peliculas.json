@@ -1,0 +1,30 @@
+[
+  {
+    "fechaEstreno": "1971-12-23",
+    "genero": "COMEDIA",
+    "duracion": "PT1H50M",
+    "nombre": "Harry el sucio",
+    "recaudo": 9.32989142E8
+  },
+  {
+    "fechaEstreno": "1972-03-24",
+    "genero": "ACCION",
+    "duracion": "PT2H10M",
+    "nombre": "El padrino",
+    "recaudo": 3.2989142E7
+  },
+  {
+    "fechaEstreno": "1999-05-21",
+    "genero": "CIENCIA_FICCION",
+    "duracion": "PT1H50M",
+    "nombre": "Matrix I",
+    "recaudo": 1.632989142E9
+  },
+  {
+    "fechaEstreno": "2001-12-25",
+    "genero": "FANTASIA",
+    "duracion": "PT2H30M",
+    "nombre": "El señor de los anillos",
+    "recaudo": 1.532989E9
+  }
+]

@@ -15,11 +15,11 @@ public class Cliente implements Exportable {
 
     public Cliente() {
 
-        id = "nn";
-        nombre = "nn";
-        direccion = "0000";
-        telefono = "0000";
-        ciudad = "nn";
+        id = "00000";
+        nombre = "Nn";
+        direccion = "///";
+        telefono = "12345";
+        ciudad = "null";
 
     }
 
@@ -46,10 +46,10 @@ public class Cliente implements Exportable {
         this(Utils.getRandomKey(5), nombre, direccion, ciudad, telefono);
     }
 
-    public Cliente(JSONObject json) {
+    public Cliente(JSONObject clienteJson) {
 
-        this(json.getString("id"), json.getString("nombre"), json.getString("direccion"), json.getString("ciudad"),
-                json.getString("telefono"));
+        this(clienteJson.getString("id"), clienteJson.getString("nombre"), clienteJson.getString("direccion"), clienteJson.getString("ciudad"),
+                clienteJson.getString("telefono"));
 
     }
 
@@ -96,14 +96,8 @@ public class Cliente implements Exportable {
     @Override
     public JSONObject toJSONObject() {
 
-        JSONObject clienteJson = new JSONObject();
-        clienteJson.put("ciudad", this.ciudad);
-        clienteJson.put("nombre", this.nombre);
-        clienteJson.put("telefono", this.telefono);
-        clienteJson.put("id", this.id);
-        clienteJson.put("direccion", this.direccion);
+        return new JSONObject(this);
 
-        return clienteJson;
     }
 
     @Override

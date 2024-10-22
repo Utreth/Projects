@@ -1,0 +1,74 @@
+[
+  {
+    "contenido": "Avena en bultos de 12 kilos",
+    "costo": 0,
+    "fechaHoraSalida": "2024-10-12T16:00",
+    "ancho": 3.2,
+    "largo": 3,
+    "usuario": {
+      "ciudad": "null",
+      "direccion": "///",
+      "id": "0A7FQ",
+      "telefono": "12345",
+      "nombre": "Nn"
+    },
+    "id": "COJYW",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-10-04T14:35"
+  },
+  {
+    "contenido": "Avena en bultos de 12 kilos",
+    "costo": 0,
+    "fechaHoraSalida": "2024-10-12T16:00",
+    "ancho": 3.2,
+    "largo": 3,
+    "usuario": {
+      "ciudad": "null",
+      "direccion": "///",
+      "id": "0A7FQ",
+      "telefono": "12345",
+      "nombre": "Nn"
+    },
+    "id": "626ND",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-10-04T14:35"
+  },
+  {
+    "contenido": "Avena en bultos de 12 kilos",
+    "costo": 0,
+    "fechaHoraSalida": "2024-10-12T16:00",
+    "ancho": 3.2,
+    "largo": 3,
+    "usuario": {
+      "ciudad": "null",
+      "direccion": "///",
+      "id": "0A7FQ",
+      "telefono": "12345",
+      "nombre": "Nn"
+    },
+    "id": "YAVU6",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-10-04T14:35"
+  },
+  {
+    "contenido": "Avena en bultos de 12 kilos",
+    "costo": 0,
+    "fechaHoraSalida": "2024-10-12T16:00",
+    "ancho": 3.2,
+    "largo": 3,
+    "usuario": {
+      "ciudad": "null",
+      "direccion": "///",
+      "id": "0A7FQ",
+      "telefono": "12345",
+      "nombre": "Nn"
+    },
+    "id": "TKTQL",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-10-04T14:35"
+  }
+]

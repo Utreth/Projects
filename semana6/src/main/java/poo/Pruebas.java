@@ -58,7 +58,11 @@ public class Pruebas {
         // cs.add(c1.toJSONObjetc().toString());
         // System.out.println(c1.hashCode());
         // System.out.println(c2.hashCode());
-        ClienteService cs = new ClienteService();
+        // ClienteService cs = new ClienteService();
+
+        // Mercancia m1 = new Mercancia();
+
+        // System.out.println(m1);
 
     }
 }
