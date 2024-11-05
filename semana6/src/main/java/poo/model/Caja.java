@@ -1,5 +1,6 @@
 package poo.model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
@@ -17,20 +18,20 @@ public class Caja extends Envio {
 
     }
 
-    public Caja(double largo, double ancho, double alto, String nroGuia, double peso, boolean fragil, String contenido,
-            double valorDeclarado, Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
+    public Caja(double largo, double ancho, double alto, String nroGuia, int peso, boolean fragil, String contenido,
+            int valorDeclarado, Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
-        this.largo = largo;
-        this.ancho = ancho;
-        this.alto = alto;
-        this.nroGuia = nroGuia;
-        this.peso = peso;
-        this.fragil = fragil;
-        this.contenido = contenido;
-        this.valorDeclarado = valorDeclarado;
-        this.destinatario = destinatario;
-        this.remitente = remitente;
-        this.estados = estados;
+        setLargo(largo);
+        setAncho(ancho);
+        setAlto(alto);
+        setNroGuia(nroGuia);
+        setPeso(peso);
+        setFragil(fragil);
+        setContenido(contenido);
+        setValorDeclarado(valorDeclarado);
+        setDestinatario(destinatario);
+        setRemitente(remitente);
+        setEstados(estados);
 
     }
 
@@ -48,31 +49,31 @@ public class Caja extends Envio {
         setNroGuia(nroGuia);
     }
 
-    public Caja(double largo, double ancho, double alto, double peso, boolean fragil, String contenido,
-            double valorDeclarado, Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
+    public Caja(double largo, double ancho, double alto, int peso, boolean fragil, String contenido,
+            int valorDeclarado, Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
         this(largo, ancho, alto, Utils.getRandomKey(5), peso, fragil, contenido, valorDeclarado, destinatario,
                 remitente, estados);
 
     }
 
-    public Caja(JSONObject cajaJson){
+    public Caja(JSONObject json) {
 
-          this.nroGuia = cajaJson.getString("nroGuia");
-        this.peso = cajaJson.getDouble("peso");
-        this.fragil = cajaJson.getBoolean("fragil");
-        this.contenido = cajaJson.getString("contenido");
-        this.valorDeclarado = cajaJson.getDouble("valorDeclarado");
-        JSONObject remitenteJson = cajaJson.getJSONObject("remitente");
+        this.nroGuia = json.getString("nroGuia");
+        this.contenido = json.getString("contenido");
+        this.fragil = json.getBoolean("fragil");
+        this.peso = json.getInt("peso");
+        this.valorDeclarado = json.getInt("valorDeclarado");
+        this.alto = json.getDouble("alto");
+        this.ancho = json.getDouble("ancho");
+        this.largo = json.getDouble("largo");
+        JSONObject remitenteJson = json.getJSONObject("remitente");
         this.remitente = new Cliente(remitenteJson);
-        JSONObject destinatarioJson = cajaJson.getJSONObject("destinatario");
+        JSONObject destinatarioJson = json.getJSONObject("destinatario");
         this.destinatario = new Cliente(destinatarioJson);
-        JSONArray listaEstados = cajaJson.getJSONArray("estados");
-
-        for (int i = 0; i < listaEstados.length(); i++) {
-
-            this.estados.add(new Estado(listaEstados.getJSONObject(i)));
-
+        JSONArray jsonArray = json.getJSONArray("estados");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            this.estados.add(new Estado(jsonArray.getJSONObject(i)));
         }
     }
 
@@ -102,8 +103,27 @@ public class Caja extends Envio {
 
     @Override
     public double getCosto() {
-
-        throw new UnsupportedOperationException("Unimplemented method 'getCosto'");
+        double volumen = getAncho() * getLargo() * getAlto();
+        double costo = 0f;
+        if (volumen <= 0.5) {
+            costo = (10000 + (500 * getPeso()));
+        }
+        if (volumen <= 1.0 && volumen > 0.5) {
+            costo = (12000 + (500 * getPeso()));
+        }
+        if (volumen <= 3.0 && volumen > 1.0) {
+            costo = (15000 + (500 * getPeso()));
+        }
+        if (volumen <= 6.0 && volumen > 3.0) {
+            costo = (25000 + (500 * getPeso()));
+        }
+        if (volumen <= 10.0 && volumen > 6.0) {
+            costo = (30000 + (500 * getPeso()));
+        }
+        if (volumen > 10.0) {
+            costo = (10000 * (volumen / 10) + (500 * getPeso()));
+        }
+        return costo;
     }
 
     @Override

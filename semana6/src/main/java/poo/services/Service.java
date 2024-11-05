@@ -75,6 +75,28 @@ public interface Service<T> {
   public JSONObject remove(String id) throws Exception;
 
   /**
+   * Devuelve un objeto de tipo T, luego de verificar que los datos dados en strJson sean válidos para crear un objeto de tipo T
+   * @param strJson Un JSON con los datos necesarios y válidos para crear una instancia de T
+   * @return Una instancia creada a partir de los datos dados como argumento
+   */
+  public T dataToAddOk(String strJson) throws Exception;
+
+  /**
+   * Devuelve el objeto current actualizado con los datos especificados en newData
+   * @param newData Los datos que se utilizan para actualizar a current
+   * @param current La instancia con los datos actuales
+   * @return Una nueva instancia creada a partir de current pero con los datos actualizados según newData
+   */
+  public T getUpdated(JSONObject newData, T current) throws Exception;
+
+  /**
+   * Devuelve un objeto json con la estructura { "size" : totalRegistros, "message" : "ok" } 
+   * siendo totalRegistros un valor entero que indica el número de registros de la lista
+   * @return
+   */
+  public JSONObject size();
+
+  /**
    * Permite conocer la clase del parámetro de tipo genérico T. Este método es importante
    * sobre cuando se referencian subclases mediante superclaes y se desea conocer de
    * forma fácil, el tipo con el que se está trabajando.

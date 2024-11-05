@@ -1,68 +1,88 @@
 package poo;
 
-import java.time.LocalDateTime;
-
 import org.json.JSONObject;
 
-import poo.helpers.Utils;
-import poo.model.Caja;
-import poo.model.Cliente;
 import poo.model.Envio;
-import poo.model.Mercancia;
-import poo.services.ClienteService;
+import poo.model.Paquete;
+import poo.model.Sobre;
 
 public class Pruebas {
-
     public static void main(String[] args) throws Exception {
-
-        // Cliente c1 = new Cliente("01", "Juan", "calle 3a # 15.-16", "bogota", "001232");
-        // Mercancia m1 = new Mercancia("0000", "ajsnd", 0, 0, 0, LocalDateTime.now(),
-        // LocalDateTime.now(), "nul", c1);
-        // Cliente c2 = new Cliente(c1);
-        // c2.setNombre("juan perez");
-        // Cliente c3 = new Cliente("c3");
-        // Cliente c4 = new Cliente("andres", "avenida fundadores", "manizales", "3028765431");
-        // Mercancia mm = new Mercancia("1055", "juguetes", 10.0, 120.6, 30.0, LocalDateTime.now(),
-        //         LocalDateTime.now().plusDays(1), "Fundadores", c4);
-        // JSONObject mercaJson = mm.toJSONObject();
-        // System.out.println(mercaJson.toString(2));
-        // Envio envio1 = new Caja(0, 0, 0, null, 0, false, null, 0, c1, c4, null);
-        // System.out.println(envio1.toJSON());
-        // JSONObject json = new JSONObject(
-        // "{\"ciudad\":\"Bogota\",\"direccion\":\"Ricaurte\",\"id\":\"6H9XA\",\"telefono\":\"3028765431\",\"nombre\":\"Antonio\"}");
-        // Cliente c5 = new Cliente(json);
-        // Mercancia m2 = new Mercancia("0000", "null", 0, 0, 0, LocalDateTime.now(),
-        // LocalDateTime.now(), "null", c5);
-        // JSONObject clienteJson = c4.toJSONObjetc();
-        // JSONObject mercaJson2 = new JSONObject(
-        // "{\"id\":\"001\",\"contenido\":\"documentos\",\"ancho\":\"10.0\",\"alto\":\"10.0\",\"largo\":\"10.0\","
-        // +
-        // "\"fechaHoraIngreso\":\"2017-02-26T09:10:20\",\"fechaHoraSalida\":\"2017-02-26T09:10:20\","
-        // + "\"bodega\":\"bodega 1\"}");
-        // System.out.println(mercaJson2.toString(2));
-        // Mercancia m3 = new Mercancia(mercaJson);
-        // System.out.println(m3.toString());
-        // System.out.println(c1.toString());
-        // System.out.println(c2.toString());
-        // System.out.println(c3.toString());
-        // System.out.println(c1 == c2);
-        // String str = Utils.getRandomKey(8);
-        // System.out.println(str);
-        // System.out.println(c4);
-        // System.out.println(c5);
-        // System.out.println(c1.equals(c2));
-        // System.out.println(c1.equals(null));
-        // System.out.println(c1.equals(new String("Juan")));
-        // System.out.println(c1.equals(c5));
-        // ClienteService cs = new ClienteService();
-        // cs.add(c1.toJSONObjetc().toString());
-        // System.out.println(c1.hashCode());
-        // System.out.println(c2.hashCode());
-        // ClienteService cs = new ClienteService();
-
-        // Mercancia m1 = new Mercancia();
-
-        // System.out.println(m1);
-
+        create(Paquete.class, getJsonPaquete());
+        create(Sobre.class, getJsonSobre());
     }
+
+    private static void create(Class<? extends Envio> subclase, JSONObject json) throws Exception {
+        Envio instancia = subclase.getConstructor(JSONObject.class).newInstance(json);
+        System.out.println("Tipo: " + instancia.getClass().getSimpleName());
+        System.out.println("Guía: " + instancia.getNroGuia());
+        System.out.println("Contenido: " + instancia.getContenido());
+        System.out.println("Remitente: " + instancia.getRemitente().getNombre());
+        System.out.println("Destinatario: " + instancia.getDestinatario().getNombre());
+        System.out.println();
+    }
+
+    private static JSONObject getJsonSobre() {
+        JSONObject json = new JSONObject("""
+                              {
+                  "contenido": "Documentos notariales",
+                  "nroGuia": "1BECQX7N",
+                  "peso": 0,
+                  "fragil": false,
+                  "remitente": {
+                    "ciudad": "Manizales",
+                    "direccion": "Mercaldas La Sultana",
+                    "id": "0F7SD",
+                    "telefono": "3115550002",
+                    "nombre": "David Andrés García"
+                  },
+                  "valorDeclarado": 0,
+                  "certificado": false,
+                  "destinatario": {
+                    "ciudad": "Manizales",
+                    "direccion": "Edificio del parque, piso 2, Ucaldas",
+                    "id": "C0001",
+                    "telefono": "3115551234",
+                    "nombre": "Carlos Cuesta Iglesias"
+                  },
+                  "estados": [{
+                    "estado": "RECIBIDO",
+                    "fechaHora": "2024-10-13T18:37:45"
+                  }]
+                }
+                              """);
+        return json;
+    }
+
+    private static JSONObject getJsonPaquete() {
+        JSONObject json = new JSONObject("""
+                {
+                  "contenido": "Componentes eléctricos",
+                  "nroGuia": "AFOQJW4R",
+                  "peso": 1500,
+                  "fragil": true,
+                  "remitente": {
+                    "ciudad": "Manizales",
+                    "direccion": "Mercaldas La Sultana",
+                    "id": "0F7SD",
+                    "telefono": "3115550002",
+                    "nombre": "David Andrés García"
+                  },
+                  "valorDeclarado": 200000,
+                  "destinatario": {
+                    "ciudad": "Manizales",
+                    "direccion": "Edificio del parque, piso 2, Ucaldas",
+                    "id": "C0001",
+                    "telefono": "3115551234",
+                    "nombre": "Carlos Cuesta Iglesias"
+                  },
+                  "estados": [{
+                    "estado": "RECIBIDO",
+                    "fechaHora": "2024-10-08T19:29:44"
+                  }]
+                }
+                """);
+        return json;
+    }
+
 }

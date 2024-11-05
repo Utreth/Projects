@@ -1,0 +1,22 @@
+header,
+footer {
+  position: fixed;
+  width: 100%;
+  background-color: teal;
+  color: azure;
+  padding: 20px;
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+
+main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: rgb(233, 255, 255);
+}

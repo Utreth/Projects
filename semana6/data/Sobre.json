@@ -1,0 +1,302 @@
+[
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "0MPYKXJP",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "0MPYKXJP",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T00:43:10",
+      "idEstado": "286451781",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "5TOMN5Z0",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "5TOMN5Z0",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T00:46:34",
+      "idEstado": "988360890",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "ECIQ1AKT",
+    "fragil": false,
+    "valorDeclarado": 1000,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "ECIQ1AKT",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T00:48:04",
+      "idEstado": "1310103001",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "LD6QGUZA",
+    "fragil": false,
+    "valorDeclarado": 1000,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "LD6QGUZA",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T00:48:04",
+      "idEstado": "1941329691",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "10FSTMBX",
+    "fragil": false,
+    "valorDeclarado": 1000,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "10FSTMBX",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T00:58:22",
+      "idEstado": "1693593068",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "31HZ8EA8",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "31HZ8EA8",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T01:35:19",
+      "idEstado": "1543958729",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "GPYA88OH",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "GPYA88OH",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T02:48:52",
+      "idEstado": "470962279",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "SWPAU8LC",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "SWPAU8LC",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T15:52:55",
+      "idEstado": "851658128",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "Y2X2MLVI",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "Y2X2MLVI",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T16:48:37",
+      "idEstado": "139552963",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 2860,
+    "peso": 0,
+    "nroGuia": "AK296OL7",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "Medellin",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "983846373764",
+      "nombre": "Antonio Jose Guevara Murcia"
+    },
+    "idEnvio": "AK296OL7",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio del parque, piso 2, Ucaldas",
+      "id": "87654",
+      "telefono": "3115551234",
+      "nombre": "Carlos Cuesta Iglesias"
+    },
+    "estados": [{
+      "fecha": "2024-11-04T19:18:55",
+      "idEstado": "325870320",
+      "tipoEstado": "RECIBIDO"
+    }]
+  }
+]

@@ -17,13 +17,12 @@ POST {{url}}/cliente
 Content-Type: application/json; charset=utf-8
 
 {
-    "id": "65",
+    "id": "87654",
     "nombre": "Carlos Cuesta Iglesias",
     "direccion": "Edificio del parque, piso 2, Ucaldas",
     "telefono": "3115551234",
     "ciudad": "Manizales"
 }
-
 
 
 ### agregar un cliente con ID desconocido
@@ -41,24 +40,30 @@ Content-Type: application/json; charset=utf-8
 GET {{url}}/cliente
 
 ### Buscar un cliente dado su índice
-GET {{url}}/cliente/0
+GET {{url}}/cliente/indice/3
 
 ### Buscar un cliente dado su ID
-GET {{url}}/cliente/M7E4V
+GET {{url}}/cliente/id/8TRBX
+
+### Tamaño lista de clientes
+GET {{url}}/cliente/conteo
 
 ### Buscar por ID y actualizar algunos o todos los datos de un cliente
-PATCH {{url}}/cliente/C0001
+PATCH {{url}}/cliente/8TRBX
 Content-Type: application/json; charset=utf-8
 
 {
-  "nombre": "Antonio Jose Guevara Murcia",
+  "nombre": "Maximo Decimo Meridio",
   "direccion": "Laboratorio de física cuántica, LFCB",
-  "telefono": "983846373764",
-  "ciudad": "Medellin"
+  "telefono": "3136756478",
+  "ciudad": "Bogota"
 }
 
 ### Eliminar un cliente dado su ID
-DELETE {{url}}/cliente/C0001
+DELETE {{url}}/cliente/87654
+
+### Tamaño lista de clientes
+GET {{url}}/cliente/conteo
 
 // ---------------------- CRUD DE MERCANCÍAS ----------------------
 
@@ -68,41 +73,44 @@ Content-Type: application/json; charset=utf-8
 
 {
     "contenido": "Avena en bultos de 12 kilos",
-    "ancho": 3.2,
+    "ancho": 1.2,
     "alto": 2.4,
     "largo": 3,
     "fechaHoraIngreso": "2024-10-04T14:35",
     "fechaHoraSalida": "2024-10-12T16:00",
     "bodega": "Zona industrial La Enea, Manizales",
-    "cliente": "0A7FQ"
+    "cliente": "87654"
 }
 
 ### listar todas las mercancías registradas en depósito
 GET {{url}}/mercancia
 
 ### Buscar una mercancía dado su índice
-GET {{url}}/mercancia/2
+GET {{url}}/mercancia/indice/1
 
 ### Buscar una mercancía dado su ID
-GET {{url}}/mercancia/NM1TT
+GET {{url}}/mercancia/id/FQ7MTNQ7
 
 ### Buscar por ID y actualizar algunos o todos los datos de una mercancía en depósito
-PATCH {{url}}/mercancia/6CMRI0YZ
+PATCH {{url}}/mercancia/2V4N9B9P
 Content-Type: application/json; charset=utf-8
 
 {
-    "contenido": "500 unidades de arándanos deshidratados x 500 gramos",
-    "ancho": 2.1,
+    "contenido": "900 unidades de arándanos deshidratados x 500 gramos",
+    "ancho": 1.1,
     "alto": 2.5,
-    "largo": 2.5,
-    "fechaHoraIngreso": "2024-10-07T12:00",
-    "fechaHoraSalida": "2024-10-20T12:00",
+    "largo": 2.2,
+    "fechaHoraIngreso": "2024-09-07T12:00",
+    "fechaHoraSalida": "2024-11-20T12:00",
     "bodega": "Zona industrial Juanchito, Bogotá",
-    "cliente": "0F7SD"
+    "cliente": "C4567"
 }
 
 ### Eliminar una mercancía dado su ID
-DELETE {{url}}/mercancia/0A7FQ
+DELETE {{url}}/mercancia/CTQDDT7B
+
+### Tamaño lista de mercancias
+GET {{url}}/mercancia/conteo
 
 // ---------------------- CRUD DE PAQUETES ----------------------
 
@@ -111,20 +119,107 @@ POST {{url}}/paquete
 Content-Type: application/json; charset=utf-8
 
 {
-    "peso": 1200,
+    "peso": 200,
     "fragil": true,
     "contenido": "Componentes electrónicos",
     "valorDeclarado": 200000,
     "remitente": "C0001",
-    "destinatario": "0F7SD",
+    "destinatario": "87654",
 }
 
 ### listar todos los paquetes
 GET {{url}}/paquete
 
 ### Buscar un paquete dado su índice
-GET {{url}}/paquete/0
+GET {{url}}/paquete/indice/0
 
 ### Buscar un paquete dado su número de guía
-GET {{url}}/paquete/AFOQJW4R
+GET {{url}}/paquete/id/OKZB02HZ
+
+### Tamaño lista de paquetes
+GET {{url}}/paquete/conteo
+
+// ---------------------- CRUD DE BULTOS ----------------------
+
+### agregar bulto (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/bulto
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 200,
+    "fragil": true,
+    "contenido": "Componentes electrónicos",
+    "valorDeclarado": 200000,
+    "remitente": "C0001",
+    "destinatario": "87654",
+    
+}
+
+### listar todos los bultos
+GET {{url}}/bulto
+
+### Buscar un bulto dado su índice
+GET {{url}}/bulto/indice/0
+
+### Buscar un bulto dado su número de guía
+GET {{url}}/bulto/id/7B7KE9G1
+
+### Tamaño lista de bultos
+GET {{url}}/bulto/conteo
+
+// ---------------------- CRUD DE CAJAS ----------------------
+
+### agregar caja (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/caja
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 300,
+    "fragil": true,
+    "contenido": "Componentes varios",
+    "valorDeclarado": 30000,
+    "remitente": "C0001",
+    "destinatario": "87654",
+    "ancho": 1.1,
+    "alto": 2.5,
+    "largo": 2.2
+}
+
+### listar todas las cajas
+GET {{url}}/caja
+
+### Buscar una caja dado su índice
+GET {{url}}/caja/indice/0
+
+### Buscar una caja dado su número de guía
+GET {{url}}/caja/id/S4K8DMA9
+
+### Tamaño lista de cajas
+GET {{url}}/caja/conteo
+
+// ---------------------- CRUD DE SOBRES ----------------------
+
+### agregar sobre (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/sobre
+Content-Type: application/json; charset=utf-8
+
+{
+    "remitente": "C0001",
+    "destinatario": "87654",
+    
+}
+
+### listar todos los sobres
+GET {{url}}/sobre
+
+### Buscar un sobre dado su índice
+GET {{url}}/sobre/indice/0
+
+### Buscar un sobre dado su número de guía
+GET {{url}}/sobre/id/0MPYKXJP
+
+### Tamaño lista de sobres
+GET {{url}}/sobre/conteo
+
+
 

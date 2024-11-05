@@ -7,173 +7,174 @@ import org.json.JSONObject;
 
 import poo.helpers.Utils;
 
-public abstract class Envio implements Exportable, Costeable {
-
+public abstract class Envio implements Costeable, Exportable {
     protected String nroGuia;
-    protected double peso;
-    protected boolean fragil;
     protected String contenido;
-    protected double valorDeclarado;
+    protected boolean fragil;
+    protected int peso;
+    protected int valorDeclarado;
     protected Cliente destinatario;
     protected Cliente remitente;
     protected ArrayList<Estado> estados = new ArrayList<>();
 
+    // constructor por defecto
     public Envio() {
-
     }
 
-    public Envio(String nroGuia, double peso, boolean fragil, String contenido, double valorDeclarado,
-            Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
-
+    // constructor parametrizado
+    public Envio(String nroGuia, String contenido, boolean fragil, int peso, int valorDeclarado, Cliente destinatario,
+            Cliente remitente, ArrayList<Estado> estados) {
         this.nroGuia = nroGuia;
-        this.peso = peso;
-        this.fragil = fragil;
         this.contenido = contenido;
+        this.fragil = fragil;
+        this.peso = peso;
         this.valorDeclarado = valorDeclarado;
         this.destinatario = destinatario;
         this.remitente = remitente;
         this.estados = estados;
-
     }
 
-    public Envio(Envio e) {
-
-        this(e.nroGuia, e.peso, e.fragil, e.contenido, e.valorDeclarado, e.destinatario, e.remitente, e.estados);
+    // constructor copia
+    public Envio(Envio envio) {
+        this(envio.nroGuia, envio.contenido, envio.fragil, envio.peso, envio.valorDeclarado, envio.destinatario,
+                envio.remitente, envio.estados);
     }
 
-    public Envio(String nroGuia) {
+    // constructor que recibe un JSONObject
+    public Envio(JSONObject json) {
+        this.nroGuia = json.getString("nroGuia");
+        this.contenido = json.getString("contenido");
+        this.fragil = json.getBoolean("fragil");
+        this.peso = json.getInt("peso");
+        this.valorDeclarado = json.getInt("valorDeclarado");
 
+        JSONObject remitenteJson = json.getJSONObject("remitente");
+        this.remitente = new Cliente(remitenteJson);
+
+        JSONObject destinatarioJson = json.getJSONObject("destinatario");
+        this.destinatario = new Cliente(destinatarioJson);
+        JSONArray jsonArray = json.getJSONArray("estados");
+        for (int i = 0; i < jsonArray.length(); i++) {
+            this.estados.add(new Estado(jsonArray.getJSONObject(i)));
+        }
+    }
+
+    // constructor que recibe unicamente el numero de guía
+    public Envio(String Envio) {
         this();
         setNroGuia(nroGuia);
-
     }
 
-    public Envio(double peso, boolean fragil, String contenido, double valorDeclarado,
-            Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
-
-        this(Utils.getRandomKey(5), peso, fragil, contenido, valorDeclarado, destinatario, remitente, estados);
-
-    }
-
-    public Envio(JSONObject envioJson) {
-
-        this.nroGuia = envioJson.getString("nroGuia");
-        this.peso = envioJson.getDouble("peso");
-        this.fragil = envioJson.getBoolean("fragil");
-        this.contenido = envioJson.getString("contenido");
-        this.valorDeclarado = envioJson.getDouble("valorDeclarado");
-        JSONObject remitenteJson = envioJson.getJSONObject("remitente");
-        this.remitente = new Cliente(remitenteJson);
-        JSONObject destinatarioJson = envioJson.getJSONObject("destinatario");
-        this.destinatario = new Cliente(destinatarioJson);
-        JSONArray listaEstados = envioJson.getJSONArray("estados");
-
-        for (int i = 0; i < listaEstados.length(); i++) {
-
-            this.estados.add(new Estado(listaEstados.getJSONObject(i)));
-
-        }
-
-    }
-
-    public void setContenido(String contenido) {
-        this.contenido = contenido;
-    }
-
-    public String getContenido() {
-        return contenido;
-    }
-
-    public void setDestinatario(Cliente destinatario) {
-        this.destinatario = destinatario;
-    }
-
-    public Cliente getDestinatario() {
-        return destinatario;
-    }
-
-    public void setFragil(boolean fragil) {
-        this.fragil = fragil;
-    }
-
-    public void setNroGuia(String nroGuia) {
-        this.nroGuia = nroGuia;
+    // constructor con valor aleatorio para nroGuia
+    public Envio(String contenido, boolean fragil, int peso, int valorDeclarado, Cliente destinatario,
+            Cliente remitente, ArrayList<Estado> estados) {
+        this(Utils.getRandomKey(5), contenido, fragil, peso, valorDeclarado, destinatario, remitente, estados);
     }
 
     public String getNroGuia() {
         return nroGuia;
     }
 
-    public void setPeso(double peso) {
-        this.peso = peso;
+    public void setNroGuia(String nroGuia) {
+        this.nroGuia = nroGuia;
     }
 
-    public double getPeso() {
+    public String getContenido() {
+        return contenido;
+    }
+
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
+    }
+
+    public boolean isFragil() {
+        return fragil;
+    }
+
+    public void setFragil(boolean fragil) {
+        this.fragil = fragil;
+    }
+
+    public int getPeso() {
         return peso;
     }
 
-    public void setRemitente(Cliente remitente) {
-        this.remitente = remitente;
+    public void setPeso(int peso) {
+        this.peso = peso;
     }
 
-    public void setValorDeclarado(double valorDeclarado) {
+    public int getValorDeclarado() {
+        return valorDeclarado;
+    }
+
+    public void setValorDeclarado(int valorDeclarado) {
         this.valorDeclarado = valorDeclarado;
+    }
+
+    public Cliente getDestinatario() {
+        return destinatario;
+    }
+
+    public void setDestinatario(Cliente destinatario) {
+        this.destinatario = destinatario;
     }
 
     public Cliente getRemitente() {
         return remitente;
     }
 
-    public double getValorDeclarado() {
-        return valorDeclarado;
+    public void setRemitente(Cliente remitente) {
+        this.remitente = remitente;
+    }
+
+    public ArrayList<Estado> getEstados() {
+        return estados;
+    }
+
+    public void setEstados(ArrayList<Estado> estados) {
+        this.estados = estados;
     }
 
     public String getTipo() {
-
         return this.getClass().getSimpleName();
     }
 
     @Override
-    public JSONObject toJSONObject() {
-
-        return new JSONObject(this);
-    }
-
-    @Override
     public double getCosto() {
-
         throw new UnsupportedOperationException("Unimplemented method 'getCosto'");
     }
 
     @Override
-    public String toJSON() {
+    public JSONObject toJSONObject() {
+        return new JSONObject(this);
 
-        return (new JSONObject(this)).toString(2);
     }
 
     @Override
+    public String toJSON() {
+        return (new JSONObject(this)).toString(8);
+    }
+
     public int hashCode() {
         return super.hashCode();
     }
 
     @Override
-    public boolean equals(Object obj) {
-
-        if (this == obj) {
+    public boolean equals(Object object) {
+        if (this == object) {
             return true;
         }
-
-        if (obj == null) {
+        if (object == null) {
             return false;
         }
-
-        if (this.getClass() != obj.getClass()) {
+        if (getClass() != (object.getClass())) {
             return false;
         }
-
-        Envio e = (Envio) obj;
-        return this.nroGuia.equals(e.nroGuia);
-
+        Envio envio = (Envio) object;
+        return this.nroGuia != null && this.nroGuia.equals(envio.nroGuia);
     }
 
+    public String getIdEnvio() {
+        return this.nroGuia;
+    }
 }

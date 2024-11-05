@@ -15,20 +15,16 @@ public class Cliente implements Exportable {
 
     public Cliente() {
 
-        id = "00000";
-        nombre = "Nn";
-        direccion = "///";
-        telefono = "12345";
-        ciudad = "null";
+        this(Utils.getRandomKey(5),"","","","");
 
     }
 
     public Cliente(String id, String nombre, String direccion, String ciudad, String telefono) {
-        this.id = id;
-        this.nombre = nombre;
-        this.direccion = direccion;
-        this.ciudad = ciudad;
-        this.telefono = telefono;
+        setId(id);
+        setNombre(nombre);
+        setDireccion(direccion);
+        setCiudad(ciudad);
+        setTelefono(telefono);
     }
 
     public Cliente(Cliente c) {

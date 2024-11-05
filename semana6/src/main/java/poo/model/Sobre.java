@@ -2,7 +2,6 @@ package poo.model;
 
 import java.util.ArrayList;
 
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import poo.helpers.Utils;
@@ -15,8 +14,8 @@ public class Sobre extends Envio {
 
     }
 
-    public Sobre(boolean certificado, String nroGuia, double peso, boolean fragil, String contenido,
-            double valorDeclarado,
+    public Sobre(boolean certificado, String nroGuia, int peso, boolean fragil, String contenido,
+            int valorDeclarado,
             Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
         this.certificado = certificado;
@@ -43,7 +42,7 @@ public class Sobre extends Envio {
         setNroGuia(nroGuia);
     }
 
-    public Sobre(boolean certificado, double peso, boolean fragil, String contenido, double valorDeclarado,
+    public Sobre(boolean certificado, int peso, boolean fragil, String contenido, int valorDeclarado,
             Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
         this(certificado, Utils.getRandomKey(5), peso, fragil, contenido, valorDeclarado, destinatario, remitente,
@@ -52,23 +51,7 @@ public class Sobre extends Envio {
 
     public Sobre(JSONObject sobreJson) {
 
-        this.certificado = sobreJson.getBoolean("certificado");
-        this.nroGuia = sobreJson.getString("nroGuia");
-        this.peso = sobreJson.getDouble("peso");
-        this.fragil = sobreJson.getBoolean("fragil");
-        this.contenido = sobreJson.getString("contenido");
-        this.valorDeclarado = sobreJson.getDouble("valorDeclarado");
-        JSONObject remitenteJson = sobreJson.getJSONObject("remitente");
-        this.remitente = new Cliente(remitenteJson);
-        JSONObject destinatarioJson = sobreJson.getJSONObject("destinatario");
-        this.destinatario = new Cliente(destinatarioJson);
-        JSONArray listaEstados = sobreJson.getJSONArray("estados");
-
-        for (int i = 0; i < listaEstados.length(); i++) {
-
-            this.estados.add(new Estado(listaEstados.getJSONObject(i)));
-
-        }
+        super(sobreJson);
     }
 
     public void setCertificado(boolean certificado) {
@@ -78,7 +61,18 @@ public class Sobre extends Envio {
     @Override
     public double getCosto() {
 
-        throw new UnsupportedOperationException("Unimplemented method 'getCosto'");
+        double smlv = 1300000;
+        double costo = 0;
+
+        if (certificado = true) {
+            costo = Math.round(smlv / 1000) * 2;
+            costo += (costo * 10) / 100;
+
+        } else {
+            costo = Math.round((smlv / 1000) * 2);
+        }
+
+        return costo;
     }
 
     @Override
@@ -91,5 +85,13 @@ public class Sobre extends Envio {
     public JSONObject toJSONObject() {
         return new JSONObject(this);
     }
+
+    public boolean isCertificado() {
+        return certificado;
+    }
+
+    
+
+    
 
 }

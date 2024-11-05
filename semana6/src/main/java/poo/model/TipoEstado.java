@@ -42,7 +42,7 @@ public enum TipoEstado {
             jsonAr.put(
                     new JSONObject()
                             .put("ordinal", l.ordinal())
-                            .put("key", l)
+                            .put("key", l.name())
                             .put("value", l.value));
 
         }

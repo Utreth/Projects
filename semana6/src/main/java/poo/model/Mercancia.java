@@ -15,66 +15,45 @@ public class Mercancia implements Costeable, Exportable {
     private LocalDateTime fechaHoraIngreso;
     private LocalDateTime fechaHoraSalida;
     private String bodega;
-    private Cliente usuario;
+    private Cliente cliente;
 
     public Mercancia() {
-
-        id = "00000";
-        contenido = "null";
-        ancho = 0;
-        alto = 0;
-        largo = 0;
-        fechaHoraIngreso = LocalDateTime.now();
-        fechaHoraSalida = LocalDateTime.now().plusDays(2);
-        bodega = "null";
-        usuario = new Cliente();
-
+        this(Utils.getRandomKey(5), new Cliente(), "", 0, 0, 0, LocalDateTime.now().minusYears(100),
+                LocalDateTime.now(), "");
     }
 
-    public Mercancia(String id, String contenido, double ancho, double alto, double largo,
-            LocalDateTime fechaHoraIngreso, LocalDateTime fechaHoraSalida, String bodega, Cliente usuario) {
-        this.id = id;
-        this.contenido = contenido;
-        this.ancho = ancho;
-        this.alto = alto;
-        this.largo = largo;
-        this.fechaHoraIngreso = fechaHoraIngreso;
-        this.fechaHoraSalida = fechaHoraSalida;
-        this.bodega = bodega;
-        this.usuario = usuario;
-    }
-
-    public Mercancia(Mercancia m) {
-
-        this(m.id, m.contenido, m.ancho, m.alto, m.largo, m.fechaHoraIngreso, m.fechaHoraSalida, m.bodega, m.usuario);
+    public Mercancia(String id, Cliente cliente, String contenido, double ancho, double alto, double largo,
+            LocalDateTime fechaHoraIngreso, LocalDateTime fechaHoraSalida, String bodega) {
+        setId(id);
+        setCliente(cliente);
+        setContenido(contenido);
+        setAncho(ancho);
+        setAlto(alto);
+        setLargo(largo);
+        setFechaHoraIngreso(fechaHoraIngreso);
+        setFechaHoraSalida(fechaHoraSalida);
+        setBodega(bodega);
     }
 
     public Mercancia(String id) {
-        this();
-        setId(id);
+        this(id, new Cliente(), "", 10, 10, 10, LocalDateTime.now().minusYears(100), LocalDateTime.now(), "");
     }
 
-    public Mercancia(String contenido, double ancho, double alto, double largo, LocalDateTime fechaHoraIngreso,
-            LocalDateTime fechaHoraSalida, String bodega, Cliente usuario) {
-        this(Utils.getRandomKey(5), contenido, ancho, alto, largo, fechaHoraIngreso, fechaHoraSalida, bodega, usuario);
-
+    public Mercancia(Cliente cliente, String contenido, double ancho, double alto, double largo,
+            LocalDateTime fechaHoraIngreso, LocalDateTime fechaHoraSalida, String bodega) {
+        this(Utils.getRandomKey(5), new Cliente(), "", 0, 0, 0, LocalDateTime.now().minusYears(100),
+                LocalDateTime.now(), "");
     }
 
-    public Mercancia(JSONObject mercanciaJson) {
+    public Mercancia(Mercancia m) {
+        this(m.id, m.cliente, m.contenido, m.ancho, m.alto, m.largo, m.fechaHoraIngreso, m.fechaHoraSalida, m.bodega);
+    }
 
-        this.id = mercanciaJson.getString("id");
-        this.contenido = mercanciaJson.getString("contenido");
-        this.ancho = mercanciaJson.getDouble("ancho");
-        this.alto = mercanciaJson.getDouble("alto");
-        this.largo = mercanciaJson.getDouble("largo");
-        this.bodega = mercanciaJson.getString("bodega");
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
-        String fechaIngresoStr = mercanciaJson.getString("fechaHoraIngreso");
-        this.fechaHoraIngreso = LocalDateTime.parse(fechaIngresoStr, formato);
-        String fechaSalidaStr = mercanciaJson.getString("fechaHoraSalida");
-        this.fechaHoraSalida = LocalDateTime.parse(fechaSalidaStr, formato);
-        JSONObject clienteJson = mercanciaJson.getJSONObject("usuario");
-        this.usuario = new Cliente(clienteJson);
+    public Mercancia(JSONObject json) {
+        this(json.getString("id"), new Cliente(json.getJSONObject("cliente")), json.getString("contenido"),
+                json.getDouble("ancho"), json.getDouble("alto"), json.getDouble("largo"),
+                LocalDateTime.parse(json.getString("fechaHoraIngreso")),
+                LocalDateTime.parse(json.getString("fechaHoraSalida")), json.getString("bodega"));
     }
 
     public double getAlto() {
@@ -141,12 +120,12 @@ public class Mercancia implements Costeable, Exportable {
         this.largo = largo;
     }
 
-    public Cliente getUsuario() {
-        return usuario;
+    public Cliente getCliente() {
+        return cliente;
     }
 
-    public void setUsuario(Cliente usuario) {
-        this.usuario = usuario;
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
     }
 
     @Override
@@ -180,7 +159,7 @@ public class Mercancia implements Costeable, Exportable {
                 ", Fecha de Ingreso=" + fechaHoraIngreso.format(formatter) +
                 ", Fecha de Salida=" + fechaHoraSalida.format(formatter) +
                 ", Bodega='" + bodega + '\'' +
-                ", Cliente=" + usuario + 
+                ", Cliente=" + cliente +
                 '}';
     }
 

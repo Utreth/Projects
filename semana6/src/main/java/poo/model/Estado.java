@@ -1,34 +1,42 @@
 package poo.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.json.JSONObject;
 
 public class Estado {
 
     private LocalDateTime fecha;
-    TipoEstado estadoEnvio;
+    private TipoEstado tipoEstado;
 
     public Estado() {
 
     }
 
-    public Estado(LocalDateTime fecha, TipoEstado estadoEnvio) {
+    public Estado(TipoEstado tipoEstado, LocalDateTime fecha) {
 
-        this.estadoEnvio = estadoEnvio;
-        this.fecha = fecha;
+        setTipoEstado(tipoEstado);
+        setFecha(fecha);
     }
 
-    public Estado(JSONObject estadoJson) {
-
+    public Estado(Estado estado) {
+        this(estado.tipoEstado, estado.fecha);
     }
 
-    public TipoEstado getEstadoEnvio() {
-        return estadoEnvio;
+    public Estado(JSONObject json) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
+        String fechaStr = json.getString("fecha");
+        this.fecha = LocalDateTime.parse(fechaStr, formato);
+        this.tipoEstado = json.getEnum(TipoEstado.class, "tipoEstado");
     }
 
-    public void setEstadoEnvio(TipoEstado estadoEnvio) {
-        this.estadoEnvio = estadoEnvio;
+    public TipoEstado getTipoEstado() {
+        return tipoEstado;
+    }
+
+    public void setTipoEstado(TipoEstado tipoEstado) {
+        this.tipoEstado = tipoEstado;
     }
 
     public LocalDateTime getFecha() {
@@ -44,4 +52,17 @@ public class Estado {
         return new JSONObject(this);
 
     }
+
+    public String toJSON() {
+        return (new JSONObject(this)).toString(8);
+    }
+
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    public String getIdEstado() {
+        return String.valueOf(super.hashCode());
+    }
+
 }

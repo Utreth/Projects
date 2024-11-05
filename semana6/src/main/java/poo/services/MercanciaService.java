@@ -1,10 +1,10 @@
 package poo.services;
 
 import java.io.IOException;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -58,22 +58,23 @@ public class MercanciaService implements Service<Mercancia> {
     public JSONObject get(String id) throws Exception {
         int i = list.indexOf(new Mercancia(id));
         return i > -1 ? get(i) : null;
+        
     }
 
     @Override
     public Mercancia getItem(String id) throws Exception {
         int i = list.indexOf(new Mercancia(id));
-        return i > -1 ? list.get(i) : null;
+        return i > -1 ? list.get(i) : null;         
     }
 
     @Override
     public JSONObject getAll() {
         try {
             JSONArray data = new JSONArray(Utils.readText(fileName));
-            return new JSONObject().put("message", "ok").put("data", data);
+            return new JSONObject().put("message", "ok").put("data", data).put("lenght", data.length());
         } catch (IOException | JSONException e) {
             Utils.printStackTrace(e);
-            return Utils.keyValueToJson("message", "Sin acceso a datos de mercancias", "error", e.getMessage());
+            return Utils.keyValueToJson("message", "Sin acceso a datos de envios", "error", e.getMessage());
         }
     }
 
@@ -112,7 +113,7 @@ public class MercanciaService implements Service<Mercancia> {
 
         }
 
-        mercancia = new Mercancia(aux);
+        mercancia = getUpdated(aux, mercancia);
         list.set(i, mercancia);
 
         Utils.writeJSON(list, fileName);
@@ -122,8 +123,20 @@ public class MercanciaService implements Service<Mercancia> {
 
     @Override
     public JSONObject remove(String id) throws Exception {
-        // si un cliente está registrado en mercancías o en envíos, no se puede borrar
-        throw new UnsupportedOperationException("¡Peligro! operación de eliminación aún no soportada por seguridad");
+        JSONObject mercancia = get(id);
+        if (mercancia == null) {
+            throw new NoSuchElementException("No existe una mercancia con la identificación " + id);
+        }
+
+        Mercancia c = new Mercancia(mercancia);
+        exists(mercancia);
+
+        if (!list.remove(c)) {
+            throw new Exception(String.format("No se pudo eliminar la mercancia con identificación %s", id));
+        }
+
+        Utils.writeJSON(list, fileName);
+        return new JSONObject().put("message", "ok").put("data", mercancia);
     }
 
     @Override
@@ -131,40 +144,124 @@ public class MercanciaService implements Service<Mercancia> {
         return Mercancia.class;
     }
 
+    @Override
     public Mercancia dataToAddOk(String strJson) throws Exception {
-
         JSONObject json = new JSONObject(strJson);
-        Mercancia mercancia = new Mercancia();
 
         if (!json.has("id")) {
-            json.put("id", Utils.getRandomKey(5));
+            json.put("id", Utils.getRandomKey(8));
         }
 
-        String id = Utils.stringOk("id", 5, json);
-        String contenido = Utils.stringOk("contenido", 1, json);
-        double ancho = Utils.doubleOK("ancho", 0.1, 500.0, json);
-        double alto = Utils.doubleOK("alto", 0.1, 500.0, json);
-        double largo = Utils.doubleOK("largo", 0.1, 500.0, json);
-        LocalDateTime fechaHoraIngreso = LocalDateTime.parse(Utils.stringOk("fechaHoraIngreso", 1, json));
-        LocalDateTime fechaHoraSalida = LocalDateTime.parse(Utils.stringOk("fechaHoraSalida", 1, json));
-        String bodega = Utils.stringOk("bodega", 1, json);
+        Utils.stringOk("id", 8, json);
 
-        String clienteId = Utils.stringOk("cliente", 5, json);
-        Cliente usuario = new Cliente();
-        usuario.setId(clienteId);
+        updateCliente(json);
 
-        mercancia.setId(clienteId);
-        mercancia.setContenido(contenido);
-        mercancia.setAncho(ancho);
-        mercancia.setAlto(alto);
-        mercancia.setLargo(largo);
-        mercancia.setFechaHoraIngreso(fechaHoraIngreso);
-        mercancia.setFechaHoraSalida(fechaHoraSalida);
-        mercancia.setBodega(bodega);
-        mercancia.setUsuario(usuario);
+        Utils.stringOk("contenido", 4, json);
+        Utils.stringOk("bodega", 10, json);
+        Utils.doubleOK("ancho", 0.1, 2.44, json);
+        Utils.doubleOK("alto", 0.1, 2.59, json);
+        Utils.doubleOK("largo", 0.1, 12.19, json);
 
-        return new Mercancia(id, contenido, ancho, alto, largo, fechaHoraIngreso, fechaHoraSalida, bodega, usuario);
+        LocalDateTime ingreso = LocalDateTime.parse(json.getString("fechaHoraIngreso"));
+        LocalDateTime salida = LocalDateTime.parse(json.getString("fechaHoraSalida"));
 
+        if (!ingreso.isBefore(salida)) {
+            throw new IllegalArgumentException("La fecha de ingreso debe ser inferior a la de salida");
+        }
+
+        Mercancia m = new Mercancia(json);
+        if (list.contains(m)) {
+            throw new ArrayStoreException(String.format("La mercancía %s ya existe", m.getId()));
+        }
+
+        return m;
+    }
+
+    private void updateCliente(JSONObject json) throws Exception {
+        // buscar la instancia del cliente correspondiente al ID del cliente dado en la
+        // petición
+        String idCliente = json.getString("cliente");
+        JSONObject jsonCliente = clientes.get(idCliente);
+        // reemplazar el ID del cliente por el objeto JSON con la info completa de éste
+        json.put("cliente", jsonCliente);
+    }
+
+    @Override
+    public Mercancia getUpdated(JSONObject newData, Mercancia current) throws Exception {
+
+        JSONObject update = new JSONObject(current);
+
+        try {
+            if (newData.has("cliente")) {
+                
+                updateCliente(newData);
+
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Error al determinar el cliente propietario de la mercancía " + e);
+        }
+
+        if (newData.has("contenido")){
+
+            update.put("contenido", Utils.stringOk("contenido", 4, newData));
+        }
+
+        if (newData.has("ancho")) {
+
+            update.put("ancho", Utils.doubleOK("ancho", 0.1, 2.44, newData));
+        }
+
+        if (newData.has("alto")) {
+
+            update.put("alto", Utils.doubleOK("alto", 0.1, 2.59, newData));
+        }
+
+        if (newData.has("largo")) {
+
+            update.put("largo", Utils.doubleOK("largo", 0.1, 12.19, newData));
+        }
+
+        LocalDateTime ingreso = LocalDateTime.parse(update.getString("fechaHoraIngreso"));
+        LocalDateTime salida = LocalDateTime.parse(update.getString("fechaHoraSalida"));
+
+        if (!ingreso.isBefore(salida)) {
+            throw new IllegalArgumentException("La fecha de ingreso debe ser inferior a la de salida");
+        }
+
+        if (newData.has("fechaHoraIngreso")) {
+            update.put("fechaHoraIngreso", Utils.stringOk("fechaHoraIngreso", 16, newData));
+        }
+        if (newData.has("fechaHoraSalida")) {
+            update.put("fechaHoraSalida", Utils.stringOk("fechaHoraSalida", 16, newData));
+        }
+
+        return new Mercancia(update);
+    }
+
+    private void exists(JSONObject mercancia) throws Exception {
+        String id = mercancia.getString("id");
+
+        // buscar el cliente en mercancias y si existe no permitir eliminarlo
+        if (Utils.exists(Utils.PATH + "Mercancia", "cliente", mercancia)) {
+            throw new Exception(String.format("No eliminado. El cliente %s tiene mercancías registradas", id));
+        }
+
+        // buscar el cliente en mercancia y si existe no permitir eliminarlo
+        exists("cliente", mercancia);
+
+    }
+
+    private void exists(String filename, JSONObject mercancia) throws Exception {
+        if (Utils.exists(Utils.PATH + filename, "cliente", mercancia)) {
+            throw new Exception(String.format("No eliminado. El cliente %s está registrado en mercancias de tipo %s",
+                    mercancia.getString("id"), filename));
+        }
+    }
+
+    @Override
+    public JSONObject size() {
+
+        return new JSONObject().put("size", list.size());
     }
 
 }
