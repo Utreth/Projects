@@ -1,0 +1,210 @@
+// Agregue a este archivo todas y cada una de las peticiones HTTP que se requieren para pruebas
+// de lo contrario se utilizará uno por defecto con todas las peticiones de pruebas necesarias.
+// Si su archivo de pruebas no está completo, también se utilizará  el archivo por defecto.
+
+
+### Tenga en cuenta que debe asignar el puerto correcto de salida
+
+@url = http://localhost:7070
+
+### listar los estados de los envíos
+GET {{url}}/envio/estados
+### obtener conteo de registros de clientes
+GET {{url}}/cliente/conteo
+### obtener conteo de registros de clientes
+GET {{url}}/mercancia/conteo
+### obtener conteo de registros de clientes
+GET {{url}}/paquete/conteo
+### obtener conteo de registros de clientes
+GET {{url}}/bulto/conteo
+### obtener conteo de registros de clientes
+GET {{url}}/sobre/conteo
+### obtener conteo de registros de clientes
+GET {{url}}/caja/conteo
+
+// ---------------------- CRUD DE CLIENTES ----------------------
+
+### agregar un cliente con ID conocido
+POST {{url}}/cliente
+Content-Type: application/json; charset=utf-8
+
+{
+    "id": "C0003",
+    "nombre": "Antonio Guevara",
+    "direccion": "Centro avenida 21",
+    "telefono": "3209876543",
+    "ciudad": "Bogota"
+}
+
+### agregar un cliente con ID desconocido
+POST {{url}}/cliente
+Content-Type: application/json; charset=utf-8
+
+{
+    "nombre": "Mateo Martinez",
+    "direccion": "Mercaldas La Fuente",
+    "telefono": "3126542879",
+    "ciudad": "Villamaria"
+}
+
+### listar todos los cliente registrados
+GET {{url}}/cliente
+
+### Buscar un cliente dado su índice
+GET {{url}}/cliente/indice/0
+
+### Buscar un cliente dado su ID
+GET {{url}}/cliente/id/0A7FQ
+
+### Buscar por ID y actualizar algunos o todos los datos de un cliente
+PATCH {{url}}/cliente/C0001
+Content-Type: application/json; charset=utf-8
+
+{
+  "nombre": "Andres Juan",
+  "direccion": "Laboratorio de física cuántica, LFCB",
+  "telefono": "3115550001",
+  "ciudad": "Bogotá"
+}
+
+### Eliminar un cliente dado su ID
+DELETE {{url}}/cliente/0F7SD
+
+// ---------------------- CRUD DE MERCANCÍAS ----------------------
+
+### agregar mercancía (para mercancía, el ID se autogenera siempre)
+POST {{url}}/mercancia
+Content-Type: application/json; charset=utf-8
+
+{
+    "contenido": "Bultos de cebolla",
+    "ancho": 1.0,
+    "alto": 1.4,
+    "largo": 2,
+    "fechaHoraIngreso": "2024-10-12T12:00",
+    "fechaHoraSalida": "2024-10-12T20:00",
+    "bodega": "Zona industrial La Enea, Manizales",
+    "cliente": "C0002"
+}
+
+### listar todas las mercancías registradas en depósito
+GET {{url}}/mercancia
+
+### Buscar una mercancía dado su índice
+GET {{url}}/mercancia/indice/1
+
+### Buscar una mercancía dado su ID
+GET {{url}}/mercancia/id/PQAUF351
+
+### Buscar por ID y actualizar algunos o todos los datos de una mercancía en depósito
+PATCH {{url}}/mercancia/SACD4FIR
+Content-Type: application/json; charset=utf-8
+
+{
+    "contenido": "500 unidades de arándanos deshidratados x 500 gramos",
+    "ancho": 2.1,
+    "alto": 2.5,
+    "largo": 2.5,
+    "fechaHoraIngreso": "2024-10-07T12:00",
+    "fechaHoraSalida": "2024-10-20T12:00",
+    "bodega": "Zona industrial Juanchito, Bogotá",
+    "cliente": "C0003"
+}
+
+### Eliminar una mercancía dado su ID
+DELETE {{url}}/mercancia/SACD4FIR
+
+// ---------------------- CRUD DE PAQUETES ----------------------
+
+### agregar paquete (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/paquete
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 200,
+    "fragil": true,
+    "contenido": "Componentes electrónicos",
+    "valorDeclarado": 200000,
+    "remitente": "C0001",
+    "destinatario": "0F7SD",
+}
+
+### listar todos los paquetes
+GET {{url}}/paquete
+
+### Buscar un paquete dado su índice
+GET {{url}}/paquete/indice/0
+
+### Buscar un paquete dado su número de guía
+GET {{url}}/paquete/id/9HIYTC8R
+
+// ---------------------- CRUD DE BULTOS ----------------------
+### agregar bulto (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/bulto
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 200,
+    "fragil": true,
+    "contenido": "Componentes electrónicos",
+    "valorDeclarado": 200000,
+    "remitente": "C0001",
+    "destinatario": "C0002",
+}
+
+### listar todos los paquetes
+GET {{url}}/bulto
+
+### Buscar un paquete dado su índice
+GET {{url}}/bulto/indice/0
+
+### Buscar un paquete dado su número de guía
+GET {{url}}/bulto/id/V8BTR1GD
+// ---------------------- CRUD DE CAJAS ----------------------
+
+### agregar caja (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/caja
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 300,
+    "fragil": true,
+    "contenido": "Componentes varios",
+    "valorDeclarado": 60000,
+    "remitente": "C0001",
+    "destinatario": "C0003",
+    "ancho": 1.5,
+    "alto": 2.5,
+    "largo": 2.5,
+}
+
+### listar todas las cajas
+GET {{url}}/caja
+
+### Buscar una caja dado su índice
+GET {{url}}/caja/indice/0
+
+### Buscar una caja dado su número de guía
+GET {{url}}/caja/id/VBW4JLJH
+
+
+// ---------------------- CRUD DE SOBRES ----------------------
+
+### agregar sobre (para envíos, el nroGuia y el 1er estado se generan automáticamente)
+POST {{url}}/sobre
+Content-Type: application/json; charset=utf-8
+
+{
+    "remitente": "C0001",
+    "destinatario": "C0002",
+    
+}
+
+### listar todos los sobres
+GET {{url}}/sobre
+
+### Buscar un sobre dado su índice
+GET {{url}}/sobre/indice/0
+
+### Buscar un sobre dado su número de guía
+GET {{url}}/sobre/id/0MPYKXJP

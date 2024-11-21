@@ -1,0 +1,47 @@
+form {
+  width: 510px;
+  padding: 40px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+}
+input,
+select,
+button {
+  display: block;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  box-sizing: border-box;
+  font-size: 15px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+p {
+  display: none;
+  font-size: 12px;
+  margin: 0;
+  transform: translateY(-10px);
+  color: #666;
+}
+input:focus + p {
+  display: block;
+}
+
+input:focus + p {
+  display: block;
+}
+
+button {
+  display: inline;
+  width: 19%;
+  border: none;
+  background-color: #8bc34a;
+  color: #fff;
+}
+
+#update {
+  width: 20%;
+  background-color: #b30000;
+}

@@ -1,0 +1,44 @@
+<!-- 
+    Formulario para la adición y edición de clientes
+    Note que cada <input> tiene un ID que lo identifica de manera única.
+    Consulte en https://www.w3schools.com/html/html_form_input_types.asp los tipos de cada <input>
+    Consulte también en https://www.w3schools.com/html/html_form_attributes.asp los atributos utlizados aquí
+    Con base en este formulario puede implementar los demás que se requieren
+ -->
+ <form id="form-clientes">
+  <fieldset>
+    <!-- IMPORTANTE: no es necesario mostrar el ID de las mercancías, por eso type="hidden"  -->
+    <div class="row mx-1 my-0">
+      <div class="col">
+        <div class="form-group">
+          <label for="disponible" class="form-label my-0">ID</label>
+          <input type="text" class="form-control" id="id" name="id" placeholder="Asignación automática" disabled />
+        </div>
+      </div>
+
+      <div class="col-8">
+        <div class="form-group">
+          <label for="ciudad" class="form-label my-0">Ciudades</label>
+          <select class="form-select" id="ciudad" name="ciudad"></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mx-3 mt-2">
+      <label for="nombre" class="form-label my-0">Nombre Cliente</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre del cliente" minlength="4" maxlength="150" required />
+    </div>
+
+
+    <div class="form-group mx-3 mt-2">
+      <label for="direccion" class="form-label my-0">direccion</label>
+      <input type="text" class="form-control" id="direccion" name="direccion" placeholder="Direccion" minlength="10" maxlength="200" required />
+    </div>
+
+
+    <div class="form-group mx-3 mt-2">
+      <label for="telefono" class="form-label my-0">telefono</label>
+      <input type="text" class="form-control" id="telefono" name="telefono" placeholder="Telefono" minlength="10" maxlength="200" required />
+    </div>
+  </fieldset>
+</form>

@@ -1,0 +1,122 @@
+[
+  {
+    "cliente": {
+      "ciudad": "Bogota",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "contenido": "Bultos de papa 1",
+    "costo": 10000,
+    "volumen": 1,
+    "fechaHoraSalida": "2024-11-16T21:04",
+    "ancho": 1,
+    "dias": 1,
+    "largo": 1,
+    "id": "HGTYUIOK",
+    "alto": 1,
+    "bodega": "Villamaria, la floresta",
+    "fechaHoraIngreso": "2024-11-16T20:04"
+  },
+  {
+    "cliente": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0001",
+      "telefono": "3020489211",
+      "nombre": "Armando Puertas"
+    },
+    "contenido": "Bultos de papa",
+    "costo": 8784000,
+    "volumen": 14.4,
+    "fechaHoraSalida": "2024-10-07T12:00",
+    "ancho": 2,
+    "dias": 61,
+    "largo": 3,
+    "id": "HDRD8TLS",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-08-07T12:00"
+  },
+  {
+    "cliente": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3136547689",
+      "nombre": "Pepito Perez"
+    },
+    "contenido": "Bultos de naranja",
+    "costo": 2880000,
+    "volumen": 9.6,
+    "fechaHoraSalida": "2024-10-07T12:00",
+    "ancho": 2,
+    "dias": 30,
+    "largo": 2,
+    "id": "8PZGGEBZ",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-09-07T12:00"
+  },
+  {
+    "cliente": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3136547689",
+      "nombre": "Pepito Perez"
+    },
+    "contenido": "Bultos de naranja",
+    "costo": 2880000,
+    "volumen": 9.6,
+    "fechaHoraSalida": "2024-10-07T12:00",
+    "ancho": 2,
+    "dias": 30,
+    "largo": 2,
+    "id": "A0W4L7YP",
+    "alto": 2.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-09-07T12:00"
+  },
+  {
+    "cliente": {
+      "ciudad": "Manizales",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3136547689",
+      "nombre": "Pepito Perez"
+    },
+    "contenido": "Bultos de cebolla",
+    "costo": 28000,
+    "volumen": 2.8,
+    "fechaHoraSalida": "2024-10-12T20:00",
+    "ancho": 1,
+    "dias": 1,
+    "largo": 2,
+    "id": "1UQI7839",
+    "alto": 1.4,
+    "bodega": "Zona industrial La Enea, Manizales",
+    "fechaHoraIngreso": "2024-10-12T12:00"
+  },
+  {
+    "cliente": {
+      "ciudad": "Bogota",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "contenido": "Cajas y sobres y cajas",
+    "costo": 10000,
+    "volumen": 1,
+    "fechaHoraSalida": "2024-11-18T16:46",
+    "ancho": 1,
+    "dias": 1,
+    "largo": 1,
+    "id": "QEXKTNGX",
+    "alto": 1,
+    "bodega": "Villamaria",
+    "fechaHoraIngreso": "2024-11-18T15:46"
+  }
+]

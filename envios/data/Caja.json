@@ -1,0 +1,386 @@
+[
+  {
+    "contenido": "Componentes varios",
+    "tipo": "Caja",
+    "costo": 180000,
+    "peso": 300,
+    "nroGuia": "YK8OFPNL",
+    "remitente": {
+      "ciudad": "Bogotá",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 2.5,
+    "idEnvio": "YK8OFPNL",
+    "estados": [{
+      "fecha": "2024-11-18T19:03:52",
+      "idEstado": "443108200",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "Bogota",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "ancho": 1.5,
+    "fragil": true,
+    "valorDeclarado": 60000,
+    "largo": 2.5
+  },
+  {
+    "contenido": "Componentes electronicos",
+    "tipo": "Caja",
+    "costo": 20000,
+    "peso": 10,
+    "nroGuia": "5JYW845J",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 1.5,
+    "idEnvio": "5JYW845J",
+    "estados": [{
+      "fecha": "2024-11-21T08:55:40",
+      "idEstado": "1144803510",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "ancho": 1.3,
+    "fragil": false,
+    "valorDeclarado": 60000,
+    "largo": 1.5
+  },
+  {
+    "contenido": "adadadasdadsadas",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "7GDUUC4Z",
+    "remitente": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "alto": 1,
+    "idEnvio": "7GDUUC4Z",
+    "estados": [{
+      "fecha": "2024-11-21T08:56:03",
+      "idEstado": "52847937",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Enea",
+      "id": "N620W",
+      "telefono": "3115550002",
+      "nombre": " Andrés García"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 100,
+    "largo": 1
+  },
+  {
+    "contenido": "asdasdsadsadsadsada",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "7F09AW6G",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 1,
+    "idEnvio": "7F09AW6G",
+    "estados": [{
+      "fecha": "2024-11-21T08:57:56",
+      "idEstado": "1966215630",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Enea",
+      "id": "N620W",
+      "telefono": "3115550002",
+      "nombre": " Andrés García"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 100,
+    "largo": 1
+  },
+  {
+    "contenido": "asdasdasdasdasdasdasd",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "DLG3KXYP",
+    "remitente": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Fuente",
+      "id": "A08LI",
+      "telefono": "3126542879",
+      "nombre": "Mateo Martinez"
+    },
+    "alto": 1,
+    "idEnvio": "DLG3KXYP",
+    "estados": [{
+      "fecha": "2024-11-21T09:06:41",
+      "idEstado": "1814457762",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 100,
+    "largo": 1
+  },
+  {
+    "contenido": "asdasdadasd",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "3GUMLCI5",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 1,
+    "idEnvio": "3GUMLCI5",
+    "estados": [{
+      "fecha": "2024-11-21T09:07:15",
+      "idEstado": "2022842587",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 100,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 177000,
+    "peso": 330,
+    "nroGuia": "XCVTBIBY",
+    "remitente": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "alto": 1,
+    "idEnvio": "XCVTBIBY",
+    "estados": [{
+      "fecha": "2024-11-21T09:12:28",
+      "idEstado": "1225179296",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Enea",
+      "id": "N620W",
+      "telefono": "3115550002",
+      "nombre": " Andrés García"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 1000000,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "6YYRS71U",
+    "remitente": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Enea",
+      "id": "N620W",
+      "telefono": "3115550002",
+      "nombre": " Andrés García"
+    },
+    "alto": 1,
+    "idEnvio": "6YYRS71U",
+    "estados": [{
+      "fecha": "2024-11-21T09:22:13",
+      "idEstado": "1031546558",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "ancho": 1,
+    "fragil": true,
+    "valorDeclarado": 1000,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "XPNBKJHU",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 1,
+    "idEnvio": "XPNBKJHU",
+    "estados": [{
+      "fecha": "2024-11-21T09:22:31",
+      "idEstado": "1371755819",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "ancho": 1,
+    "fragil": true,
+    "valorDeclarado": 20000,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "BDS8Q1NO",
+    "remitente": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "alto": 1,
+    "idEnvio": "BDS8Q1NO",
+    "estados": [{
+      "fecha": "2024-11-21T09:26:06",
+      "idEstado": "942962954",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Enea",
+      "id": "N620W",
+      "telefono": "3115550002",
+      "nombre": " Andrés García"
+    },
+    "ancho": 1,
+    "fragil": true,
+    "valorDeclarado": 20000,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 12000,
+    "peso": 0,
+    "nroGuia": "IIPW4446",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro avenida 21",
+      "id": "C0003",
+      "telefono": "3209876543",
+      "nombre": "Antonio Guevara"
+    },
+    "alto": 1,
+    "idEnvio": "IIPW4446",
+    "estados": [{
+      "fecha": "2024-11-21T09:26:39",
+      "idEstado": "314509375",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "MANIZALES CALDAS",
+      "direccion": "Mercaldas La Fuente",
+      "id": "A08LI",
+      "telefono": "3126542879",
+      "nombre": "Mateo Martinez"
+    },
+    "ancho": 1,
+    "fragil": false,
+    "valorDeclarado": 1000,
+    "largo": 1
+  },
+  {
+    "contenido": "Motor v8",
+    "tipo": "Caja",
+    "costo": 62000,
+    "peso": 100,
+    "nroGuia": "UBUKC1AQ",
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan"
+    },
+    "alto": 1,
+    "idEnvio": "UBUKC1AQ",
+    "estados": [{
+      "fecha": "2024-11-21T09:37:08",
+      "idEstado": "871142782",
+      "tipoEstado": "RECIBIDO"
+    }],
+    "destinatario": {
+      "ciudad": "ABEJORRAL ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Pepito Perez"
+    },
+    "ancho": 1,
+    "fragil": true,
+    "valorDeclarado": 1000000,
+    "largo": 1
+  }
+]

@@ -1,0 +1,20 @@
+@import './form.css';
+
+header,
+footer {
+  position: fixed;
+  width: 100%;
+}
+
+header {
+  top: 0;
+}
+
+footer {
+  bottom: 0;
+}
+
+main {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
