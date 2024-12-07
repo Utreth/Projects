@@ -21,7 +21,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 import org.json.Property;
 
-import poo.model.Cliente;
 
 public class Utils {
 
@@ -52,6 +51,7 @@ public class Utils {
   }
 
   /**
+   * 
    * Genera un string de caracteres alfanuméricos aleatorios de una longitud dada
    * Ver: https://www.baeldung.com/java-random-string
    * 
@@ -277,7 +277,7 @@ public class Utils {
     if (!(value.length() >= longitud)) {
 
       throw new IllegalArgumentException(
-        String.format("Se esperaban al menos %d caracteres: key='%s', value='%s'", longitud, key, value));
+          String.format("Se esperaban al menos %d caracteres: key='%s', value='%s'", longitud, key, value));
 
     }
 
@@ -285,7 +285,7 @@ public class Utils {
 
   }
 
-  public static double doubleOK(String key, double min, double max, JSONObject jsonObj) {
+  public static double doubleOk(String key, double min, double max, JSONObject jsonObj) {
 
     double value = jsonObj.getDouble(key);
 
@@ -297,6 +297,31 @@ public class Utils {
     }
 
     return value;
+
+  }
+
+  public static void existsCliente(String fileName, String key, JSONObject search) throws Exception {
+    if (!Utils.fileExists(PATH + fileName + ".json")) {
+      throw new IllegalArgumentException();
+    }
+    String data = readText(PATH + fileName + ".json");
+    JSONArray jsonArrayData = new JSONArray(data);
+
+    for (int i = 0; i < jsonArrayData.length(); i++) {
+      // obtener el JSONObject del array en la iteración actual
+      JSONObject jsonObj = jsonArrayData.getJSONObject(i);
+
+      if (jsonObj.has(key)) {
+        // De la instancia actual obtener el objeto JSON que se requiere verificar
+        jsonObj = jsonObj.getJSONObject(key);
+        // OJO >>> utilizar una de las propiedades de los objetos para hacer la
+        // comparación
+        if (jsonObj.optString("id").equals(search.optString("id"))) {
+          jsonArrayData.getJSONObject(i).put(key, search);
+        }
+      }
+    }
+    writeText(jsonArrayData.toString(2), PATH + fileName + ".json");
 
   }
 

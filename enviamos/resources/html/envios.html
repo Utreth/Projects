@@ -1,0 +1,78 @@
+<!-- 
+    Formulario para la adición y edición de envios
+    Note que cada <input> tiene un ID que lo identifica de manera única.
+    Consulte en https://www.w3schools.com/html/html_form_input_types.asp los tipos de cada <input>
+    Consulte también en https://www.w3schools.com/html/html_form_attributes.asp los atributos utlizados aquí
+    https://www.youtube.com/watch?v=hl_Twm8PJec (validaciones)
+    https://lenguajehtml.com/html/validaciones/validaciones-html5/ (validaciones)
+    Con base en este formulario puede implementar los demás que se requieren
+ -->
+ <form id="form-envios">
+    <fieldset>
+      <!-- IMPORTANTE: no es necesario mostrar el ID de las envios, por eso type="hidden"  -->
+      <div class="row mx-1 my-0">
+        <div class="col">
+          <div class="form-group">
+            <label for="disponible" class="form-label my-0">Número de guía</label>
+            <input type="text" class="form-control" id="nroGuia" name="nroGuia" placeholder="Asignación automática" disabled />
+          </div>
+        </div>
+
+        <div id = "div-certificado" class="col-4" style = "visibility: hidden;">
+          <div class="form-group mt-4 p-2 float-end">
+            <label for="certificado" class="form-check-label">Certificado</label>
+            <input type="checkbox"  id="certificado" class="form-check-input" name="certificado">
+          </div>
+        </div>
+
+        <div class="col-2">
+          <div class="form-group mt-4 p-2 float-end">
+            <label for="fragil" class="form-check-label">Frágil</label>
+            <input type="checkbox"  id="fragil" class="form-check-input" name="fragil">
+          </div>
+        </div>
+
+      </div>
+        
+      <div class="row mx-1">
+        <div class="col">
+          <div class="form-group">
+            <label for="remitente" class="form-label mt-2 mb-0">Remitente</label>
+            <select class="form-select" id="remitente" name="remitente"></select>
+          </div>
+        </div>
+      
+
+      <div class="col">
+        <div class="form-group">
+          <label for="destinatario" class="form-label mt-2 mb-0">Destinatario</label>
+          <select class="form-select" id="destinatario" name="destinatario"></select>
+        </div>
+      </div>
+    </div>
+  
+      <div class="form-group mx-3 mt-2">
+        <label for="contenido" class="form-label">Dice contener</label>
+        <input type="text" class="form-control" id="contenido" name="contenido" minlength="4" maxlength="150" required />
+      </div>
+  
+      <div id = "div-peso-valor" class="row mx-1 mt-2">
+        <div class="col">
+          <div class="form-group">
+            <label for="peso" class="form-label mt-2 mb-0">Peso</label>
+            <input type="number" class="form-control" id="peso" name="peso" value="0.0" min="0.0" max="1000.0" step="0.01" required />
+          </div>
+        </div>
+  
+        <div class="col">
+          <div class="form-group"></div>
+          <label for="valorDeclarado" class="form-label mt-2 mb-0">Valor declarado</label>
+          <input type="number" class="form-control" id="valorDeclarado" name="valorDeclarado" value="0.0" min="0.0" max="10000000.0" step="1000" required />
+        </div>
+      </div>
+
+    </fieldset>
+ 
+  </form>
+
+  

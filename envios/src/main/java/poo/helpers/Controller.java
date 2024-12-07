@@ -21,6 +21,8 @@ public class Controller<T> {
     // para generalizar, se utiliza el nombre de la clase como endPoit
     currentPath = service.getDataType().getSimpleName();
 
+    
+
     path(
         currentPath.toLowerCase(),
         () -> {
@@ -78,4 +80,6 @@ public class Controller<T> {
     System.out.println(
         String.format("%s>> Creados los endpoints para %sService%s", Utils.BLUE, currentPath, Utils.RESET));
   }
+
+  
 }

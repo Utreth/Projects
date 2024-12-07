@@ -39,13 +39,13 @@ class App {
     window.editButton = `${icons.editWhite}&nbsp;&nbsp;<span>Actualizar</span>`
     window.deleteButton = `${icons.deleteWhite}<span>Eliminar</span>`
     window.cancelButton = `${icons.xLg}<span>Cancelar</span>`
-    window.tableHeight = 'calc(100vh - 190px)' // la altura de todos los elementos de tipo Tabulator que mostrará la aplicación
-
+    window.tableHeight = 'calc(100vh - 320px)' // la altura de todos los elementos de tipo Tabulator que mostrará la aplicación
+    window.tableHeight2 = ''// la altura para el tabulador de estados
     try {
       // confirmación de acceso a la API REST
       const response = await Helpers.fetchJSON(`${urlAPI}/`)
       if (response.message === 'ok') {
-        Toast.show({ title: 'Hola', message: response.data, duration: 2000 })
+        Toast.show({ title: 'Envios chilly', message: response.data, duration: 1000 })
         App.#mainMenu()
       } else {
         Toast.show({ message: 'Problemas con el servidor de datos', mode: 'danger', error: response })
@@ -74,7 +74,6 @@ class App {
 
           switch (option) {
             case 'Inicio':
-              document.querySelector('main').innerText = ''
               break
             case 'Clientes':
               // importar dinámicamente el módulo clientes.mjs
@@ -89,18 +88,34 @@ class App {
             case 'Envio':
               break
             case 'Paquetes':
-              // importar dinámicamente el módulo paquetes.mjs
-              const { default: Paquetes } = await import('./paquetes.mjs')
-              Paquetes.init()
+              // importar dinámicamente el módulo envios.mjs
+              const { default: Paquetes } = await import('./envios.mjs')
+              Paquetes.init('paquete')
+              break
+            case 'Sobres':
+              // importar dinámicamente el módulo envios.mjs
+              const { default: Sobres } = await import('./envios.mjs')
+              Sobres.init('sobre')
+              break
+            case 'Bultos':
+              // importar dinámicamente el módulo envios.mjs
+              const { default: Bultos } = await import('./envios.mjs')
+              Bultos.init('bulto')
               break
             case 'Cajas':
               // importar dinámicamente el módulo Cajas.mjs
               const { default: Cajas } = await import('./cajas.mjs')
               Cajas.init()
               break
+            
+              case 'Estados':
+                const { default: Estados } = await import('./estados.mjs')
+                Estados.init()        
+              break
 
             case 'Acerca de...':
-              Toast.show({ message: `No implementada la opción de ${option}`, mode: 'warning' })
+              const { default: Cv } = await import('./cv.mjs')
+              Cv.init()
               break
             default:
               if (option !== 'Envíos') {

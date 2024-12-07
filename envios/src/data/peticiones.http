@@ -29,7 +29,7 @@ POST {{url}}/cliente
 Content-Type: application/json; charset=utf-8
 
 {
-    "id": "C0003",
+    "id": "C0006",
     "nombre": "Antonio Guevara",
     "direccion": "Centro avenida 21",
     "telefono": "3209876543",
@@ -51,17 +51,17 @@ Content-Type: application/json; charset=utf-8
 GET {{url}}/cliente
 
 ### Buscar un cliente dado su índice
-GET {{url}}/cliente/indice/0
+GET {{url}}/cliente/indice/1
 
 ### Buscar un cliente dado su ID
-GET {{url}}/cliente/id/0A7FQ
+GET {{url}}/cliente/id/C0003
 
 ### Buscar por ID y actualizar algunos o todos los datos de un cliente
-PATCH {{url}}/cliente/C0001
+PATCH {{url}}/cliente/C0003
 Content-Type: application/json; charset=utf-8
 
 {
-  "nombre": "Andres Juan",
+  "nombre": "Jose Guevara Murcia",
   "direccion": "Laboratorio de física cuántica, LFCB",
   "telefono": "3115550001",
   "ciudad": "Bogotá"
@@ -97,7 +97,7 @@ GET {{url}}/mercancia/indice/1
 GET {{url}}/mercancia/id/PQAUF351
 
 ### Buscar por ID y actualizar algunos o todos los datos de una mercancía en depósito
-PATCH {{url}}/mercancia/SACD4FIR
+PATCH {{url}}/mercancia/HGTYUIOK
 Content-Type: application/json; charset=utf-8
 
 {
@@ -108,7 +108,7 @@ Content-Type: application/json; charset=utf-8
     "fechaHoraIngreso": "2024-10-07T12:00",
     "fechaHoraSalida": "2024-10-20T12:00",
     "bodega": "Zona industrial Juanchito, Bogotá",
-    "cliente": "C0003"
+    "cliente": "C0001"
 }
 
 ### Eliminar una mercancía dado su ID
@@ -121,12 +121,18 @@ POST {{url}}/paquete
 Content-Type: application/json; charset=utf-8
 
 {
-    "peso": 200,
+    "peso": 280,
     "fragil": true,
-    "contenido": "Componentes electrónicos",
-    "valorDeclarado": 200000,
+    "contenido": "Paquete con Proteina",
+    "valorDeclarado": 30000,
     "remitente": "C0001",
-    "destinatario": "0F7SD",
+    "destinatario": "C0002",
+    "estados":[{
+        "tipoEstado": "EN_PREPARACION",
+        "fecha": "2025-09-08T20:29:44",
+    }
+   
+    ]
 }
 
 ### listar todos los paquetes
@@ -185,7 +191,23 @@ GET {{url}}/caja
 GET {{url}}/caja/indice/0
 
 ### Buscar una caja dado su número de guía
-GET {{url}}/caja/id/VBW4JLJH
+GET {{url}}/caja/id/5JYW845J
+
+### Buscar por numero de guia y actualizar algunos o todos los datos de un envio 
+PATCH {{url}}/caja/UWBJ1EEM
+Content-Type: application/json; charset=utf-8
+
+{
+    "peso": 300,
+    "fragil": true,
+    "contenido": "Componentes varios 2",
+    "valorDeclarado": 60000,
+    "remitente": "C0001",
+    "destinatario": "C0003",
+    "ancho": 1.5,
+    "alto": 2.5,
+    "largo": 2.5,
+}
 
 
 // ---------------------- CRUD DE SOBRES ----------------------
@@ -197,6 +219,7 @@ Content-Type: application/json; charset=utf-8
 {
     "remitente": "C0001",
     "destinatario": "C0002",
+        
     
 }
 
@@ -207,4 +230,36 @@ GET {{url}}/sobre
 GET {{url}}/sobre/indice/0
 
 ### Buscar un sobre dado su número de guía
-GET {{url}}/sobre/id/0MPYKXJP
+GET {{url}}/sobre/id/7NLMAD6O
+
+### Buscar por numero de guia y actualizar algunos o todos los datos de un sobre 
+PATCH {{url}}/sobre/FX3SGQVJ
+Content-Type: application/json; charset=utf-8
+
+{
+    "contenido": "Componentes varios 22",
+    "remitente": "C0001",
+    "destinatario": "C0003",
+    
+}
+
+
+####
+PATCH {{url}}/sobre/7NLMAD6O
+
+{
+  "estados": [
+    {
+        "fecha": "2024-12-06T14:17:37",
+        "idEstado": "744114501",
+        "tipoEstado": "EN_PREPARACION"
+      },
+    {
+      "tipoEstado": "ENVIADO",
+      "fecha": "2024-12-09T11:29:33"
+    },
+    
+  ]
+}
+
+

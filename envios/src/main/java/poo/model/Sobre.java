@@ -11,6 +11,8 @@ public class Sobre extends Envio {
     private boolean certificado;
 
     public Sobre() {
+        super();
+        this.certificado = false;
 
     }
 
@@ -18,15 +20,15 @@ public class Sobre extends Envio {
             int valorDeclarado,
             Cliente destinatario, Cliente remitente, ArrayList<Estado> estados) {
 
-        this.certificado = certificado;
-        this.nroGuia = nroGuia;
-        this.peso = peso;
-        this.fragil = fragil;
-        this.contenido = contenido;
-        this.valorDeclarado = valorDeclarado;
-        this.destinatario = destinatario;
-        this.remitente = remitente;
-        this.estados = estados;
+        setCertificado(certificado);
+        setNroGuia(nroGuia);
+        setPeso(peso);
+        setFragil(fragil);
+        setContenido(contenido);
+        setValorDeclarado(valorDeclarado);
+        setDestinatario(destinatario);
+        setRemitente(remitente);
+        setEstados(estados);
     }
 
     public Sobre(Sobre copiaSobre) {
@@ -52,6 +54,7 @@ public class Sobre extends Envio {
     public Sobre(JSONObject sobreJson) {
 
         super(sobreJson);
+        setCertificado(sobreJson.getBoolean("certificado"));
     }
 
     public void setCertificado(boolean certificado) {
@@ -66,7 +69,7 @@ public class Sobre extends Envio {
 
         if (certificado = true) {
             costo = Math.round(smlv / 1000) * 2;
-            costo += (costo * 10) / 100;
+            costo = (costo * 10) / 100;
 
         } else {
             costo = Math.round((smlv / 1000) * 2);
@@ -90,8 +93,24 @@ public class Sobre extends Envio {
         return certificado;
     }
 
-    
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
 
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (this.getClass() != obj.getClass()) {
+            return false;
+        }
+        Sobre so = (Sobre) obj;
+        return this.nroGuia.equals(so.nroGuia);
+    }
 
 }

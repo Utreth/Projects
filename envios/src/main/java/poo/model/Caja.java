@@ -102,25 +102,25 @@ public class Caja extends Envio {
 
     @Override
     public double getCosto() {
-        double volumen = getAncho() * getLargo() * getAlto();
+        double vol = getAncho() * getLargo() * getAlto();
         double costo = 0f;
-        if (volumen <= 0.5) {
+        if (vol <= 0.5) {
             costo = (10000 + (500 * getPeso()));
         }
-        if (volumen <= 1.0 && volumen > 0.5) {
+        if (vol <= 1.0 && vol > 0.5) {
             costo = (12000 + (500 * getPeso()));
         }
-        if (volumen <= 3.0 && volumen > 1.0) {
+        if (vol <= 3.0 && vol > 1.0) {
             costo = (15000 + (500 * getPeso()));
         }
-        if (volumen <= 6.0 && volumen > 3.0) {
+        if (vol <= 6.0 && vol > 3.0) {
             costo = (25000 + (500 * getPeso()));
         }
-        if (volumen <= 10.0 && volumen > 6.0) {
+        if (vol <= 10.0 && vol > 6.0) {
             costo = (30000 + (500 * getPeso()));
         }
-        if (volumen > 10.0) {
-            costo = (10000 * (volumen / 10) + (500 * getPeso()));
+        if (vol > 10.0) {
+            costo = (10000 * (vol / 10) + (500 * getPeso()));
         }
         return costo;
     }

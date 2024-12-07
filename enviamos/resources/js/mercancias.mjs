@@ -38,23 +38,23 @@ export default class Mercancias {
       Mercancias.#table = new Tabulator('#table-container', {
         height: tableHeight, // establecer la altura para habilitar el DOM virtual y mejorar la velocidad de procesamiento
         data: response.data,
-        layout: 'fitColumns', // ajustar columnas al ancho disponible. También fitData|fitDataFill|fitDataStretch|fitDataTable|fitColumns
+        layout: 'fitDataTable', // ajustar columnas al ancho disponible. También fitData|fitDataFill|fitDataStretch|fitDataTable|fitColumns
         columns: [
           // definir las columnas de la tabla, para tipos datetime se utiliza formatDateTime definido en index.mjs
           { formatter: editRowButton, width: 40, hozAlign: 'center', cellClick: Mercancias.#editRowClick },
           { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Mercancias.#deleteRowClick },
-          { title: 'Id', field: 'id', hozAlign: 'center', width: 90 },
-          { title: 'Cliente', field: 'cliente.nombre', width: 180 },
-          { title: 'Dice contener', field: 'contenido', width: 200 },
-          { title: 'Ingreso', field: 'fechaHoraIngreso', width: 180, formatter: 'datetime', formatterParams: formatDateTime },
-          { title: 'Salida', field: 'fechaHoraSalida', width: 180, formatter: 'datetime', formatterParams: formatDateTime },
-          { title: 'Días', field: 'dias', hozAlign: 'center', width: 65 },
+          { title: 'Id', field: 'id', hozAlign: 'center', width: 120 },
+          { title: 'Cliente', field: 'cliente.nombre', hozAlign: 'center', width: 212 },
+          { title: 'Dice contener', field: 'contenido', hozAlign: 'center', width: 300 },
+          { title: 'Ingreso', field: 'fechaHoraIngreso', width: 200, hozAlign: 'center', formatter: 'datetime', formatterParams: formatDateTime },
+          { title: 'Salida', field: 'fechaHoraSalida', width: 200, hozAlign: 'center', formatter: 'datetime', formatterParams: formatDateTime },
+          { title: 'Días', field: 'dias', hozAlign: 'center', width: 80 },
           { title: 'Alto', field: 'volumen', hozAlign: 'center', visible: false },
           { title: 'Ancho', field: 'volumen', hozAlign: 'center', visible: false },
           { title: 'Largo', field: 'volumen', hozAlign: 'center', visible: false },
           { title: 'Vol. m³', field: 'volumen', hozAlign: 'center', width: 80 },
-          { title: 'Costo', field: 'costo', hozAlign: 'center', width: 100, formatter: 'money', formatterParams: { precision: 0 } },
-          { title: 'Bodega', field: 'bodega', width: 230 },
+          { title: 'Costo', field: 'costo', hozAlign: 'center', width: 150, formatter: 'money', formatterParams: { precision: 0 } },
+          { title: 'Bodega', field: 'bodega', width: 250 },
         ],
         responsiveLayout: false, // activado el scroll horizontal, también: ['hide'|true|false]
         initialSort: [
@@ -86,7 +86,7 @@ export default class Mercancias {
       content: Mercancias.#form,
       buttons: [
         { caption: editButton, classes: 'btn btn-primary me-2', action: () => Mercancias.#edit(cell) },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.close() },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.remove() },
       ],
       doSomething: idModal => Mercancias.#displayDataOnForm(idModal, cell.getRow().getData()),
     })
@@ -94,7 +94,6 @@ export default class Mercancias {
   }
 
   static #deleteRowClick = async (e, cell) => {
-    
     Mercancias.#currentOption = 'delete'
     //console.log(cell.getRow().getData())
 
@@ -109,7 +108,7 @@ export default class Mercancias {
         </span>`,
       buttons: [
         { caption: deleteButton, classes: 'btn btn-primary me-2', action: () => Mercancias.#delete(cell) },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.close() },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.remove() },
       ],
       //doSomething: Mercancias.#displayDataOnForm,
     })
@@ -124,7 +123,7 @@ export default class Mercancias {
       content: Mercancias.#form,
       buttons: [
         { caption: addButton, classes: 'btn btn-primary me-2', action: () => Mercancias.#add() },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.close() },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.remove() },
       ],
       doSomething: Mercancias.#displayDataOnForm,
     })
@@ -134,7 +133,7 @@ export default class Mercancias {
   static async #add() {
     try {
       // verificar si los datos cumplen con las restricciones indicadas en el formulario HTML
-      if (!Helpers.okForm('#form-mercancias')) {
+      if (!Helpers.okForm('#form-mercancias', Mercancias.#otherValidations)) {
         return
       }
 
@@ -161,9 +160,10 @@ export default class Mercancias {
   }
 
   static async #edit(cell) {
+    1
     try {
       // verificar si los datos cumplen con las restricciones indicadas en el formulario HTML
-      if (!Helpers.okForm('#form-mercancias')) {
+      if (!Helpers.okForm('#form-mercancias', Mercancias.#otherValidations)) {
         return
       }
 
@@ -183,6 +183,7 @@ export default class Mercancias {
       if (response.message === 'ok') {
         Mercancias.#table.addRow(response.data) // agregar la mercancía a la tabla
         Mercancias.#modal.remove()
+        cell.getRow().delete()
         Toast.show({ message: 'Mercancia actualizada exitosamente' })
       } else {
         Toast.show({ message: 'No se pudo actualizar la mercancia', mode: 'danger', error: response })
@@ -256,5 +257,19 @@ export default class Mercancias {
       fechaHoraSalida: document.querySelector(`#${Mercancias.#modal.id} #salida`).value,
       bodega: document.querySelector(`#${Mercancias.#modal.id} #bodega`).value,
     }
+  }
+
+  static #otherValidations() {
+    // Referencie los elementos <select> remitente y destinatario
+
+    const cliente = document.querySelector('#cliente')
+    
+
+    if (!cliente.value) {
+      Toast.show({ message: 'Falta seleccionar un cliente', mode: 'warning' })
+      return false
+    }
+
+    return true
   }
 }

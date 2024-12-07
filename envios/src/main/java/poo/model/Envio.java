@@ -47,6 +47,7 @@ public abstract class Envio implements Costeable, Exportable {
         this.fragil = json.getBoolean("fragil");
         this.peso = json.getInt("peso");
         this.valorDeclarado = json.getInt("valorDeclarado");
+        
 
         JSONObject remitenteJson = json.getJSONObject("remitente");
         this.remitente = new Cliente(remitenteJson);

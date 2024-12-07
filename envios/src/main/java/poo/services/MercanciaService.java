@@ -94,12 +94,12 @@ public class MercanciaService implements Service<Mercancia> {
     @Override
     public JSONObject update(String id, String strJson) throws Exception {
         JSONObject json = new JSONObject(strJson);
-        // Buscar el cliente que se debe actualizar
+        // Buscar la mercancia que se debe actualizar
         Mercancia mercancia = getItem(id);
         int i = list.indexOf(mercancia);
 
         if (mercancia == null) {
-            throw new NullPointerException("No se encontro el cliente" + id);
+            throw new NullPointerException("No se encontro la mercancia" + id);
         }
 
         JSONObject aux = mercancia.toJSONObject();
@@ -159,9 +159,9 @@ public class MercanciaService implements Service<Mercancia> {
 
         Utils.stringOk("contenido", 4, json);
         Utils.stringOk("bodega", 10, json);
-        Utils.doubleOK("ancho", 0.1, 2.44, json);
-        Utils.doubleOK("alto", 0.1, 2.59, json);
-        Utils.doubleOK("largo", 0.1, 12.19, json);
+        Utils.doubleOk("ancho", 0.1, 2.44, json);
+        Utils.doubleOk("alto", 0.1, 2.59, json);
+        Utils.doubleOk("largo", 0.1, 12.19, json);
 
         LocalDateTime ingreso = LocalDateTime.parse(json.getString("fechaHoraIngreso"));
         LocalDateTime salida = LocalDateTime.parse(json.getString("fechaHoraSalida"));
@@ -196,6 +196,7 @@ public class MercanciaService implements Service<Mercancia> {
             if (newData.has("cliente")) {
                 
                 updateCliente(newData);
+                update.put("cliente", newData.getJSONObject("cliente"));
 
             }
         } catch (Exception e) {
@@ -209,17 +210,17 @@ public class MercanciaService implements Service<Mercancia> {
 
         if (newData.has("ancho")) {
 
-            update.put("ancho", Utils.doubleOK("ancho", 0.1, 2.44, newData));
+            update.put("ancho", Utils.doubleOk("ancho", 0.1, 2.44, newData));
         }
 
         if (newData.has("alto")) {
 
-            update.put("alto", Utils.doubleOK("alto", 0.1, 2.59, newData));
+            update.put("alto", Utils.doubleOk("alto", 0.1, 2.59, newData));
         }
 
         if (newData.has("largo")) {
 
-            update.put("largo", Utils.doubleOK("largo", 0.1, 12.19, newData));
+            update.put("largo", Utils.doubleOk("largo", 0.1, 12.19, newData));
         }
 
         LocalDateTime ingreso = LocalDateTime.parse(update.getString("fechaHoraIngreso"));

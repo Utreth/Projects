@@ -35,16 +35,16 @@ export default class Clientes {
       Clientes.#table = new Tabulator('#table-container', {
         height: tableHeight, // establecer la altura para habilitar el DOM virtual y mejorar la velocidad de procesamiento
         data: response.data,
-        layout: 'fitColumns', // ajustar columnas al ancho disponible. También fitData|fitDataFill|fitDataStretch|fitDataTable|fitColumns
+        layout: 'fitDataTable', // ajustar columnas al ancho disponible. También fitData|fitDataFill|fitDataStretch|fitDataTable|fitColumns
         columns: [
           // definir las columnas de la tabla, para tipos datetime se utiliza formatDateTime definido en index.mjs
           { formatter: editRowButton, width: 40, hozAlign: 'center', cellClick: Clientes.#editRowClick },
           { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Clientes.#deleteRowClick },
-          { title: 'Id', field: 'id', hozAlign: 'center', width: 150 },
-          { title: 'Nombre', field: 'nombre', width: 300, hozAlign: 'center' },
-          { title: 'Direccion', field: 'direccion', width: 300, hozAlign: 'center' },
-          { title: 'Telefono', field: 'telefono', hozAlign: 'center', width: 200 },
-          { title: 'Ciudad', field: 'ciudad', hozAlign: 'center', width: 200 },
+          { title: 'Id', field: 'id', hozAlign: 'center', width: 213 },
+          { title: 'Nombre', field: 'nombre', width: 345, hozAlign: 'center' },
+          { title: 'Direccion', field: 'direccion', width: 345, hozAlign: 'center' },
+          { title: 'Telefono', field: 'telefono', hozAlign: 'center', width: 345 },
+          { title: 'Ciudad', field: 'ciudad', hozAlign: 'center', width: 345 },
         ],
         responsiveLayout: false, // activado el scroll horizontal, también: ['hide'|true|false]
         // mostrar al final de la tabla un botón para agregar registros
@@ -160,6 +160,8 @@ export default class Clientes {
       if (response.message === 'ok') {
         Clientes.#table.addRow(response.data) // agregar el cliente a la tabla
         Clientes.#modal.remove()
+        cell.getRow().delete()
+
         Toast.show({ message: 'Cliente actualizado exitosamente' })
       } else {
         Toast.show({ message: 'No se pudo actualizar el cliente', mode: 'danger', error: response })
@@ -171,7 +173,7 @@ export default class Clientes {
 
   static async #delete(cell) {
     try {
-      const url = `${urlAPI}/caja/${cell.getRow().getData().id}`
+      const url = `${urlAPI}/cliente/${cell.getRow().getData().id}`
 
       //enviar la solicitud de eliminacion
       let response = await Helpers.fetchJSON(url, {
@@ -179,14 +181,14 @@ export default class Clientes {
       })
 
       if (response.message === 'ok') {
-        Toast.show({ message: 'Mercancia eliminada exitosamente' })
+        Toast.show({ message: 'Cliente eliminado exitosamente' })
         cell.getRow().delete()
         Clientes.#modal.close()
       } else {
-        Toast.show({ message: 'No se pudo eliminar la mercancia', mode: 'danger', error: response })
+        Toast.show({ message: 'No se pudo eliminar el cliente', mode: 'danger', error: response })
       }
     } catch (e) {
-      Toast.show({ message: 'Problemas al eliminar la mercancia', mode: 'danger', error: e })
+      Toast.show({ message: 'Problemas al eliminar el cliente', mode: 'danger', error: e })
     }
   }
 

@@ -1,21 +1,18 @@
 package poo.services;
 
-import poo.model.Envio;
 import poo.helpers.Utils;
 import poo.model.Cliente;
-import poo.model.Estado;
-import poo.model.Mercancia;
+import poo.model.Envio;
 import poo.model.TipoEstado;
-
-import java.io.IOException;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.NoSuchElementException;
-
+import poo.model.Estado;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.io.IOException;
+import java.time.LocalDateTime;
 
 public class EnvioService implements Service<Envio> {
 
@@ -63,21 +60,27 @@ public class EnvioService implements Service<Envio> {
         Utils.stringOk("nroGuia", 8, json);
 
         if (!(json.has("estados"))) {
-            Estado estado = new Estado(TipoEstado.RECIBIDO, LocalDateTime.now().withNano(0));
+            Estado estado = new Estado(TipoEstado.EN_PREPARACION, LocalDateTime.now().withNano(0));
             JSONArray estados = new JSONArray();
             estados.put(estado.toJSONObject());
             json.put("estados", estados);
         }
+
         if (!(json.has("fragil"))) {
 
             json.put("fragil", false);
         }
+
+        if (!(json.has("certificado"))) {
+
+            json.put("certificado", false);
+        }
+
         updateCliente(json, "remitente");
         updateCliente(json, "destinatario");
-
         Utils.stringOk("contenido", 3, json);
-        Utils.doubleOK("peso", 0.0, 500, json);
-        Utils.doubleOK("valorDeclarado", 0, 10000000, json);
+        Utils.doubleOk("peso", 0.0, 500, json);
+        Utils.doubleOk("valorDeclarado", 0, 10000000, json);
         Envio envio = subclase.getConstructor(JSONObject.class).newInstance(json);
         String idRemitente = json.getJSONObject("remitente").getString("id");
         String idDestinatario = json.getJSONObject("destinatario").getString("id");
@@ -149,58 +152,75 @@ public class EnvioService implements Service<Envio> {
             throw new IllegalStateException(String.format("Un envio con estado %s no puede ser cambiado", estado));
         }
 
-        if (newData.has("estados")) {
-            System.out.println(String.format("Importante: no se permite modificar los estados de un envio de tipo %s",
-                    current.getTipo()));
-            newData.remove("estados");
+        // if (newData.has("estados")) {
+        // System.out.println(String.format("Importante: no se permite modificar los
+        // estados de un envio de tipo %s",
+        // current.getTipo()));
+        // newData.remove("estados");
+        // }
+
+        JSONObject updated = new JSONObject(current);
+
+        try {
+            if (newData.has("remitente")) {
+
+                updateCliente(newData, "remitente");
+                updated.put("remitente", newData.getJSONObject("remitente"));
+
+            }
+            if (newData.has("destinatario")) {
+                updateCliente(newData, "destinatario");
+                updated.put("destinatario", newData.getJSONObject("destinatario"));
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("Error al determinar el cliente propietario del envio " + e);
         }
 
-        updateCliente(newData, "remitente");
-        updateCliente(newData, "destinatario");
-
-        JSONObject update = new JSONObject(current);
+        if (newData.has("estados")) {
+            updated.put("estados", newData.getJSONArray("estados"));
+        }
 
         if (newData.has("peso")) {
 
-            update.put("peso", Utils.doubleOK("peso", 0, 1000, newData));
+            updated.put("peso", Utils.doubleOk("peso", 0, 1000, newData));
         }
 
         if (newData.has("fragil")) {
-            update.put("fragil", newData);
+            boolean fragilValue = newData.getBoolean("fragil");
+            updated.put("fragil", fragilValue);
         }
 
         if (newData.has("contenido")) {
 
-            update.put("contenido", Utils.stringOk("contenido", 4, newData));
+            updated.put("contenido", Utils.stringOk("contenido", 4, newData));
         }
 
         if (newData.has("valorDeclarado")) {
 
-            update.put("valorDeclarado", Utils.doubleOK("valorDeclarado", 0, 1000000, newData));
-        }
-
-        if (newData.has("certificado")) {
-            update.put("certificado", newData);
+            updated.put("valorDeclarado", Utils.doubleOk("valorDeclarado", 0, 1000000, newData));
         }
 
         if (newData.has("ancho")) {
 
-            update.put("ancho", Utils.doubleOK("ancho", 0.1, 2.44, newData));
+            updated.put("ancho", Utils.doubleOk("ancho", 0.1, 2.44, newData));
         }
 
         if (newData.has("alto")) {
 
-            update.put("alto", Utils.doubleOK("alto", 0.1, 2.59, newData));
+            updated.put("alto", Utils.doubleOk("alto", 0.1, 2.59, newData));
         }
 
         if (newData.has("largo")) {
 
-            update.put("largo", Utils.doubleOK("largo", 0.1, 12.19, newData));
+            updated.put("largo", Utils.doubleOk("largo", 0.1, 12.19, newData));
         }
 
-        
+        if (newData.has("certificado")) {
+            updated.put("certificado", newData.getBoolean("certificado"));
+        }
+        Envio envio = subclase.getConstructor(JSONObject.class).newInstance(updated);
 
-        return null;
+        return envio;
     }
 
     @Override
@@ -225,7 +245,7 @@ public class EnvioService implements Service<Envio> {
             throw new NoSuchElementException("No existe un envio con la identificación " + nroGuia);
         }
 
-        Envio c = subclase.getConstructor(JSONObject.class).newInstance(subclase);
+        Envio c = subclase.getConstructor(JSONObject.class).newInstance(envio);
         exists(envio);
 
         if (!list.remove(c)) {
@@ -238,6 +258,7 @@ public class EnvioService implements Service<Envio> {
 
     @Override
     public JSONObject update(String nroGuia, String strJson) throws Exception {
+
         JSONObject newData = new JSONObject(strJson);
 
         Envio envio = subclase.cast(getItem(nroGuia));
@@ -279,7 +300,7 @@ public class EnvioService implements Service<Envio> {
         if (Utils.exists(Utils.PATH + filename, "remitente", cliente)
                 || Utils.exists(Utils.PATH + filename, "destinatario", cliente)) {
             throw new Exception(String.format("No eliminado. El cliente %s está registrado en envíos de tipo %s",
-                    cliente.getString("id"), filename));
+                    cliente.getString("nroGuia"), filename));
         }
     }
 }

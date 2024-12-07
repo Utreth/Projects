@@ -1,71 +1,31 @@
 [
   {
     "cliente": {
-      "ciudad": "Bogota",
-      "direccion": "Centro avenida 21",
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0003",
-      "telefono": "3209876543",
-      "nombre": "Antonio Guevara"
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
     },
     "contenido": "Bultos de papa 1",
-    "costo": 10000,
-    "volumen": 1,
+    "costo": 10700,
+    "volumen": 1.07,
     "fechaHoraSalida": "2024-11-16T21:04",
     "ancho": 1,
     "dias": 1,
     "largo": 1,
     "id": "HGTYUIOK",
-    "alto": 1,
+    "alto": 1.07,
     "bodega": "Villamaria, la floresta",
     "fechaHoraIngreso": "2024-11-16T20:04"
   },
   {
     "cliente": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0001",
-      "telefono": "3020489211",
-      "nombre": "Armando Puertas"
-    },
-    "contenido": "Bultos de papa",
-    "costo": 8784000,
-    "volumen": 14.4,
-    "fechaHoraSalida": "2024-10-07T12:00",
-    "ancho": 2,
-    "dias": 61,
-    "largo": 3,
-    "id": "HDRD8TLS",
-    "alto": 2.4,
-    "bodega": "Zona industrial La Enea, Manizales",
-    "fechaHoraIngreso": "2024-08-07T12:00"
-  },
-  {
-    "cliente": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3136547689",
-      "nombre": "Pepito Perez"
-    },
-    "contenido": "Bultos de naranja",
-    "costo": 2880000,
-    "volumen": 9.6,
-    "fechaHoraSalida": "2024-10-07T12:00",
-    "ancho": 2,
-    "dias": 30,
-    "largo": 2,
-    "id": "8PZGGEBZ",
-    "alto": 2.4,
-    "bodega": "Zona industrial La Enea, Manizales",
-    "fechaHoraIngreso": "2024-09-07T12:00"
-  },
-  {
-    "cliente": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3136547689",
-      "nombre": "Pepito Perez"
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
     },
     "contenido": "Bultos de naranja",
     "costo": 2880000,
@@ -81,11 +41,11 @@
   },
   {
     "cliente": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3136547689",
-      "nombre": "Pepito Perez"
+      "ciudad": "Seleccione una ciudad",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
     },
     "contenido": "Bultos de cebolla",
     "costo": 28000,
@@ -101,22 +61,62 @@
   },
   {
     "cliente": {
-      "ciudad": "Bogota",
-      "direccion": "Centro avenida 21",
-      "id": "C0003",
-      "telefono": "3209876543",
-      "nombre": "Antonio Guevara"
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
     },
-    "contenido": "Cajas y sobres y cajas",
+    "contenido": "Bulto de manzanas",
+    "costo": 20000,
+    "volumen": 2,
+    "fechaHoraSalida": "2024-11-22T17:17",
+    "ancho": 1,
+    "dias": 1,
+    "largo": 2,
+    "id": "K7YUQ56P",
+    "alto": 1,
+    "bodega": "Zona indrustial, Bogota dc",
+    "fechaHoraIngreso": "2024-11-22T16:17"
+  },
+  {
+    "cliente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "contenido": "Discos viejos",
+    "costo": 2892010,
+    "volumen": 4.741,
+    "fechaHoraSalida": "2024-11-22T18:24",
+    "ancho": 1.57,
+    "dias": 61,
+    "largo": 2,
+    "id": "4J9BD7LT",
+    "alto": 1.51,
+    "bodega": "Villamaria, la floresta",
+    "fechaHoraIngreso": "2024-09-22T17:24"
+  },
+  {
+    "cliente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "contenido": "Caja con telas",
     "costo": 10000,
     "volumen": 1,
-    "fechaHoraSalida": "2024-11-18T16:46",
+    "fechaHoraSalida": "2024-11-30T01:14",
     "ancho": 1,
     "dias": 1,
     "largo": 1,
-    "id": "QEXKTNGX",
+    "id": "JRV1P49F",
     "alto": 1,
-    "bodega": "Villamaria",
-    "fechaHoraIngreso": "2024-11-18T15:46"
+    "bodega": "Bogota, centro av Jimenez",
+    "fechaHoraIngreso": "2024-11-30T00:14"
   }
 ]

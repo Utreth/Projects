@@ -12,6 +12,8 @@ export default class Cajas {
   static async init() {
     try {
       Cajas.#form = await Helpers.fetchText('./resources/html/cajas.html')
+      const responseEstados = await Helpers.fetchJSON(`${urlAPI}/envio/estados`)
+
       // acceder a la información de clientes
       let response = await Helpers.fetchJSON(`${urlAPI}/cliente`)
       if (response.message != 'ok') {
@@ -22,8 +24,9 @@ export default class Cajas {
         items: response.data,
         value: 'id',
         text: 'nombre',
-        firstOption: 'Seleccione cliente',
+        firstOption: 'Seleccione el cliente',
       })
+
       response = await Helpers.fetchJSON(`${urlAPI}/caja`)
       if (response.message != 'ok') {
         throw new Error(response.message)
@@ -43,15 +46,35 @@ export default class Cajas {
           // definir las columnas de la tabla, para tipos datetime se utiliza formatDateTime definido en index.mjs
           { formatter: editRowButton, width: 40, hozAlign: 'center', cellClick: Cajas.#editRowClick },
           { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Cajas.#deleteRowClick },
-          { title: 'Guia', field: 'nroGuia', hozAlign: 'center', width: 90 },
-          { title: 'Remitente', field: 'remitente.nombre', width: 200 },
-          { title: 'Destinario', field: 'destinatario.nombre', width: 200 },
-          { title: 'Dice contener', field: 'contenido', width: 200 },
+          { title: 'Guia', field: 'nroGuia', hozAlign: 'center', width: 120 },
+          { title: 'Remitente', field: 'remitente.nombre', hozAlign: 'center', width: 250 },
+          { title: 'Destinario', field: 'destinatario.nombre', hozAlign: 'center', width: 262 },
+          { title: 'Dice contener', field: 'contenido', width: 300 },
           { title: 'Valor', field: 'valorDeclarado', hozAlign: 'center', width: 90, formatter: 'money' },
           { title: 'Peso', field: 'peso', hozAlign: 'center', width: 90 },
-          { title: 'Costo', field: 'costo', hozAlign: 'right', width: 90, formatter: 'money', formatterParams: { precision: 0 } },
+          { title: 'Costo', field: 'costo', hozAlign: 'center', width: 90, formatter: 'money', formatterParams: { precision: 0 } },
           { title: 'Fragil', field: 'fragil', hozAlign: 'center', formatter: 'tickCross', width: 90 },
-          { title: 'Estado Actual', field: 'estados', formatter: Cajas.#stateFormat },
+          {
+            title: 'Estado Actual',
+            field: 'estados',
+            width: 300,
+            formatter: function (cell) {
+              const estadosArray = cell.getValue()
+              if (estadosArray && estadosArray.length > 0) {
+                let ultimoEstado = estadosArray[estadosArray.length - 1]
+                let estadoId = ultimoEstado.tipoEstado
+                let fechaHora = ultimoEstado.fecha
+                let estadosTipo = responseEstados.data
+                // Buscar en tiposEstados el estado humano
+                let tiposEstados = estadosTipo.find(e => e.key === estadoId)
+                // Formatear fecha y hora
+                let fechaHoraFormateada = DateTime.fromISO(fechaHora).toFormat('yyyy-MM-dd hh:mm')
+                // Retornar el estado en formato humano junto con la fecha y hora
+                return `${fechaHoraFormateada} - ${tiposEstados.value}`
+              }
+              return 'No disponible'
+            },
+          },
         ],
         responsiveLayout: false, // activado el scroll horizontal, también: ['hide'|true|false]
         // mostrar al final de la tabla un botón para agregar registros
@@ -70,7 +93,7 @@ export default class Cajas {
     console.log(cell.getRow().getData())
     Cajas.#modal = new Modal({
       classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
-      title: '<h5>Actualizacion de mercancias</h5>',
+      title: '<h5>Actualizacion de cajas</h5>',
       content: Cajas.#form,
       buttons: [
         { caption: editButton, classes: 'btn btn-primary me-2', action: () => Cajas.#edit(cell) },
@@ -105,7 +128,7 @@ export default class Cajas {
     Cajas.#currentOption = 'add'
     Cajas.#modal = new Modal({
       classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
-      title: '<h5>Ingreso de mercancias</h5>',
+      title: '<h5>Ingreso de cajas</h5>',
       content: Cajas.#form,
       buttons: [
         { caption: addButton, classes: 'btn btn-primary me-2', action: () => Cajas.#add() },
@@ -157,7 +180,7 @@ export default class Cajas {
       console.log('Datos enviados:', body)
 
       // configurar la url para enviar la solicitud PATCH
-      const url = `${urlAPI}/caja/${cell.getRow().getData().id}`
+      const url = `${urlAPI}/caja/${cell.getRow().getData().nroGuia}`
 
       // intentar enviar la solicitud de actualizacion
       let response = await Helpers.fetchJSON(url, {
@@ -168,6 +191,7 @@ export default class Cajas {
       if (response.message === 'ok') {
         Cajas.#table.addRow(response.data) // agregar la mercancía a la tabla
         Cajas.#modal.remove()
+        cell.getRow().delete()
         Toast.show({ message: 'Caja actualizada exitosamente' })
       } else {
         Toast.show({ message: 'No se pudo actualizar la caja', mode: 'danger', error: response })
@@ -203,7 +227,7 @@ export default class Cajas {
     const selectCustomers = document.querySelector(`#${idModal} #remitente`)
     const selectCustomers2 = document.querySelector(`#${idModal} #destinatario`)
 
-    // asignar la lista de opciones al select "cliente" de mercancias.html
+    // asignar la lista de opciones al select "cliente" de cajas.html
     selectCustomers.innerHTML = Cajas.#customers
     selectCustomers2.innerHTML = Cajas.#customers
 
@@ -218,7 +242,7 @@ export default class Cajas {
       document.querySelector(`#${idModal} #valorDeclarado`).value = rowData.valorDeclarado
       document.querySelector(`#${idModal} #fragil`).checked = rowData.fragil
       selectCustomers.value = rowData.remitente.id
-      selectCustomers.value = rowData.destinatario.id
+      selectCustomers2.value = rowData.destinatario.id
     }
   }
 
@@ -237,8 +261,8 @@ export default class Cajas {
       ancho: parseFloat(document.querySelector(`#${Cajas.#modal.id} #ancho`).value),
       largo: parseFloat(document.querySelector(`#${Cajas.#modal.id} #largo`).value),
       peso: parseInt(document.querySelector(`#${Cajas.#modal.id} #peso`).value),
-      valorDeclarado: parseInt(document.querySelector(`#${Cajas.#modal.id} #valorDeclarado`).value),  
-      fragil: document.querySelector(`#${Cajas.#modal.id} #fragil`).checked
+      valorDeclarado: parseInt(document.querySelector(`#${Cajas.#modal.id} #valorDeclarado`).value),
+      fragil: document.querySelector(`#${Cajas.#modal.id} #fragil`).checked,
     }
   }
 

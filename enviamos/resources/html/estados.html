@@ -1,0 +1,43 @@
+<div class="form-container">
+  <h5 class="text-center mb-4">Estados de Envíos</h5>
+
+  <div class="d-flex align-items-end gap-4">
+    <!-- Fecha y hora -->
+    <div class="form-group">
+      <label for="horaFecha" class="form-label my-0">Fecha y hora actual:</label>
+      <span  class="form-control p-2" type="datetime-local" id="horaFecha" name="horaFecha" readonly></span>
+    </div>
+
+    <!-- Tipo de envio -->
+    <div class="form-group">
+      <label for="envio" class="form-label my-0">Tipo de envío</label>
+      <select id="tipoEnvio" class="form-select">
+        <option value="bulto">Bulto</option>
+        <option value="caja">Caja</option>
+        <option value="paquete">Paquete</option>
+        <option value="sobre">Sobre</option>
+      </select>
+    </div>
+
+    <!-- nroGuia -->
+    <div class="form-group">
+      <label for="nroGuia" class="form-label my-0">Número de guía</label>
+      <input type="text" class="form-control" id="nroGuia" placeholder="Ingrese un número de guía" required />
+    </div>
+
+    <!-- Boton de busqueda -->
+    <div>
+      <button type="submit" class="btn btn-primary" id="buscar">Buscar envío</button>
+    </div>
+  </div>
+</div>
+
+<div id="resultados" class="resultados">
+  <p><h5>Informacion del envio</h5></p>
+</div>
+</div>
+
+
+
+
+

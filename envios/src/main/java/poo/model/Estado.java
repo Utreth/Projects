@@ -25,9 +25,8 @@ public class Estado {
     }
 
     public Estado(JSONObject json) {
-        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss");
         String fechaStr = json.getString("fecha");
-        this.fecha = LocalDateTime.parse(fechaStr, formato);
+        this.fecha = LocalDateTime.parse(fechaStr);
         this.tipoEstado = json.getEnum(TipoEstado.class, "tipoEstado");
     }
 

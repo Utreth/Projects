@@ -4,7 +4,7 @@
 En ../utils/bootstrap-5.3.3/css, además de flatly, encuentra otros temas como cerulean, cosmo, cyborg, ...  
 Use ../utils/bootstrap-5.3.3/css/TEMA/bootstrap.min.css, siendo TEMA el nombre de la carpeta correspondiente al tema
 */
-@import '../utils/bootstrap-5.3.3/css/darkly/bootstrap.min.css';
+@import '../utils/bootstrap-5.3.3/css/cyborg/bootstrap.min.css';
 @import 'toast.css';
 
 a {
@@ -12,20 +12,21 @@ a {
 }
 
 .dialog {
-  background-color: #fff;
+  background-color: #715454;
   /* 
       El primer caso sólo fija el color, el segundo es un atajo para especificar varias propiedades
       background-color: rgba(0, 0, 0, 0.05); 
       background: url("image.jpg") #00D repeat-y fixed;
     */
-  border: 1px solid #ccc;
+  border: 1px solid #090000;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 10px rgba(200, 131, 131, 0.25);
   /* width: 700px; */
   max-width: 80%;
   max-height: 100vh;
   /* juegue con la posición requerida: */
   position: fixed;
+
   z-index: 1000;
   left: 50%;
   transform: translate(-50%, 0);
@@ -50,7 +51,7 @@ a {
 }
 
 .dialog::backdrop {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(23, 23, 23, 0.2);
 }
 
 .dialog footer {
@@ -59,6 +60,72 @@ a {
 }
 
 .dialog section {
-  overflow: auto;
-  max-height: 80vh;
+  overflow-y: auto;
+  max-height: 100vh;
+
 }
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f8f9fa;
+ 
+}
+
+.form-container {
+  padding: 20px;
+  border: 1px solid #f3efef;
+  border-radius: 20px;
+  background-color: #817d7d;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  color: #000000; /* Color del texto */
+  font-family: 'Poppins', sans-serif; /* Fuente moderna */
+  font-size: 16px; /* Tamaño del texto */
+
+
+}
+
+nav {
+  border-radius: 40px; /* Ajustar el valor para el redondeo */
+  font-family: 'Poppins', sans-serif; /* Fuente moderna */
+  font-weight: 600; /* Negrita */
+  font-size: 16px; /* Tamaño del texto */
+}
+
+.fixed-bottom {
+  background-color: #e0e0e0; /* Color de fondo */
+  color: #000000; /* Color del texto */
+  font-weight: 600; /* Negrita */
+  text-align: center; /* Centrar el texto horizontalmente */
+  padding: 10px; /* Espaciado interno */
+  border-top: 1px solid #ccc; /* Línea de separación */
+  border-radius: 0 0 10px 10px; /* Bordes redondeados solo en la parte inferior */
+}
+
+.mi-estilo {
+  background-color: #4f4c4b; /* Fondo suave */
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+  font-family: 'Arial', sans-serif; /* Fuente */
+  width: 40%; /* Ocupa el ancho completo */
+  padding: 10px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de texto más grande */
+  border: 2px solid #f0eeee; /* Borde más visible */
+  background-color: #7f7a7a; /* Fondo blanco */
+  color: #444; /* Texto oscuro */
+  outline: none; /* Elimina el contorno al hacer clic */
+}
+
+
+
+
+
+
+
+
+
+

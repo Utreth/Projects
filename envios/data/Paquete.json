@@ -1,292 +1,277 @@
 [
   {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 12000,
-    "peso": 120,
-    "nroGuia": "OKZB02HZ",
-    "fragil": false,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "OKZB02HZ",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T22:16:48",
-      "idEstado": "688336912",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 12000,
-    "peso": 120,
-    "nroGuia": "Z6XK3B43",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "Z6XK3B43",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T22:17:51",
-      "idEstado": "1470423022",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 12000,
-    "peso": 120,
-    "nroGuia": "GZRX6WZ1",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "GZRX6WZ1",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T23:45:05",
-      "idEstado": "2028594585",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 13000,
-    "peso": 130,
-    "nroGuia": "IT0SUBNR",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "IT0SUBNR",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T23:45:14",
-      "idEstado": "2000362207",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 13000,
-    "peso": 130,
-    "nroGuia": "LTV2TQ6U",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "LTV2TQ6U",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T23:45:39",
-      "idEstado": "1378154456",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "P4UZ0VBB",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "P4UZ0VBB",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-03T23:46:11",
-      "idEstado": "1061118183",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "SFTD2PGZ",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "SFTD2PGZ",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-04T00:25:50",
-      "idEstado": "1367824350",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "TSDI3C4O",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "Medellin",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
-    },
-    "idEnvio": "TSDI3C4O",
-    "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
-    },
-    "estados": [{
-      "fecha": "2024-11-04T02:39:57",
-      "idEstado": "1742298897",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Componentes electrónicos",
+    "contenido": "Componentes electrónicos 2",
     "tipo": "Paquete",
     "costo": 20000,
     "peso": 200,
     "nroGuia": "4SI9FGCW",
     "fragil": true,
-    "valorDeclarado": 200000,
+    "valorDeclarado": 20000,
     "remitente": {
-      "ciudad": "Medellin",
+      "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
     },
     "idEnvio": "4SI9FGCW",
     "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
     },
     "estados": [{
       "fecha": "2024-11-04T02:43:04",
-      "idEstado": "801833704",
+      "idEstado": "1303271390",
       "tipoEstado": "RECIBIDO"
     }]
   },
   {
-    "contenido": "Componentes electrónicos",
+    "contenido": "Caja con hilos",
+    "tipo": "Paquete",
+    "costo": 1000,
+    "peso": 10,
+    "nroGuia": "E9B6IQO0",
+    "fragil": false,
+    "valorDeclarado": 13000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "E9B6IQO0",
+    "destinatario": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
+    },
+    "estados": [{
+      "fecha": "2024-11-24T19:38:24",
+      "idEstado": "31079133",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Paquete con camisetas",
+    "tipo": "Paquete",
+    "costo": 3000,
+    "peso": 30,
+    "nroGuia": "GUNOT9RB",
+    "fragil": true,
+    "valorDeclarado": 20000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "GUNOT9RB",
+    "destinatario": {
+      "ciudad": "CORRALES BOYACA",
+      "direccion": "Centro avenida 21",
+      "id": "C0006",
+      "telefono": "3209876543",
+      "nombre": "Javier Francisco Hernandez Lopez"
+    },
+    "estados": [{
+      "fecha": "2024-11-24T22:27:38",
+      "idEstado": "501782005",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Paquete con zapatos",
+    "tipo": "Paquete",
+    "costo": 1000,
+    "peso": 10,
+    "nroGuia": "E3OFGTOO",
+    "fragil": true,
+    "valorDeclarado": 5000,
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "idEnvio": "E3OFGTOO",
+    "destinatario": {
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
+    },
+    "estados": [{
+      "fecha": "2024-11-25T11:33:19",
+      "idEstado": "443079804",
+      "tipoEstado": "RECIBIDO"
+    }]
+  },
+  {
+    "contenido": "Paquete con discos duros",
     "tipo": "Paquete",
     "costo": 20000,
     "peso": 200,
-    "nroGuia": "XDH77QO7",
+    "nroGuia": "LWXLE0L6",
     "fragil": true,
     "valorDeclarado": 200000,
     "remitente": {
-      "ciudad": "Medellin",
+      "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0001",
-      "telefono": "983846373764",
-      "nombre": "Antonio Jose Guevara Murcia"
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
     },
-    "idEnvio": "XDH77QO7",
+    "idEnvio": "LWXLE0L6",
     "destinatario": {
-      "ciudad": "Manizales",
-      "direccion": "Edificio del parque, piso 2, Ucaldas",
-      "id": "87654",
-      "telefono": "3115551234",
-      "nombre": "Carlos Cuesta Iglesias"
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
     },
     "estados": [{
-      "fecha": "2024-11-04T15:52:41",
-      "idEstado": "1756083128",
-      "tipoEstado": "RECIBIDO"
+      "fecha": "2025-10-08T20:29:44",
+      "idEstado": "148390554",
+      "tipoEstado": "ENTREGADO"
     }]
+  },
+  {
+    "contenido": "Paquete con discos duros",
+    "tipo": "Paquete",
+    "costo": 20000,
+    "peso": 200,
+    "nroGuia": "DMR4GWHH",
+    "fragil": true,
+    "valorDeclarado": 200000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "DMR4GWHH",
+    "destinatario": {
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
+    },
+    "estados": [{
+      "fecha": "2025-10-08T20:29:44",
+      "idEstado": "1811886598",
+      "tipoEstado": "ENVIADO"
+    }]
+  },
+  {
+    "contenido": "Paquete con discos duros",
+    "tipo": "Paquete",
+    "costo": 20000,
+    "peso": 200,
+    "nroGuia": "PM59FX64",
+    "fragil": true,
+    "valorDeclarado": 200000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "PM59FX64",
+    "destinatario": {
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
+    },
+    "estados": [
+      {
+        "fecha": "2025-10-08T20:29:44",
+        "idEstado": "1203022804",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-07T16:52",
+        "idEstado": "192303643",
+        "tipoEstado": "ENVIADO"
+      }
+    ]
+  },
+  {
+    "contenido": "Paquete con discos duros",
+    "tipo": "Paquete",
+    "costo": 20000,
+    "peso": 200,
+    "nroGuia": "WDRKMHOF",
+    "fragil": true,
+    "valorDeclarado": 200000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "WDRKMHOF",
+    "destinatario": {
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
+    },
+    "estados": [{
+      "fecha": "2024-09-09T11:29:33",
+      "idEstado": "815287482",
+      "tipoEstado": "ENVIADO"
+    }]
+  },
+  {
+    "contenido": "Paquete con libros",
+    "tipo": "Paquete",
+    "costo": 2000,
+    "peso": 20,
+    "nroGuia": "EZ08PCKQ",
+    "fragil": false,
+    "valorDeclarado": 40000,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "EZ08PCKQ",
+    "destinatario": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
+    },
+    "estados": [
+      {
+        "fecha": "2024-12-06T15:12:28",
+        "idEstado": "784313991",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-07T16:57",
+        "idEstado": "892105574",
+        "tipoEstado": "ENVIADO"
+      }
+    ]
   }
 ]

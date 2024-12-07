@@ -2,10 +2,13 @@ package poo;
 
 import java.util.Locale;
 
+import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import io.javalin.Javalin;
+import io.javalin.http.Context;
 import poo.helpers.Controller;
 import poo.helpers.Utils;
 import poo.model.Bulto;
@@ -84,10 +87,37 @@ public final class App {
                             ctx.json(error).status(400);
                         });
 
+        app.afterMatched(ctx -> updateClients(ctx));
+
         Runtime.getRuntime().addShutdownHook(
                 new Thread(() -> {
                     LOG.info(String.format("%sEl servidor Jetty de Javalin ha sido detenido%s%n", Utils.RED,
                             Utils.RESET));
                 }));
+
     }
+
+    private static void updateClients(@NotNull Context ctx) throws Exception{
+
+        if (ctx.path().contains("cliente") && ctx.method().toString().equals("PATCH")) {
+
+            JSONObject json = new JSONObject(ctx.result());
+
+            if (json.getString("message").equals("ok")) {
+                JSONObject clienteActualizado = json.getJSONObject("data");
+                Utils.existsCliente("Mercancia", "cliente", clienteActualizado);
+                Utils.existsCliente("Paquete", "remitente", clienteActualizado);
+                Utils.existsCliente("Paquete", "destinatario", clienteActualizado);
+                Utils.existsCliente("Sobre", "remitente", clienteActualizado);
+                Utils.existsCliente("Sobre", "destinatario", clienteActualizado);
+                Utils.existsCliente("Bulto", "remitente", clienteActualizado);
+                Utils.existsCliente("Bulto", "destinatario", clienteActualizado);
+                Utils.existsCliente("Caja", "remitente", clienteActualizado);
+                Utils.existsCliente("Caja", "destinatario", clienteActualizado);
+
+            }
+
+        }
+    }
+
 }

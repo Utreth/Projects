@@ -133,6 +133,19 @@ export default class Helpers {
   }
 
   /**
+   * Busca por la propiedad text, un elemento en un select y lo selecciona
+   * @param {Element} select La referencia al select donde se hace la búsqueda
+   * @param {String} text La cadena de texto a buscar
+   */
+  static selectOptionByText(select, text) {
+    select = select instanceof Element ? select : document.querySelector(select)
+    // buscar el índice de la opción cuyo texto sea igual al del argumento recibido
+    let index = [...select.options].findIndex(option => option.innerText.trim().toLowerCase() === text.trim().toLowerCase())
+    // seleccionar el elemento del indice dado
+    select.selectedIndex = index
+  }
+
+  /**
    * Aplica las reglas de validación definidas para un formulario HTML.
    * Incluso puede indicar un callback como segundo argumento para complementar la validación
    * @param {String} formSelector Una regla CSS para referenciar el formulario a validar
@@ -162,26 +175,6 @@ export default class Helpers {
     Math.floor(Math.random() * 99999999999999)
       .toString()
       .padStart(14, '0')
-
-  static selectByText(select, textToFind) {
-    const dd = document.querySelector(select)
-    const i = [...dd.options].findIndex(option => option.text === textToFind)
-    dd.selectedIndex = i
-    return i
-  }
-
-  /**
-   * Busca por la propiedad text, un elemento en un select y lo selecciona
-   *  @param {Element} select La referencia al select donde se hace la busqueda
-   *  @param {String} text La cadena de texto a buscar
-   */
-
-  static selectOptionByText(select, text) {
-    //Buscar el indice de la opcion cuyo texto sea igual al del argumento recibido
-    let index = [...select.options].findIndex(option => option.text.trim().toLowerCase() === text.trim().toLowerCase)
-    //Seleccionar el elemento del indice dado
-    select.selectedIndex = index
-  }
 }
 
 /**
