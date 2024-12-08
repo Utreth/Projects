@@ -114,8 +114,7 @@ class App {
               break
 
             case 'Acerca de...':
-              const { default: Cv } = await import('./cv.mjs')
-              Cv.init()
+              document.querySelector('main').innerHTML = await Helpers.fetchText('./resources/html/cv.html')
               break
             default:
               if (option !== 'Envíos') {

@@ -52,9 +52,9 @@ export default class Envios {
           { formatter: editRowButton, width: 40, hozAlign: 'center', cellClick: Envios.#editRowClick },
           { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Envios.#deleteRowClick },
           { title: 'Guia', field: 'nroGuia', hozAlign: 'center', width: 130 },
-          { title: 'Remitente', field: 'remitente.nombre', width: 200, hozAlign: 'center' },
-          { title: 'Destinario', field: 'destinatario.nombre', width: 200, hozAlign: 'center' },
-          { title: 'Dice contener', field: 'contenido', width: 300 },
+          { title: 'Remitente', field: 'remitente.nombre', width: 230, hozAlign: 'center' },
+          { title: 'Destinario', field: 'destinatario.nombre', width: 230, hozAlign: 'center' },
+          { title: 'Dice contener', field: 'contenido', width: 200 },
           { title: 'Valor', field: 'valorDeclarado', hozAlign: 'center', width: 90, formatter: 'money', visible: mode !== 'sobre' },
           { title: 'Peso', field: 'peso', hozAlign: 'center', width: 90, visible: mode !== 'sobre' },
           { title: 'Costo', field: 'costo', hozAlign: 'center', width: 90, formatter: 'money', formatterParams: { precision: 0 } },
@@ -63,7 +63,7 @@ export default class Envios {
           {
             title: 'Estado actual',
             field: 'estados',
-            width: 400,
+            width: 280,
             formatter: function (cell) {
               const estadosArray = cell.getValue()
               if (estadosArray && estadosArray.length > 0) {

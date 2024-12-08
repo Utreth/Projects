@@ -67,7 +67,7 @@ export default class Clientes {
       content: Clientes.#form,
       buttons: [
         { caption: editButton, classes: 'btn btn-primary me-2', action: () => Clientes.#edit(cell) },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Clientes.#modal.close() },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Clientes.#modal.remove() },
       ],
       doSomething: idModal => Clientes.#displayDataOnForm(idModal, cell.getRow().getData()),
     })
@@ -102,7 +102,7 @@ export default class Clientes {
       content: Clientes.#form,
       buttons: [
         { caption: addButton, classes: 'btn btn-primary me-2', action: () => Clientes.#add() },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Clientes.#modal.close() },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Clientes.#modal.remove() },
       ],
       doSomething: Clientes.#displayDataOnForm,
     })

@@ -110,7 +110,6 @@ export default class Mercancias {
         { caption: deleteButton, classes: 'btn btn-primary me-2', action: () => Mercancias.#delete(cell) },
         { caption: cancelButton, classes: 'btn btn-secondary', action: () => Mercancias.#modal.remove() },
       ],
-      //doSomething: Mercancias.#displayDataOnForm,
     })
     Mercancias.#modal.show()
   }

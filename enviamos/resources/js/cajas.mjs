@@ -47,9 +47,9 @@ export default class Cajas {
           { formatter: editRowButton, width: 40, hozAlign: 'center', cellClick: Cajas.#editRowClick },
           { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Cajas.#deleteRowClick },
           { title: 'Guia', field: 'nroGuia', hozAlign: 'center', width: 120 },
-          { title: 'Remitente', field: 'remitente.nombre', hozAlign: 'center', width: 250 },
-          { title: 'Destinario', field: 'destinatario.nombre', hozAlign: 'center', width: 262 },
-          { title: 'Dice contener', field: 'contenido', width: 300 },
+          { title: 'Remitente', field: 'remitente.nombre', hozAlign: 'center', width: 230 },
+          { title: 'Destinario', field: 'destinatario.nombre', hozAlign: 'center', width: 230 },
+          { title: 'Dice contener', field: 'contenido', width: 250 },
           { title: 'Valor', field: 'valorDeclarado', hozAlign: 'center', width: 90, formatter: 'money' },
           { title: 'Peso', field: 'peso', hozAlign: 'center', width: 90 },
           { title: 'Costo', field: 'costo', hozAlign: 'center', width: 90, formatter: 'money', formatterParams: { precision: 0 } },
@@ -57,7 +57,7 @@ export default class Cajas {
           {
             title: 'Estado Actual',
             field: 'estados',
-            width: 300,
+            width: 250,
             formatter: function (cell) {
               const estadosArray = cell.getValue()
               if (estadosArray && estadosArray.length > 0) {

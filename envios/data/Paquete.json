@@ -1,34 +1,5 @@
 [
   {
-    "contenido": "Componentes electrónicos 2",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "4SI9FGCW",
-    "fragil": true,
-    "valorDeclarado": 20000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "4SI9FGCW",
-    "destinatario": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "estados": [{
-      "fecha": "2024-11-04T02:43:04",
-      "idEstado": "1303271390",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
     "contenido": "Caja con hilos",
     "tipo": "Paquete",
     "costo": 1000,
@@ -53,7 +24,7 @@
     },
     "estados": [{
       "fecha": "2024-11-24T19:38:24",
-      "idEstado": "31079133",
+      "idEstado": "1416506745",
       "tipoEstado": "RECIBIDO"
     }]
   },
@@ -82,7 +53,7 @@
     },
     "estados": [{
       "fecha": "2024-11-24T22:27:38",
-      "idEstado": "501782005",
+      "idEstado": "273111727",
       "tipoEstado": "RECIBIDO"
     }]
   },
@@ -111,166 +82,48 @@
     },
     "estados": [{
       "fecha": "2024-11-25T11:33:19",
-      "idEstado": "443079804",
+      "idEstado": "1819419328",
       "tipoEstado": "RECIBIDO"
     }]
   },
   {
-    "contenido": "Paquete con discos duros",
+    "contenido": "Paquete con latas",
     "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "LWXLE0L6",
+    "costo": 1000,
+    "peso": 13,
+    "nroGuia": "B3TIL9YF",
     "fragil": true,
-    "valorDeclarado": 200000,
+    "valorDeclarado": 7000,
     "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "LWXLE0L6",
-    "destinatario": {
       "ciudad": "ANGELOPOLIS ANTIOQUIA",
       "direccion": "Edificio central, piso 3, Ucaldas",
       "id": "C0002",
       "telefono": "3006785645",
       "nombre": "Juan Felipe Ariza Ramirez"
     },
-    "estados": [{
-      "fecha": "2025-10-08T20:29:44",
-      "idEstado": "148390554",
-      "tipoEstado": "ENTREGADO"
-    }]
-  },
-  {
-    "contenido": "Paquete con discos duros",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "DMR4GWHH",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "DMR4GWHH",
+    "idEnvio": "B3TIL9YF",
     "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2025-10-08T20:29:44",
-      "idEstado": "1811886598",
-      "tipoEstado": "ENVIADO"
-    }]
-  },
-  {
-    "contenido": "Paquete con discos duros",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "PM59FX64",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "PM59FX64",
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
+      "ciudad": "CORRALES BOYACA",
+      "direccion": "Centro avenida 21",
+      "id": "C0006",
+      "telefono": "3209876543",
+      "nombre": "Javier Francisco Hernandez Lopez"
     },
     "estados": [
       {
-        "fecha": "2025-10-08T20:29:44",
-        "idEstado": "1203022804",
+        "fecha": "2024-12-07T22:32:18",
+        "idEstado": "1897640444",
         "tipoEstado": "EN_PREPARACION"
       },
       {
-        "fecha": "2024-12-07T16:52",
-        "idEstado": "192303643",
-        "tipoEstado": "ENVIADO"
-      }
-    ]
-  },
-  {
-    "contenido": "Paquete con discos duros",
-    "tipo": "Paquete",
-    "costo": 20000,
-    "peso": 200,
-    "nroGuia": "WDRKMHOF",
-    "fragil": true,
-    "valorDeclarado": 200000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "WDRKMHOF",
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-09-09T11:29:33",
-      "idEstado": "815287482",
-      "tipoEstado": "ENVIADO"
-    }]
-  },
-  {
-    "contenido": "Paquete con libros",
-    "tipo": "Paquete",
-    "costo": 2000,
-    "peso": 20,
-    "nroGuia": "EZ08PCKQ",
-    "fragil": false,
-    "valorDeclarado": 40000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "EZ08PCKQ",
-    "destinatario": {
-      "ciudad": "SANTANA BOYACA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0003",
-      "telefono": "3115550001",
-      "nombre": "Antonio jose guevara murcia"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-06T15:12:28",
-        "idEstado": "784313991",
+        "fecha": "2024-12-08T03:32",
+        "idEstado": "647897712",
         "tipoEstado": "EN_PREPARACION"
       },
       {
-        "fecha": "2024-12-07T16:57",
-        "idEstado": "892105574",
-        "tipoEstado": "ENVIADO"
+        "fecha": "2024-12-08T03:32",
+        "idEstado": "328780028",
+        "tipoEstado": "EN_CAMINO"
       }
     ]
   }

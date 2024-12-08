@@ -37,57 +37,14 @@ export default class Estados {
 
       Estados.horaFechaActual()
 
-      // Inicializa la tabla vacía
-      Estados.#table = new Tabulator('#table-container', {
-        height: (tableHeight2 = 200), // Tiene su propio tamaño para no cambiar los demas tabulator
-        data: [],
-        layout: 'fitColumns',
-        columns: [
-          { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Estados.#deleteRowClick },
-          {
-            title: 'Fecha',
-            field: 'fecha',
-            width: 400,
-            formatter: function (cell) {
-              const fechaHora = cell.getValue()
-              // Formatear fecha y hora
-              let fechaHoraFormateada = DateTime.fromISO(fechaHora).toFormat('yyyy-MM-dd hh:mm')
-              // Retornar la fecha con formato
-              return `${fechaHoraFormateada}`
-            },
-          },
-
-          {
-            title: 'Tipo de estado',
-            field: 'tipoEstado',
-            width: 400,
-            formatter: function (cell) {
-              const tipoEstado = cell.getValue()
-              let estadosTipo = responseEstados.data
-              // Buscar en tiposEstados el estado humano
-              let tiposEstados = estadosTipo.find(e => e.key === tipoEstado)
-              // Retornar el estado en formato humano junto con la fecha y hora
-              return `${tiposEstados.value}`
-            },
-          },
-        ],
-        responsiveLayout: false, // Scroll horizontal si es necesario
-        columnDefaults: {
-          tooltip: true, //show tool tips on cells
-        },
-
-        // mostrar al final de la tabla un botón para agregar registros
-        footerElement: `<div class='container-fluid d-flex justify-content-end p-0'>${addRowButton}</div>`,
-      })
-      Estados.#table.on('tableBuilt', () => document.querySelector('#add-row').addEventListener('click', Estados.#addRow))
-
       // listener para realizar busqueda
       document.querySelector('#buscar').addEventListener('click', async e => {
         e.preventDefault()
         await Estados.#encontrarEnvio()
       })
     } catch (e) {
-      Toast.show({ title: 'Estados', message: 'Falló la inicialización de la tabla', mode: 'danger', error: e })
+      console.error("Error al realizar la operación:", e);
+      Toast.show({ title: 'Estados', message: `Error: ${e.message || e}`, mode: 'danger' });
     }
 
     return this
@@ -97,76 +54,90 @@ export default class Estados {
     try {
       const tipo = document.querySelector('#tipoEnvio').value
       const nroGuia = document.querySelector('#nroGuia').value
+      const responseEstados = await Helpers.fetchJSON(`${urlAPI}/envio/estados`)
 
       const busqueda = await Helpers.fetchJSON(`${urlAPI}/${tipo}/id/${nroGuia}`)
+      const resultados = document.querySelector('#resultados')
+
       if (busqueda.message !== 'ok') {
-        const resultados = document.querySelector('#resultados')
         resultados.innerHTML = `
           <div class="alert alert-dismissible alert-danger">
-          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-          <h4 class="alert-heading">Busqueda fallida</h4>
-          <p class="mb-0">No se encontro un envio con numero de guia: <a>${nroGuia}</a></p>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            <h4 class="alert-heading">Búsqueda fallida</h4>
+            <p class="mb-0">No se encontró un envío con número de guía: <a>${nroGuia}</a></p>
           </div>
         `
+        return
       }
 
       const info = busqueda.data
       const datosTabla = info.estados
       Estados.#listaEstados = info.estados
-      console.log(Estados.#listaEstados)
 
-      // Funcion de tabulator que reemplaza los datos en la tabla con los de la busqueda
-      Estados.#table.replaceData(datosTabla)
-
-      // Muestra informacion del envio
-      const resultados = document.querySelector('#resultados')
+      // Mostrar la tabla y la informacion del envio juntos
       resultados.innerHTML = `
-      <div class="alert alert-dismissible alert-info">
-        <div><strong><h5>Información del envío de tipo ${tipo}</h5></div>
-        <div><strong>Remitente:</strong> ${info.remitente.nombre} - ${info.remitente.direccion} - ${info.remitente.ciudad}</div>
-        <div><strong>Destinatario:</strong> ${info.destinatario.nombre} - ${info.destinatario.direccion} - ${info.destinatario.ciudad}</div>
-        <div><strong>Contenido:</strong> ${info.contenido}</div>
-        <div><strong>Valor del envío:</strong> ${info.costo}</div>
+        <div class="card">
+          <div class="card-header">
+            <h5>Información del envío</h5>
+          </div>
+          <div class="card-body">
+            <p><strong>Tipo de Envío:</strong> ${tipo}</p>
+            <p><strong>Remitente:</strong> ${info.remitente.nombre} - ${info.remitente.direccion} - ${info.remitente.ciudad}</p>
+            <p><strong>Destinatario:</strong> ${info.destinatario.nombre} - ${info.destinatario.direccion} - ${info.destinatario.ciudad}</p>
+            <p><strong>Contenido:</strong> ${info.contenido}</p>
+            <p><strong>Valor del Envío:</strong> ${info.costo}</p>
+          </div>
+          <div class="card-footer">
+            <h5>Historial de Estados</h5>
+            <div id="table-container"></div>
+          </div>
         </div>
       `
-    } catch (error) {}
-  }
 
-  static #editRowClick = async (e, cell) => {
-    Estados.#currentOption = 'edit'
-    console.log(cell.getRow().getData())
-
-    Estados.#modal = new Modal({
-      classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
-      title: `<h5>Actualización de </h5>`,
-      content: Estados.#form,
-      buttons: [
-        { caption: editButton, classes: 'btn btn-primary me-2', action: () => Estados.#edit(cell) },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Estados.#modal.close() },
-      ],
-      doSomething: idModal => Estados.#displayDataOnForm(idModal, cell.getRow().getData()),
-    })
-    Estados.#modal.show()
-  }
-
-  static #deleteRowClick = async (e, cell) => {
-    Estados.#currentOption = 'delete'
-    console.log(cell.getRow().getData())
-    Estados.#modal = new Modal({
-      classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
-      title: `<h5>Eliminación de estados</h5>`,
-      content: `<span class = "text-back dark:text-gray-300">
-                    Confirme la eliminación del estado:<br>
-                    ${cell.getRow().getData().nroGuia} - ${cell.getRow().getData().contenido}<br>
-                    Remitente: ${cell.getRow().getData().remitente.nombre}<br>
-                    Destinatario: ${cell.getRow().getData().destinatario.nombre}<br>
-                  </span>`,
-      buttons: [
-        { caption: deleteButton, classes: 'btn btn-primary me-2', action: () => Estados.#delete(cell) },
-        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Estados.#modal.close() },
-      ],
-    })
-    Estados.#modal.show()
+      // Reconstruir la tabla dentro del contenedor actualizado
+      Estados.#table = new Tabulator('#table-container', {
+        height: (tableHeight2 = 200), // Mantiene su tamaño
+        data: datosTabla,
+        layout: 'fitColumns',
+        columns: [
+          { formatter: deleteRowButton, width: 40, hozAlign: 'center', cellClick: Estados.#deleteRowClick },
+          {
+            title: 'Fecha',
+            field: 'fecha',
+            width: 422,
+            formatter: function (cell) {
+              const fechaHora = cell.getValue()
+              let fechaHoraFormateada = DateTime.fromISO(fechaHora).setLocale('es').toFormat("hh:mm a 'del' cccc dd 'de' MMMM 'de' yyyy")
+              return `${fechaHoraFormateada}`
+            },
+          },
+          {
+            title: 'Tipo de Estado',
+            field: 'tipoEstado',
+            width: 422,
+            formatter: function (cell) {
+              const tipoEstado = cell.getValue();
+              let tiposEstados = responseEstados.data.find(e => e.key === tipoEstado);
+              return tiposEstados ? tiposEstados.value : "Estado desconocido";
+            },
+          },
+        ],
+        responsiveLayout: false,
+        columnDefaults: { tooltip: true },
+        footerElement: `<div class='container-fluid d-flex justify-content-end p-0'>${addRowButton}</div>`,
+      })
+      Estados.#table.on('tableBuilt', () => document.querySelector('#add-row').addEventListener('click', Estados.#addRow))
+    } catch (error) {
+      const resultados = document.querySelector('#resultados')
+      resultados.innerHTML = `
+        <div class="alert alert-dismissible alert-danger">
+          <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          <h4 class="alert-heading">Error</h4>
+          <p class="mb-0">Ocurrió un error al realizar la búsqueda.</p>
+        </div>
+      `
+      console.error(error)
+    }
   }
 
   static async #addRow() {
@@ -208,9 +179,9 @@ export default class Estados {
       console.log(response)
 
       if (response.message === 'ok') {
-        Estados.#table.replaceData(response.data.estados) // agregar la caja a la tabla
+        Estados.#table.replaceData(response.data.estados) // agregar el estado a la tabla
         Estados.#modal.remove()
-        
+
         Toast.show({ message: 'Agregado exitosamente' })
       } else {
         Toast.show({ message: 'No se pudo agregar el estado', mode: 'danger', error: response })
@@ -220,44 +191,16 @@ export default class Estados {
     }
   }
 
-  static async #edit(cell) {
-    try {
-      //verificar si los datos cumplen con las restricciones indicadas en el formulario HTML
-      if (!Helpers.okForm('#form-envios')) {
-        return
-      }
-
-      // obtener del formulario el objeto con los datos que se envían a la solicitud PATCH
-      const body = Estados.#getFormData()
-
-      // configurar la url para enviar la solicitud PACTH
-      const url = `${urlAPI}//${cell.getRow().getData().nroGuia}`
-
-      // intentar enviar la solicitud de actualización
-      let response = await Helpers.fetchJSON(url, {
-        method: 'PATCH',
-        body,
-      })
-
-      if (response.message === 'ok') {
-        Toast.show({ message: ` actualizado exitosamente` })
-        cell.getRow().update(response.data)
-        Estados.#modal.remove()
-      } else {
-        Toast.show({ message: `Nose pudo actualizar el `, mode: 'danger', error: response })
-      }
-    } catch (e) {
-      Toast.show({ message: `Problemas al actualizar el `, mode: 'danger', error: e })
-    }
-  }
-
   static async #delete(cell) {
     try {
-      const url = `${urlAPI}//${cell.getRow().getData().nroGuia}`
+      const tipo = document.querySelector('#tipoEnvio').value
+      const nroGuia = document.querySelector('#nroGuia').value
+      
 
       // enviar la solicitud de eliminación
-      let response = await Helpers.fetchJSON(url, {
+      let response = await Helpers.fetchJSON(`${urlAPI}/${tipo}/${nroGuia}`, {
         method: 'DELETE',
+        body,
       })
 
       if (response.message === 'ok') {
@@ -270,6 +213,34 @@ export default class Estados {
     } catch (e) {
       Toast.show({ message: `Problemas al eliminar el estado`, mode: 'danger', error: e })
     }
+  }
+
+  static #deleteRowClick = async (e, cell) => {
+    Estados.#currentOption = 'delete'
+    const tipoEstado = cell.getRow().getData().tipoEstado
+    console.log(tipoEstado);
+    
+    Estados.#modal = new Modal({
+      classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
+      title: `<h5>Eliminación de estados</h5>`,
+      content: `<span class = "text-back dark:text-gray-300">
+                    Confirme la eliminación del estado:<br><br>
+                     ${tipoEstado}
+                    
+                  </span>`,
+      buttons: [
+        {
+          caption: deleteButton,
+          classes: 'btn btn-primary me-2',
+          action: () => {
+            cell.getRow().delete()
+            const estados = Estados.#table.getData()
+          },
+        },
+        { caption: cancelButton, classes: 'btn btn-secondary', action: () => Estados.#modal.remove() },
+      ],
+    })
+    Estados.#modal.show()
   }
 
   static #displayDataOnForm(idModal, data = {}) {
@@ -308,5 +279,9 @@ export default class Estados {
     }
     actualizarFechaHora()
     setInterval(actualizarFechaHora, 1000)
+  }
+
+  static async update(estados) {
+    console.log(estados)
   }
 }

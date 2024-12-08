@@ -262,4 +262,5 @@ PATCH {{url}}/sobre/7NLMAD6O
   ]
 }
 
-
+### Eliminar un cliente dado su ID
+DELETE {{url}}/sobre/RDEOTL37

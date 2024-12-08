@@ -4,253 +4,6 @@
     "tipo": "Sobre",
     "costo": 260,
     "peso": 0,
-    "nroGuia": "VVBY64J0",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "SANTANA BOYACA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0003",
-      "telefono": "3115550001",
-      "nombre": "Antonio jose guevara murcia"
-    },
-    "idEnvio": "VVBY64J0",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-11-26T10:59:34",
-      "idEstado": "1931050612",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "PX1ZKO1Q",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "VIRACACHA BOYACA",
-      "direccion": "Call 72 # 23-26",
-      "id": "TIJKT",
-      "telefono": "3207865643",
-      "nombre": "Victor Euclides Martinez Florez"
-    },
-    "idEnvio": "PX1ZKO1Q",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-11-27T20:56:14",
-      "idEstado": "1071814168",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "HHCTDNKF",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "idEnvio": "HHCTDNKF",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "PEREIRA RISARALDA",
-      "direccion": "Calle 4 # 20B-12",
-      "id": "KAI5B",
-      "telefono": "3209875643",
-      "nombre": "Laura Daniela Pulgarin Murcia"
-    },
-    "estados": [{
-      "fecha": "2024-11-28T14:43:39",
-      "idEstado": "1158104649",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "VLVMR76V",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "VLVMR76V",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-11-28T16:41:31",
-      "idEstado": "1121974169",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "SXMS2STP",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "CORRALES BOYACA",
-      "direccion": "Centro avenida 21",
-      "id": "C0006",
-      "telefono": "3209876543",
-      "nombre": "Javier Francisco Hernandez Lopez"
-    },
-    "idEnvio": "SXMS2STP",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "VIRACACHA BOYACA",
-      "direccion": "Call 72 # 23-26",
-      "id": "TIJKT",
-      "telefono": "3207865643",
-      "nombre": "Victor Euclides Martinez Florez"
-    },
-    "estados": [{
-      "fecha": "2024-12-01T22:19:11",
-      "idEstado": "472489347",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "8E8C47UB",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "MANIZALES CALDAS",
-      "direccion": "Mercaldas La Fuente, Manizales",
-      "id": "A08LI",
-      "telefono": "3126542879",
-      "nombre": "Juan Mateo Martinez Osorio"
-    },
-    "idEnvio": "8E8C47UB",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "estados": [{
-      "fecha": "2024-12-01T22:19:20",
-      "idEstado": "2137965642",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "3QJA83G1",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "3QJA83G1",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-12-05T15:20:29",
-      "idEstado": "359099773",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "7NLMAD6O",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "idEnvio": "7NLMAD6O",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
-      "direccion": "Centro, carrera 20 # 15a-16",
-      "id": "JWTCG",
-      "telefono": "3202926754",
-      "nombre": "Jaqueline Murcia Martinez"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-06T14:17:37",
-        "idEstado": "1159543729",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-09T11:29:33",
-        "idEstado": "548506026",
-        "tipoEstado": "ENVIADO"
-      }
-    ]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
     "nroGuia": "54ZGK4VZ",
     "fragil": false,
     "valorDeclarado": 0,
@@ -272,7 +25,7 @@
     },
     "estados": [{
       "fecha": "2024-09-09T11:29:33",
-      "idEstado": "634855485",
+      "idEstado": "1319954819",
       "tipoEstado": "ENVIADO"
     }]
   },
@@ -302,83 +55,9 @@
     },
     "estados": [{
       "fecha": "2024-09-09T11:29:33",
-      "idEstado": "1004575783",
+      "idEstado": "739589725",
       "tipoEstado": "ENVIADO"
     }]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "MKWCWWWG",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
-      "direccion": "Centro, carrera 20 # 15a-16",
-      "id": "JWTCG",
-      "telefono": "3202926754",
-      "nombre": "Jaqueline Murcia Martinez"
-    },
-    "idEnvio": "MKWCWWWG",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-07T11:58:49",
-        "idEstado": "637517625",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-07T17:00",
-        "idEstado": "1080539009",
-        "tipoEstado": "ENVIADO"
-      }
-    ]
-  },
-  {
-    "contenido": "Documentos",
-    "tipo": "Sobre",
-    "costo": 260,
-    "peso": 0,
-    "nroGuia": "VPO843PV",
-    "fragil": false,
-    "valorDeclarado": 0,
-    "remitente": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "idEnvio": "VPO843PV",
-    "certificado": true,
-    "destinatario": {
-      "ciudad": "CORRALES BOYACA",
-      "direccion": "Centro avenida 21",
-      "id": "C0006",
-      "telefono": "3209876543",
-      "nombre": "Javier Francisco Hernandez Lopez"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-07T12:01:38",
-        "idEstado": "72420928",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-07T17:01",
-        "idEstado": "1503055353",
-        "tipoEstado": "ENVIADO"
-      }
-    ]
   },
   {
     "contenido": "Documentos",
@@ -407,14 +86,118 @@
     "estados": [
       {
         "fecha": "2024-12-07T12:04:33",
-        "idEstado": "589380676",
+        "idEstado": "980527423",
         "tipoEstado": "EN_PREPARACION"
       },
       {
         "fecha": "2024-12-07T17:04",
-        "idEstado": "4725227",
+        "idEstado": "504830818",
         "tipoEstado": "ENTREGADO"
       }
     ]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 260,
+    "peso": 0,
+    "nroGuia": "2WV6K95J",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "PEREIRA RISARALDA",
+      "direccion": "Calle 4 # 20B-12",
+      "id": "KAI5B",
+      "telefono": "3209875643",
+      "nombre": "Laura Daniela Pulgarin Murcia"
+    },
+    "idEnvio": "2WV6K95J",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
+    },
+    "estados": [
+      {
+        "fecha": "2024-12-07T12:46:12",
+        "idEstado": "456647261",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-07T17:46",
+        "idEstado": "1491007664",
+        "tipoEstado": "EXTRAVIADO"
+      }
+    ]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 260,
+    "peso": 0,
+    "nroGuia": "WA7L2SI4",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "idEnvio": "WA7L2SI4",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "estados": [
+      {
+        "fecha": "2024-12-08T01:53:05",
+        "idEstado": "1870213715",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T06:53",
+        "idEstado": "1156178590",
+        "tipoEstado": "ENTREGADO"
+      }
+    ]
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 260,
+    "peso": 0,
+    "nroGuia": "4P0VHC3M",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "idEnvio": "4P0VHC3M",
+    "certificado": true,
+    "destinatario": {
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
+    },
+    "estados": [{
+      "fecha": "2024-12-08T02:58:11",
+      "idEstado": "2079723704",
+      "tipoEstado": "EN_PREPARACION"
+    }]
   }
 ]
