@@ -245,17 +245,17 @@ Content-Type: application/json; charset=utf-8
 
 
 ####
-PATCH {{url}}/sobre/7NLMAD6O
+PATCH {{url}}/paquete/6JSBDYVV
 
 {
   "estados": [
     {
         "fecha": "2024-12-06T14:17:37",
         "idEstado": "744114501",
-        "tipoEstado": "EN_PREPARACION"
+        "tipoEstado": "RECIBIDO"
       },
     {
-      "tipoEstado": "ENVIADO",
+      "tipoEstado": "EN_PREPARACION",
       "fecha": "2024-12-09T11:29:33"
     },
     

@@ -60,7 +60,7 @@ public class EnvioService implements Service<Envio> {
         Utils.stringOk("nroGuia", 8, json);
 
         if (!(json.has("estados"))) {
-            Estado estado = new Estado(TipoEstado.EN_PREPARACION, LocalDateTime.now().withNano(0));
+            Estado estado = new Estado(TipoEstado.RECIBIDO, LocalDateTime.now().withNano(0));
             JSONArray estados = new JSONArray();
             estados.put(estado.toJSONObject());
             json.put("estados", estados);
@@ -145,13 +145,15 @@ public class EnvioService implements Service<Envio> {
 
     @Override
     public Envio getUpdated(JSONObject newData, Envio current) throws Exception {
-        JSONObject updated = new JSONObject(current);
+
         TipoEstado estado = current.getEstados().getLast().getTipoEstado();
 
-        // if (estado != TipoEstado.DEVUELTO && estado != TipoEstado.EN_PREPARACION && estado != TipoEstado.INDEFINIDO
-        //         && estado != TipoEstado.RECIBIDO) {
-        //     throw new IllegalStateException("Un envio con tipo de estado " + estado + " no puede ser cambiado");
-        // }
+            if (!"DEVUELTO|EN_PREPARACION|INDEFINIDO|RECIBIDO".contains(estado.toString())) {
+                throw new IllegalStateException(String.format("Un envio con estado %s no puede ser cambiado", estado));
+            }
+        
+
+        JSONObject updated = new JSONObject(current);
 
         if (newData.has("estados")) {
             updated.put("estados", newData.getJSONArray("estados"));

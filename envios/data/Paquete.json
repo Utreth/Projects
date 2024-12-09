@@ -15,47 +15,40 @@
       "nombre": "Andres Juan Sanchez"
     },
     "idEnvio": "E9B6IQO0",
-    "estados": [{
-      "fecha": "2024-11-24T19:38:24",
-      "idEstado": "1202296912",
-      "tipoEstado": "RECIBIDO"
-    }],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0003",
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
-    }
-  },
-  {
-    "contenido": "Paquete",
-    "tipo": "Paquete",
-    "costo": 1000,
-    "peso": 10,
-    "nroGuia": "YCNSTQT0",
-    "fragil": false,
-    "valorDeclarado": 3000,
-    "remitente": {
-      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
-      "direccion": "Centro, carrera 20 # 15a-16",
-      "id": "JWTCG",
-      "telefono": "3202926754",
-      "nombre": "Jaqueline Murcia Martinez"
     },
-    "idEnvio": "YCNSTQT0",
-    "estados": [{
-      "fecha": "2024-12-08T13:29:55",
-      "idEstado": "1478199155",
-      "tipoEstado": "EN_PREPARACION"
-    }],
-    "destinatario": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
-    }
+    "estados": [
+      {
+        "fecha": "2024-11-24T19:38:24",
+        "idEstado": "995404722",
+        "tipoEstado": "RECIBIDO"
+      },
+      {
+        "fecha": "2024-12-08T21:13",
+        "idEstado": "1031948513",
+        "tipoEstado": "EN_CAMINO"
+      },
+      {
+        "fecha": "2024-12-08T22:22",
+        "idEstado": "970775168",
+        "tipoEstado": "ENTREGADO"
+      },
+      {
+        "fecha": "2024-12-08T22:22",
+        "idEstado": "89148509",
+        "tipoEstado": "ENTREGADO"
+      },
+      {
+        "fecha": "2024-12-08T22:22",
+        "idEstado": "1220743384",
+        "tipoEstado": "ENTREGADO"
+      }
+    ]
   },
   {
     "contenido": "Paquete alimento para perros",
@@ -73,24 +66,65 @@
       "nombre": "Andres Juan Sanchez"
     },
     "idEnvio": "DZEFGV4E",
-    "estados": [
-      {
-        "fecha": "2024-12-08T19:44:02",
-        "idEstado": "170711100",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-08T20:36",
-        "idEstado": "2125783854",
-        "tipoEstado": "ENTREGADO"
-      }
-    ],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0003",
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
-    }
+    },
+    "estados": [
+      {
+        "fecha": "2024-12-08T19:44:02",
+        "idEstado": "1606870973",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T20:36",
+        "idEstado": "395440331",
+        "tipoEstado": "ENTREGADO"
+      }
+    ]
+  },
+  {
+    "contenido": "Paquete con tornillos",
+    "tipo": "Paquete",
+    "costo": 1000,
+    "peso": 10,
+    "nroGuia": "6JSBDYVV",
+    "fragil": true,
+    "valorDeclarado": 8000,
+    "remitente": {
+      "ciudad": "ANGELOPOLIS ANTIOQUIA",
+      "direccion": "Edificio central, piso 3, Ucaldas",
+      "id": "C0002",
+      "telefono": "3006785645",
+      "nombre": "Juan Felipe Ariza Ramirez"
+    },
+    "idEnvio": "6JSBDYVV",
+    "destinatario": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "estados": [
+      {
+        "fecha": "2024-12-06T14:17:37",
+        "idEstado": "1504116426",
+        "tipoEstado": "RECIBIDO"
+      },
+      {
+        "fecha": "2024-12-09T11:29:33",
+        "idEstado": "1964664865",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T23:24",
+        "idEstado": "200956905",
+        "tipoEstado": "ENTREGADO"
+      }
+    ]
   }
 ]

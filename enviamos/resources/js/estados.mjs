@@ -1,4 +1,3 @@
-
 export default class Estados {
   static #table
   static #modal
@@ -158,13 +157,12 @@ export default class Estados {
   static async #add() {
     try {
       //verificar si los datos cumplen con las restricciones indicadas en el formulario HTML
-      if (!Helpers.okForm('#form-estadosNuevos', Estados.#otherValidations)) {
+      if (!Helpers.okForm('#form-estadosNuevos')) {
         return
       }
 
       // obtener del formulario el objeto con los datos que se envían a la solicitud POST
       const nuevoEstado = Estados.#getFormData()
-      
 
       Estados.#listaEstados.push(nuevoEstado)
 
@@ -181,6 +179,7 @@ export default class Estados {
 
       if (response.message === 'ok') {
         Estados.#table.replaceData(response.data.estados) // agregar el estado a la tabla
+        Estados.#listaEstados = response.data.estados // Sincroniza la lista con la respuesta del servidor
         Estados.#modal.remove()
 
         Toast.show({ message: 'Agregado exitosamente' })
@@ -198,8 +197,8 @@ export default class Estados {
     let tipoEstado = responseEstados.data.find(v => v.key === estado.tipoEstado)
     const fecha = DateTime.fromISO(estado.fecha).toFormat('yyyy-MM-dd hh:mm:ss a')
 
-    const estadosProhibidos = ['RECIBIDO'] // Cambia por las keys prohibidas
-    if (estadosProhibidos.includes(tipoEstado.key)) {
+    const estadoSinBorrar = ['RECIBIDO'] // Estado que no se puede borrar
+    if (estadoSinBorrar.includes(tipoEstado.key)) {
       Toast.show({ message: 'El estado Recibido no puede ser eliminado' })
       return
     }
@@ -278,35 +277,19 @@ export default class Estados {
     })
 
     if (response.message === 'ok') {
+     Toast.show({message: 'Estados actualizados'})
+      if (!this.#add) {
+        
+      } else {
+        Toast.show({message: 'Estados eliminados'})
+      }
       Toast.show({ message: 'El estado ha sido eliminado con exito', mode: 'danger', error: response })
-
       Estados.#table.replaceData(response.data.estados)
+      Estados.#listaEstados = response.data.estados
       Estados.#modal.remove()
     } else {
       Toast.show({ message: response.message, mode: 'danger', error: response })
     }
   }
 
-  static #otherValidations() {
-    const data = Estados.#table.getData()
-    const ultimo = data[data.length - 1].tipoEstado
-    console.log(ultimo)
-    console.log(data)
-
-    let ok = false
-
-    if (ultimo.tipoEstado === 'RECIBIDO' && ['EN_CAMINO', 'EN_PREPARACION', 'ENTREGADO', 'EXTRAVIADO'].includes(tipoEstado)) {
-      ok = true
-      Toast.show({message:'jodido'})
-    } else if (ultimo.tipoEstado === 'EN_PREPARACION' && ['EN_CAMINO', 'ENTREGADO', 'ENVIADO', 'EXTRAVIADO'].includes(tipoEstado)) {
-      ok = true
-    } else if (['ENVIADO', 'REENVIADO'].includes(ultimo.tipoEstado) && ['DEVUELTO', 'ENTREGADO', 'EN_CAMINO', 'EXTRAVIADO'].includes(tipoEstado)) {
-      ok = true
-    }
-
-   return ok
-   
-  }
-
-  
 }
