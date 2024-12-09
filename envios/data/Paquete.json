@@ -15,56 +15,27 @@
       "nombre": "Andres Juan Sanchez"
     },
     "idEnvio": "E9B6IQO0",
+    "estados": [{
+      "fecha": "2024-11-24T19:38:24",
+      "idEstado": "1202296912",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0003",
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
-    },
-    "estados": [{
-      "fecha": "2024-11-24T19:38:24",
-      "idEstado": "1416506745",
-      "tipoEstado": "RECIBIDO"
-    }]
+    }
   },
   {
-    "contenido": "Paquete con camisetas",
-    "tipo": "Paquete",
-    "costo": 3000,
-    "peso": 30,
-    "nroGuia": "GUNOT9RB",
-    "fragil": true,
-    "valorDeclarado": 20000,
-    "remitente": {
-      "ciudad": "ANORI ANTIOQUIA",
-      "direccion": "Laboratorio de física cuántica, LFCB",
-      "id": "C0001",
-      "telefono": "3115550001",
-      "nombre": "Andres Juan Sanchez"
-    },
-    "idEnvio": "GUNOT9RB",
-    "destinatario": {
-      "ciudad": "CORRALES BOYACA",
-      "direccion": "Centro avenida 21",
-      "id": "C0006",
-      "telefono": "3209876543",
-      "nombre": "Javier Francisco Hernandez Lopez"
-    },
-    "estados": [{
-      "fecha": "2024-11-24T22:27:38",
-      "idEstado": "273111727",
-      "tipoEstado": "RECIBIDO"
-    }]
-  },
-  {
-    "contenido": "Paquete con zapatos",
+    "contenido": "Paquete",
     "tipo": "Paquete",
     "costo": 1000,
     "peso": 10,
-    "nroGuia": "E3OFGTOO",
-    "fragil": true,
-    "valorDeclarado": 5000,
+    "nroGuia": "YCNSTQT0",
+    "fragil": false,
+    "valorDeclarado": 3000,
     "remitente": {
       "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
       "direccion": "Centro, carrera 20 # 15a-16",
@@ -72,59 +43,54 @@
       "telefono": "3202926754",
       "nombre": "Jaqueline Murcia Martinez"
     },
-    "idEnvio": "E3OFGTOO",
+    "idEnvio": "YCNSTQT0",
+    "estados": [{
+      "fecha": "2024-12-08T13:29:55",
+      "idEstado": "1478199155",
+      "tipoEstado": "EN_PREPARACION"
+    }],
     "destinatario": {
       "ciudad": "ANGELOPOLIS ANTIOQUIA",
       "direccion": "Edificio central, piso 3, Ucaldas",
       "id": "C0002",
       "telefono": "3006785645",
       "nombre": "Juan Felipe Ariza Ramirez"
-    },
-    "estados": [{
-      "fecha": "2024-11-25T11:33:19",
-      "idEstado": "1819419328",
-      "tipoEstado": "RECIBIDO"
-    }]
+    }
   },
   {
-    "contenido": "Paquete con latas",
+    "contenido": "Paquete alimento para perros",
     "tipo": "Paquete",
-    "costo": 1000,
-    "peso": 13,
-    "nroGuia": "B3TIL9YF",
-    "fragil": true,
-    "valorDeclarado": 7000,
+    "costo": 3000,
+    "peso": 30,
+    "nroGuia": "DZEFGV4E",
+    "fragil": false,
+    "valorDeclarado": 50000,
     "remitente": {
-      "ciudad": "ANGELOPOLIS ANTIOQUIA",
-      "direccion": "Edificio central, piso 3, Ucaldas",
-      "id": "C0002",
-      "telefono": "3006785645",
-      "nombre": "Juan Felipe Ariza Ramirez"
+      "ciudad": "ANORI ANTIOQUIA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0001",
+      "telefono": "3115550001",
+      "nombre": "Andres Juan Sanchez"
     },
-    "idEnvio": "B3TIL9YF",
-    "destinatario": {
-      "ciudad": "CORRALES BOYACA",
-      "direccion": "Centro avenida 21",
-      "id": "C0006",
-      "telefono": "3209876543",
-      "nombre": "Javier Francisco Hernandez Lopez"
-    },
+    "idEnvio": "DZEFGV4E",
     "estados": [
       {
-        "fecha": "2024-12-07T22:32:18",
-        "idEstado": "1897640444",
+        "fecha": "2024-12-08T19:44:02",
+        "idEstado": "170711100",
         "tipoEstado": "EN_PREPARACION"
       },
       {
-        "fecha": "2024-12-08T03:32",
-        "idEstado": "647897712",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-08T03:32",
-        "idEstado": "328780028",
-        "tipoEstado": "EN_CAMINO"
+        "fecha": "2024-12-08T20:36",
+        "idEstado": "2125783854",
+        "tipoEstado": "ENTREGADO"
       }
-    ]
+    ],
+    "destinatario": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
+    }
   }
 ]

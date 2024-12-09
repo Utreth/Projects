@@ -301,8 +301,5 @@ export default class Envios {
     return true
   }
 
-  static #stateFormat = cell => {
-    const last = cell.getValue()[cell.getValue().length - 1]
-    return `${last.fecha} - ${last.tipoEstado}`
-  }
+  
 }

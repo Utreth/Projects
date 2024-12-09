@@ -16,18 +16,18 @@
     },
     "idEnvio": "54ZGK4VZ",
     "certificado": true,
+    "estados": [{
+      "fecha": "2024-09-09T11:29:33",
+      "idEstado": "1117024760",
+      "tipoEstado": "ENVIADO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0001",
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
-    },
-    "estados": [{
-      "fecha": "2024-09-09T11:29:33",
-      "idEstado": "1319954819",
-      "tipoEstado": "ENVIADO"
-    }]
+    }
   },
   {
     "contenido": "Documentos",
@@ -46,18 +46,18 @@
     },
     "idEnvio": "XZSN6SFK",
     "certificado": true,
+    "estados": [{
+      "fecha": "2024-12-08T17:37",
+      "idEstado": "100341126",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
       "direccion": "Centro, carrera 20 # 15a-16",
       "id": "JWTCG",
       "telefono": "3202926754",
       "nombre": "Jaqueline Murcia Martinez"
-    },
-    "estados": [{
-      "fecha": "2024-09-09T11:29:33",
-      "idEstado": "739589725",
-      "tipoEstado": "ENVIADO"
-    }]
+    }
   },
   {
     "contenido": "Documentos",
@@ -76,25 +76,25 @@
     },
     "idEnvio": "T72OYBMG",
     "certificado": true,
+    "estados": [
+      {
+        "fecha": "2024-12-07T12:04:33",
+        "idEstado": "1714913863",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-07T17:04",
+        "idEstado": "1925647712",
+        "tipoEstado": "ENTREGADO"
+      }
+    ],
     "destinatario": {
       "ciudad": "MANIZALES CALDAS",
       "direccion": "Mercaldas La Fuente, Manizales",
       "id": "A08LI",
       "telefono": "3126542879",
       "nombre": "Juan Mateo Martinez Osorio"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-07T12:04:33",
-        "idEstado": "980527423",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-07T17:04",
-        "idEstado": "504830818",
-        "tipoEstado": "ENTREGADO"
-      }
-    ]
+    }
   },
   {
     "contenido": "Documentos",
@@ -113,25 +113,25 @@
     },
     "idEnvio": "2WV6K95J",
     "certificado": true,
+    "estados": [
+      {
+        "fecha": "2024-12-07T12:46:12",
+        "idEstado": "1891338863",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-07T17:46",
+        "idEstado": "995404722",
+        "tipoEstado": "EXTRAVIADO"
+      }
+    ],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0003",
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-07T12:46:12",
-        "idEstado": "456647261",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-07T17:46",
-        "idEstado": "1491007664",
-        "tipoEstado": "EXTRAVIADO"
-      }
-    ]
+    }
   },
   {
     "contenido": "Documentos",
@@ -150,25 +150,25 @@
     },
     "idEnvio": "WA7L2SI4",
     "certificado": true,
+    "estados": [
+      {
+        "fecha": "2024-12-08T01:53:05",
+        "idEstado": "2129185737",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T06:53",
+        "idEstado": "2012278108",
+        "tipoEstado": "ENTREGADO"
+      }
+    ],
     "destinatario": {
       "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
       "direccion": "Centro, carrera 20 # 15a-16",
       "id": "JWTCG",
       "telefono": "3202926754",
       "nombre": "Jaqueline Murcia Martinez"
-    },
-    "estados": [
-      {
-        "fecha": "2024-12-08T01:53:05",
-        "idEstado": "1870213715",
-        "tipoEstado": "EN_PREPARACION"
-      },
-      {
-        "fecha": "2024-12-08T06:53",
-        "idEstado": "1156178590",
-        "tipoEstado": "ENTREGADO"
-      }
-    ]
+    }
   },
   {
     "contenido": "Documentos",
@@ -187,17 +187,96 @@
     },
     "idEnvio": "4P0VHC3M",
     "certificado": true,
+    "estados": [
+      {
+        "fecha": "2024-12-08T17:41",
+        "idEstado": "1732249490",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T17:42",
+        "idEstado": "679117066",
+        "tipoEstado": "EN_CAMINO"
+      },
+      {
+        "fecha": "2024-12-08T17:42",
+        "idEstado": "623397300",
+        "tipoEstado": "DEVUELTO"
+      }
+    ],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
       "id": "C0001",
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
+    }
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 260,
+    "peso": 0,
+    "nroGuia": "6H0SZKWU",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
     },
+    "idEnvio": "6H0SZKWU",
+    "certificado": true,
+    "estados": [
+      {
+        "fecha": "2024-12-08T12:51:59",
+        "idEstado": "551315037",
+        "tipoEstado": "EN_PREPARACION"
+      },
+      {
+        "fecha": "2024-12-08T17:52",
+        "idEstado": "85241229",
+        "tipoEstado": "EN_CAMINO"
+      }
+    ],
+    "destinatario": {
+      "ciudad": "CORRALES BOYACA",
+      "direccion": "Centro avenida 21",
+      "id": "C0006",
+      "telefono": "3209876543",
+      "nombre": "Javier Francisco Hernandez Lopez"
+    }
+  },
+  {
+    "contenido": "Documentos",
+    "tipo": "Sobre",
+    "costo": 260,
+    "peso": 0,
+    "nroGuia": "H6UKCJ0G",
+    "fragil": false,
+    "valorDeclarado": 0,
+    "remitente": {
+      "ciudad": "BOGOTÁ, D.C. BOGOTÁ",
+      "direccion": "Centro, carrera 20 # 15a-16",
+      "id": "JWTCG",
+      "telefono": "3202926754",
+      "nombre": "Jaqueline Murcia Martinez"
+    },
+    "idEnvio": "H6UKCJ0G",
+    "certificado": true,
     "estados": [{
-      "fecha": "2024-12-08T02:58:11",
-      "idEstado": "2079723704",
+      "fecha": "2024-12-08T19:44:21",
+      "idEstado": "1540264446",
       "tipoEstado": "EN_PREPARACION"
-    }]
+    }],
+    "destinatario": {
+      "ciudad": "VIRACACHA BOYACA",
+      "direccion": "Call 72 # 23-26",
+      "id": "TIJKT",
+      "telefono": "3207865643",
+      "nombre": "Victor Euclides Martinez Florez"
+    }
   }
 ]

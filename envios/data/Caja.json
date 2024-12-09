@@ -14,6 +14,11 @@
     },
     "alto": 1.5,
     "idEnvio": "5JYW845J",
+    "estados": [{
+      "fecha": "2024-11-21T08:55:40",
+      "idEstado": "858839156",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -21,11 +26,6 @@
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
     },
-    "estados": [{
-      "fecha": "2024-11-21T08:55:40",
-      "idEstado": "2030581434",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1.3,
     "fragil": true,
     "valorDeclarado": 60000,
@@ -46,6 +46,11 @@
     },
     "alto": 1.56,
     "idEnvio": "G5ID3SZN",
+    "estados": [{
+      "fecha": "2024-11-22T15:11:33",
+      "idEstado": "128563749",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -53,11 +58,6 @@
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
     },
-    "estados": [{
-      "fecha": "2024-11-22T15:11:33",
-      "idEstado": "647982021",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 2,
     "fragil": true,
     "valorDeclarado": 170000,
@@ -78,6 +78,11 @@
     },
     "alto": 2,
     "idEnvio": "OGVI9MFJ",
+    "estados": [{
+      "fecha": "2024-11-22T15:51:57",
+      "idEstado": "239072105",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -85,11 +90,6 @@
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
     },
-    "estados": [{
-      "fecha": "2024-11-22T15:51:57",
-      "idEstado": "1436144720",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1,
     "fragil": true,
     "valorDeclarado": 70000,
@@ -110,6 +110,11 @@
     },
     "alto": 1,
     "idEnvio": "1L7EWMCO",
+    "estados": [{
+      "fecha": "2024-11-24T19:26:32",
+      "idEstado": "1860323227",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -117,11 +122,6 @@
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
     },
-    "estados": [{
-      "fecha": "2024-11-24T19:26:32",
-      "idEstado": "2031935879",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1,
     "fragil": true,
     "valorDeclarado": 400000,
@@ -142,6 +142,11 @@
     },
     "alto": 1,
     "idEnvio": "VEI9B5L2",
+    "estados": [{
+      "fecha": "2024-11-24T19:28:44",
+      "idEstado": "2077790022",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -149,11 +154,6 @@
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
     },
-    "estados": [{
-      "fecha": "2024-11-24T19:28:44",
-      "idEstado": "685100947",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1,
     "fragil": true,
     "valorDeclarado": 95000,
@@ -174,6 +174,11 @@
     },
     "alto": 1,
     "idEnvio": "ZUWZ61DH",
+    "estados": [{
+      "fecha": "2024-11-25T10:48:49",
+      "idEstado": "1134842893",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "SANTANA BOYACA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -181,11 +186,6 @@
       "telefono": "3115550001",
       "nombre": "Antonio jose guevara murcia"
     },
-    "estados": [{
-      "fecha": "2024-11-25T10:48:49",
-      "idEstado": "1805961951",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1,
     "fragil": false,
     "valorDeclarado": 200000,
@@ -206,6 +206,11 @@
     },
     "alto": 1,
     "idEnvio": "113IDNT1",
+    "estados": [{
+      "fecha": "2024-11-25T11:08:31",
+      "idEstado": "659355379",
+      "tipoEstado": "RECIBIDO"
+    }],
     "destinatario": {
       "ciudad": "ANORI ANTIOQUIA",
       "direccion": "Laboratorio de física cuántica, LFCB",
@@ -213,14 +218,41 @@
       "telefono": "3115550001",
       "nombre": "Andres Juan Sanchez"
     },
-    "estados": [{
-      "fecha": "2024-11-25T11:08:31",
-      "idEstado": "2002927824",
-      "tipoEstado": "RECIBIDO"
-    }],
     "ancho": 1,
     "fragil": true,
     "valorDeclarado": 1000,
+    "largo": 1
+  },
+  {
+    "contenido": "Caja con juguetes para perro",
+    "tipo": "Caja",
+    "costo": 14500,
+    "peso": 5,
+    "nroGuia": "TE5TI8Z0",
+    "remitente": {
+      "ciudad": "PEREIRA RISARALDA",
+      "direccion": "Calle 4 # 20B-12",
+      "id": "KAI5B",
+      "telefono": "3209875643",
+      "nombre": "Laura Daniela Pulgarin Murcia"
+    },
+    "alto": 1,
+    "idEnvio": "TE5TI8Z0",
+    "estados": [{
+      "fecha": "2024-12-08T19:44:53",
+      "idEstado": "432764006",
+      "tipoEstado": "EN_PREPARACION"
+    }],
+    "destinatario": {
+      "ciudad": "SANTANA BOYACA",
+      "direccion": "Laboratorio de física cuántica, LFCB",
+      "id": "C0003",
+      "telefono": "3115550001",
+      "nombre": "Antonio jose guevara murcia"
+    },
+    "ancho": 1,
+    "fragil": true,
+    "valorDeclarado": 15000,
     "largo": 1
   }
 ]

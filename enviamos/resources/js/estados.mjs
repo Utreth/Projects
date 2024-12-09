@@ -1,10 +1,10 @@
+
 export default class Estados {
   static #table
   static #modal
   static #currentOption
   static #form
   static #form2
-  static #customers
   static #estados
   static #listaEstados
 
@@ -43,8 +43,8 @@ export default class Estados {
         await Estados.#encontrarEnvio()
       })
     } catch (e) {
-      console.error("Error al realizar la operación:", e);
-      Toast.show({ title: 'Estados', message: `Error: ${e.message || e}`, mode: 'danger' });
+      console.error('Error al realizar la operación:', e)
+      Toast.show({ title: 'Estados', message: `Error: ${e.message || e}`, mode: 'danger' })
     }
 
     return this
@@ -116,9 +116,9 @@ export default class Estados {
             field: 'tipoEstado',
             width: 422,
             formatter: function (cell) {
-              const tipoEstado = cell.getValue();
-              let tiposEstados = responseEstados.data.find(e => e.key === tipoEstado);
-              return tiposEstados ? tiposEstados.value : "Estado desconocido";
+              const tipoEstado = cell.getValue()
+              let tiposEstados = responseEstados.data.find(e => e.key === tipoEstado)
+              return tiposEstados ? tiposEstados.value : 'Estado desconocido'
             },
           },
         ],
@@ -158,13 +158,16 @@ export default class Estados {
   static async #add() {
     try {
       //verificar si los datos cumplen con las restricciones indicadas en el formulario HTML
-      if (!Helpers.okForm('#form-estadosNuevos')) {
+      if (!Helpers.okForm('#form-estadosNuevos', Estados.#otherValidations)) {
         return
       }
 
       // obtener del formulario el objeto con los datos que se envían a la solicitud POST
       const nuevoEstado = Estados.#getFormData()
+      
+
       Estados.#listaEstados.push(nuevoEstado)
+
       const body = { estados: Estados.#listaEstados }
       console.log(body)
       const tipo = document.querySelector('#tipoEnvio').value
@@ -175,8 +178,6 @@ export default class Estados {
         method: 'PATCH',
         body,
       })
-
-      console.log(response)
 
       if (response.message === 'ok') {
         Estados.#table.replaceData(response.data.estados) // agregar el estado a la tabla
@@ -191,41 +192,24 @@ export default class Estados {
     }
   }
 
-  static async #delete(cell) {
-    try {
-      const tipo = document.querySelector('#tipoEnvio').value
-      const nroGuia = document.querySelector('#nroGuia').value
-      
-
-      // enviar la solicitud de eliminación
-      let response = await Helpers.fetchJSON(`${urlAPI}/${tipo}/${nroGuia}`, {
-        method: 'DELETE',
-        body,
-      })
-
-      if (response.message === 'ok') {
-        Toast.show({ message: ` eliminado exitosamente` })
-        cell.getRow().delete()
-        Estados.#modal.close()
-      } else {
-        Toast.show({ message: `Nose pudo eliminar el estado`, mode: 'danger', error: response })
-      }
-    } catch (e) {
-      Toast.show({ message: `Problemas al eliminar el estado`, mode: 'danger', error: e })
-    }
-  }
-
   static #deleteRowClick = async (e, cell) => {
-    Estados.#currentOption = 'delete'
-    const tipoEstado = cell.getRow().getData().tipoEstado
-    console.log(tipoEstado);
-    
+    const estado = cell.getRow().getData()
+    const responseEstados = await Helpers.fetchJSON(`${urlAPI}/envio/estados`)
+    let tipoEstado = responseEstados.data.find(v => v.key === estado.tipoEstado)
+    const fecha = DateTime.fromISO(estado.fecha).toFormat('yyyy-MM-dd hh:mm:ss a')
+
+    const estadosProhibidos = ['RECIBIDO'] // Cambia por las keys prohibidas
+    if (estadosProhibidos.includes(tipoEstado.key)) {
+      Toast.show({ message: 'El estado Recibido no puede ser eliminado' })
+      return
+    }
+
     Estados.#modal = new Modal({
       classes: 'col-12 col-sm-10 col-md-9 col-lg-8 col-xl-7',
       title: `<h5>Eliminación de estados</h5>`,
       content: `<span class = "text-back dark:text-gray-300">
-                    Confirme la eliminación del estado:<br><br>
-                     ${tipoEstado}
+                    Confirme la eliminación del estado:<br>
+                    ${tipoEstado.value} - ${fecha}<br>
                     
                   </span>`,
       buttons: [
@@ -235,6 +219,7 @@ export default class Estados {
           action: () => {
             cell.getRow().delete()
             const estados = Estados.#table.getData()
+            Estados.update(estados)
           },
         },
         { caption: cancelButton, classes: 'btn btn-secondary', action: () => Estados.#modal.remove() },
@@ -244,21 +229,21 @@ export default class Estados {
   }
 
   static #displayDataOnForm(idModal, data = {}) {
-    const form = document.querySelector(`#${idModal} #form-estadosNuevos`)
-    console.log(form)
+    const formEstados = document.querySelector(`#${idModal} #form-estadosNuevos`)
+    console.log(formEstados)
 
-    if (!form) {
+    if (!formEstados) {
       console.error('El formulario no se cargó correctamente en el modal.')
       throw new Error('El formulario no está disponible.')
     }
 
     // Configurar campos del formulario
-    const selectTipos = form.querySelector('#estado')
-    const inputFechaHora = form.querySelector('#fechaHora')
+    const selectTipos = formEstados.querySelector('#estado')
+    const fechaYHora = formEstados.querySelector('#fechaHora')
 
     selectTipos.innerHTML = Estados.#estados
-    inputFechaHora.value = data.fechaHora || new Date().toISOString().slice(0, 16) // Formato ISO para datetime-local
-    console.log(inputFechaHora.value)
+    const now = DateTime.now()
+    fechaYHora.value = data.fechaHora || now.toFormat('yyyy-MM-dd HH:mm')
   }
 
   static #getFormData() {
@@ -283,5 +268,45 @@ export default class Estados {
 
   static async update(estados) {
     console.log(estados)
+    const tipo = document.querySelector('#tipoEnvio').value
+    const nroGuia = document.querySelector('#nroGuia').value
+    const url = `${urlAPI}/${tipo}/${nroGuia}`
+
+    let response = await Helpers.fetchJSON(url, {
+      method: 'PATCH',
+      body: { estados },
+    })
+
+    if (response.message === 'ok') {
+      Toast.show({ message: 'El estado ha sido eliminado con exito', mode: 'danger', error: response })
+
+      Estados.#table.replaceData(response.data.estados)
+      Estados.#modal.remove()
+    } else {
+      Toast.show({ message: response.message, mode: 'danger', error: response })
+    }
   }
+
+  static #otherValidations() {
+    const data = Estados.#table.getData()
+    const ultimo = data[data.length - 1].tipoEstado
+    console.log(ultimo)
+    console.log(data)
+
+    let ok = false
+
+    if (ultimo.tipoEstado === 'RECIBIDO' && ['EN_CAMINO', 'EN_PREPARACION', 'ENTREGADO', 'EXTRAVIADO'].includes(tipoEstado)) {
+      ok = true
+      Toast.show({message:'jodido'})
+    } else if (ultimo.tipoEstado === 'EN_PREPARACION' && ['EN_CAMINO', 'ENTREGADO', 'ENVIADO', 'EXTRAVIADO'].includes(tipoEstado)) {
+      ok = true
+    } else if (['ENVIADO', 'REENVIADO'].includes(ultimo.tipoEstado) && ['DEVUELTO', 'ENTREGADO', 'EN_CAMINO', 'EXTRAVIADO'].includes(tipoEstado)) {
+      ok = true
+    }
+
+   return ok
+   
+  }
+
+  
 }

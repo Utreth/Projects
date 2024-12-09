@@ -4,7 +4,7 @@
 En ../utils/bootstrap-5.3.3/css, además de flatly, encuentra otros temas como cerulean, cosmo, cyborg, ...  
 Use ../utils/bootstrap-5.3.3/css/TEMA/bootstrap.min.css, siendo TEMA el nombre de la carpeta correspondiente al tema
 */
-@import '../utils/bootstrap-5.3.3/css/cyborg/bootstrap.min.css';
+@import '../utils/bootstrap-5.3.3/css/darkly/bootstrap.min.css';
 @import 'toast.css';
 
 a {
@@ -12,7 +12,7 @@ a {
 }
 
 .dialog {
-  background-color: #715454;
+  background-color: #9e9a9a;
   /* 
       El primer caso sólo fija el color, el segundo es un atajo para especificar varias propiedades
       background-color: rgba(0, 0, 0, 0.05); 
@@ -26,7 +26,6 @@ a {
   max-height: 100vh;
   /* juegue con la posición requerida: */
   position: fixed;
-
   z-index: 1000;
   left: 50%;
   transform: translate(-50%, 0);
@@ -62,7 +61,6 @@ a {
 .dialog section {
   overflow-y: auto;
   max-height: 100vh;
-
 }
 
 body {
@@ -72,7 +70,6 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #f8f9fa;
- 
 }
 
 .form-container {
@@ -84,8 +81,6 @@ body {
   color: #000000; /* Color del texto */
   font-family: 'Poppins', sans-serif; /* Fuente moderna */
   font-size: 16px; /* Tamaño del texto */
-
-
 }
 
 nav {
@@ -106,8 +101,7 @@ nav {
 }
 
 .mi-estilo {
-  background-color: #4f4c4b; /* Fondo suave */
-  border-radius: 20px; /* Bordes redondeados */
+    border-radius: 20px; /* Bordes redondeados */
   padding: 20px; /* Espaciado interno */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
   font-family: 'Arial', sans-serif; /* Fuente */
@@ -115,17 +109,146 @@ nav {
   padding: 10px; /* Espaciado interno */
   font-size: 16px; /* Tamaño de texto más grande */
   border: 2px solid #f0eeee; /* Borde más visible */
-  background-color: #7f7a7a; /* Fondo blanco */
   color: #444; /* Texto oscuro */
   outline: none; /* Elimina el contorno al hacer clic */
 }
 
+/* estilo para inicio */
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+header {
+  background-color: #181818;
+  border-radius: 20px; /* Bordes redondeados */
+  padding: 30px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 3px solid #ffffff; /* Color del borde */
+}
+
+header h1 {
+  font-size: 2.5rem;
+
+  margin: 0;
+}
+
+.intro-section {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 20px; /* Bordes redondeados */
+  justify-content: center;
+  background-color: #181818;
+  color: white;
+  padding: 80px 60px;
+  border: 3px solid #ffffff; /* Color del borde */
+}
+
+.intro-text {
+  max-width: 600px;
+  text-align: left;
+}
+
+.intro-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.cta-button {
+  background-color: #e74c3c;
+  color: white;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #c0392b;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+/* Estilo de las tarjetas circulares */
+.feature-card {
+  font-weight: 600; /* Negrita */
+  background-color: #817d7d;
+  border-radius: 50%;
+  padding: 40px;
+  text-align: center;
+  transition: all 0.3s ease;
+  width: 250px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+  cursor: pointer;
+  flex-direction: column; /* Asegura que el texto esté dentro de la tarjeta */
+  overflow: hidden; /* Para evitar que el texto se desborde */
+  border: 3px solid #000000; /* Color del borde */
+}
+
+/* Sombra y elevación al pasar el mouse */
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgb(185, 183, 183);
+}
+
+.feature-card h3 {
+  font-size: 1.5rem;
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-weight: 600; /* Negrita */
+
+}
+
+.feature-card p {
+  font-size: 1rem;
+  color: #020202;
+  margin: 0;
+  padding: 0;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-align: center;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  max-width: 90%; /* Esto asegura que el texto no se desborde fuera del círculo */
+}
+
+.feature-card img {
+    position: absolute;
+    top: 10px;
+  left: 10px;
+  width: 35px;
+  height: 35px;
+}
 
 
 
-
-
-
-
-
-
+footer p {
+  margin: 0;
+}

@@ -40,7 +40,7 @@ class App {
     window.deleteButton = `${icons.deleteWhite}<span>Eliminar</span>`
     window.cancelButton = `${icons.xLg}<span>Cancelar</span>`
     window.tableHeight = 'calc(100vh - 320px)' // la altura de todos los elementos de tipo Tabulator que mostrará la aplicación
-    window.tableHeight2 = ''// la altura para el tabulador de estados
+    window.tableHeight2 = '' // la altura para el tabulador de estados
     try {
       // confirmación de acceso a la API REST
       const response = await Helpers.fetchJSON(`${urlAPI}/`)
@@ -74,6 +74,7 @@ class App {
 
           switch (option) {
             case 'Inicio':
+              document.querySelector('main').innerHTML = await Helpers.fetchText('./resources/html/inicio.html')
               break
             case 'Clientes':
               // importar dinámicamente el módulo clientes.mjs
@@ -107,10 +108,10 @@ class App {
               const { default: Cajas } = await import('./cajas.mjs')
               Cajas.init()
               break
-            
-              case 'Estados':
-                const { default: Estados } = await import('./estados.mjs')
-                Estados.init()        
+
+            case 'Estados':
+              const { default: Estados } = await import('./estados.mjs')
+              Estados.init()
               break
 
             case 'Acerca de...':

@@ -145,21 +145,20 @@ public class EnvioService implements Service<Envio> {
 
     @Override
     public Envio getUpdated(JSONObject newData, Envio current) throws Exception {
-
+        JSONObject updated = new JSONObject(current);
         TipoEstado estado = current.getEstados().getLast().getTipoEstado();
 
-        if (!"DEVUELTO|EN_PREPARACION|INDEFINIDO|RECIBIDO".contains(estado.toString())) {
-            throw new IllegalStateException(String.format("Un envio con estado %s no puede ser cambiado", estado));
-        }
-
-        // if (newData.has("estados")) {
-        // System.out.println(String.format("Importante: no se permite modificar los
-        // estados de un envio de tipo %s",
-        // current.getTipo()));
-        // newData.remove("estados");
+        // if (estado != TipoEstado.DEVUELTO && estado != TipoEstado.EN_PREPARACION && estado != TipoEstado.INDEFINIDO
+        //         && estado != TipoEstado.RECIBIDO) {
+        //     throw new IllegalStateException("Un envio con tipo de estado " + estado + " no puede ser cambiado");
         // }
 
-        JSONObject updated = new JSONObject(current);
+        if (newData.has("estados")) {
+            updated.put("estados", newData.getJSONArray("estados"));
+            Envio envio = subclase.getConstructor(JSONObject.class).newInstance(updated);
+
+            return envio;
+        }
 
         try {
             if (newData.has("remitente")) {
@@ -174,10 +173,6 @@ public class EnvioService implements Service<Envio> {
             }
         } catch (Exception e) {
             throw new IllegalArgumentException("Error al determinar el cliente propietario del envio " + e);
-        }
-
-        if (newData.has("estados")) {
-            updated.put("estados", newData.getJSONArray("estados"));
         }
 
         if (newData.has("peso")) {
